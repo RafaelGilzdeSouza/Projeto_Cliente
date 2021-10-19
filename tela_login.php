@@ -1,6 +1,6 @@
 
 
-<?php include("conexão.php")?>
+<?php include("conexao.php")?>
 
 
 <!DOCTYPE html>

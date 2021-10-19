@@ -2,7 +2,7 @@
 
 $host = "localhost";
 $user = "root";
-$senha = "root";
+$senha = "";
 $db = "db_eletronicsstore";
 
 $mysqli = new mysqli($host, $user, $senha, $db);
