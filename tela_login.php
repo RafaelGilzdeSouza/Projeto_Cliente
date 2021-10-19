@@ -41,7 +41,7 @@ session_start();
                       <img src="img/logo.png" style="width: 185px;" alt="logo">
                       <h4 class="mt-1 mb-5 pb-1">Electronics Store </h4>
                   </div>
-                  <form action="tela_login.html" method="POST" >
+                  <form action="classes/login.php" method="POST" >
                       <p>Faça login para entrar</p>
                       <div class="form-outline mb-4"> 
                           <input type="text" id="form2Example11" class="form-control" placeholder="Login" name="usuario"/>
@@ -50,7 +50,7 @@ session_start();
                           <input type="password" id="form2Example22" class="form-control" placeholder="Senha" name="senha"/>
                       </div>
                       
-                          <button class="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3 is-link " type="button">Entrar</button>
+                      <button type = "submit" class = "button is-block is-link is-large is-fullwidth"> Entrar </button>
                       
                   </form>
                 </div>
