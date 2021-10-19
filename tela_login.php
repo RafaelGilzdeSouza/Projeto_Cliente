@@ -44,10 +44,10 @@
                   <form  >
                       <p>Faça login para entrar</p>
                       <div class="form-outline mb-4"> 
-                          <input type="email" id="form2Example11" class="form-control" placeholder="Login" />
+                          <input type="text" id="form2Example11" class="form-control" placeholder="Login" name="nome"/>
                       </div>
                       <div class="form-outline mb-4">
-                          <input type="password" id="form2Example22" class="form-control" placeholder="Senha" />
+                          <input type="password" id="form2Example22" class="form-control" placeholder="Senha" name="senha"/>
                       </div>
                       <div class="text-center pt-1 mb-5 pb-1">
                           <button class="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3" type="button">Entrar</button>
