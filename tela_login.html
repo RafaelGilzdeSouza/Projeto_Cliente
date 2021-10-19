@@ -1,6 +1,6 @@
-
-
-<?php include("conexao.php")?>
+<?php
+session_start();
+?>
 
 
 <!DOCTYPE html>
@@ -41,17 +41,17 @@
                       <img src="img/logo.png" style="width: 185px;" alt="logo">
                       <h4 class="mt-1 mb-5 pb-1">Electronics Store </h4>
                   </div>
-                  <form  >
+                  <form action="tela_login.html" method="POST" >
                       <p>Faça login para entrar</p>
                       <div class="form-outline mb-4"> 
-                          <input type="text" id="form2Example11" class="form-control" placeholder="Login" name="nome"/>
+                          <input type="text" id="form2Example11" class="form-control" placeholder="Login" name="usuario"/>
                       </div>
                       <div class="form-outline mb-4">
                           <input type="password" id="form2Example22" class="form-control" placeholder="Senha" name="senha"/>
                       </div>
-                      <div class="text-center pt-1 mb-5 pb-1">
-                          <button class="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3" type="button">Entrar</button>
-                      </div>
+                      
+                          <button class="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3 is-link " type="button">Entrar</button>
+                      
                   </form>
                 </div>
               </div>
