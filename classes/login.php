@@ -5,7 +5,7 @@ include("conexao.php");
 
 
 if(empty($_POST['usuario']) || empty($_POST['senha']) ){
-    header('location:tela_login.html');
+    header('location:tela_login.php');
     exit();
 }
 
