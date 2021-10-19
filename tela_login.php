@@ -44,10 +44,10 @@ session_start();
                   <form action="classes/login.php" method="POST" >
                       <p>Faça login para entrar</p>
                       <div class="form-outline mb-4"> 
-                          <input type="text" id="form2Example11" class="form-control" placeholder="Login" name="usuario"/>
+                          <input name="usuario" type="text" id="form2Example11" class="form-control" placeholder="Login" />
                       </div>
                       <div class="form-outline mb-4">
-                          <input type="password" id="form2Example22" class="form-control" placeholder="Senha" name="senha"/>
+                          <input name="senha" type="password" id="form2Example22" class="form-control" placeholder="Senha" />
                       </div>
                       
                       <button type = "submit" class = "button is-block is-link is-large is-fullwidth"> Entrar </button>
