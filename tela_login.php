@@ -1,6 +1,4 @@
-<?php
-session_start();
-?>
+
 
 
 <!DOCTYPE html>
@@ -41,7 +39,7 @@ session_start();
                       <img src="img/logo.png" style="width: 185px;" alt="logo">
                       <h4 class="mt-1 mb-5 pb-1">Electronics Store </h4>
                   </div>
-                  <form action="classes/login.php" method="POST" >
+                  <form action="login.php" method="POST" >
                       <p>Faça login para entrar</p>
                       <div class="form-outline mb-4"> 
                           <input name="usuario" type="text" id="form2Example11" class="form-control" placeholder="Login" />
@@ -50,8 +48,8 @@ session_start();
                           <input name="senha" type="password" id="form2Example22" class="form-control" placeholder="Senha" />
                       </div>
                       
-                      <button type = "submit" class = "button is-block is-link is-large is-fullwidth"> Entrar </button>
                       
+                      <button class="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3" type="submit">Entrar</button>
                   </form>
                 </div>
               </div>
