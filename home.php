@@ -5,7 +5,6 @@ include('conexao.php');
 $sql_code = "SELECT * FROM tb_produtos WHERE promocao = 1";
 $sql_query = $mysqli->query($sql_code) or die("Falha na execução do código SQL: " . $mysqli->error);
 
-
 ?>
 
 <!DOCTYPE html>
@@ -43,7 +42,7 @@ $sql_query = $mysqli->query($sql_code) or die("Falha na execução do código SQ
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Celulares</a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a name="filtro_celulares_samsung" class="dropdown-item" href="">Samsung</a></li>
+                                <li><a name="filtro_celulares_samsung" class="dropdown-item" href="home.php">Samsung</a></li>
                                 <li><a name="filtro_celulares_apple" class="dropdown-item" href="">Apple</a></li>
                                 <li><a name="filtro_celulares_todos" class="dropdown-item" href="">Ver todos</a></li>
                             </ul>
