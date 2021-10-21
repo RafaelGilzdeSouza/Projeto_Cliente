@@ -1,5 +1,46 @@
+<?php
+include('conexao.php');
+
+if(isset($_POST['login']) || isset($_POST['senha'])) {
+
+    if(strlen($_POST['login']) == 0) {
+        echo "Preencha seu e-mail";
+    } else if(strlen($_POST['senha']) == 0) {
+        echo "Preencha sua senha";
+    } else {
+
+        $login = $mysqli->real_escape_string($_POST['login']);
+        $senha = $mysqli->real_escape_string($_POST['senha']);
+
+        $sql_code = "SELECT * FROM tb_usuario WHERE login = '$login' AND senha = '$senha'";
+        $sql_query = $mysqli->query($sql_code) or die("Falha na execução do código SQL: " . $mysqli->error);
+
+        $quantidade = $sql_query->num_rows;
+
+        if($quantidade == 1) {
+            
+            $usuario = $sql_query->fetch_assoc();
+
+            if(!isset($_SESSION)) {
+                session_start();
+            }
+
+            $_SESSION['cod_interno'] = $usuario['cod_interno'];
+            $_SESSION['nome'] = $usuario['nome'];
+
+            header("Location: home.php");
+
+        } else {
+            echo "Falha ao logar! E-mail ou senha incorretos";
+        }
+
+    }
+
+}
+?>
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
     <meta charset="utf-8" />
@@ -36,16 +77,16 @@
                       <img src="img/logo.png" style="width: 185px;" alt="logo">
                       <h4 class="mt-1 mb-5 pb-1">Electronics Store </h4>
                   </div>
-                  <form  >
+                  <form action="" method="POST">
                       <p>Faça login para entrar</p>
                       <div class="form-outline mb-4"> 
-                          <input type="email" id="form2Example11" class="form-control" placeholder="Login" />
+                          <input name="login" type="text" id="login" class="form-control" placeholder="Login" />
                       </div>
                       <div class="form-outline mb-4">
-                          <input type="password" id="form2Example22" class="form-control" placeholder="Senha" />
+                          <input name="senha" type="password" id="login" class="form-control" placeholder="Senha" />
                       </div>
                       <div class="text-center pt-1 mb-5 pb-1">
-                          <button class="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3" type="button">Entrar</button>
+                          <button class="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3" type="submit">Entrar</button>
                       </div>
                   </form>
                 </div>
@@ -56,7 +97,6 @@
                   <h4 class="mb-4">Welcome!</h4>
                   <p3 class="medium mb-0">Buy with the best experience possible. Join us!</p>
                 </div>
-
               </div>
             </div>
           </div>
