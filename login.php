@@ -27,6 +27,6 @@ if($row == 1) {
 	exit();
 }
 
-//teste
+
 
 
