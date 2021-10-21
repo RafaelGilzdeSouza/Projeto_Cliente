@@ -1,12 +1,8 @@
 <?php
-
-$host = "localhost";
-$user = "root";
-$senha = "";
-$db = "db_eletronicsstore";
-
-$conexao = mysqli_connect($host, $user, $senha, $db) or die ("Não foi pocivel conectar");
-
-
-
-?>  
+define('HOST', '127.0.0.1');
+define('USUARIO', 'root');
+define('SENHA', '');
+define('DB', 'db_eletronicsstore');
+ 
+$conexao = mysqli_connect(HOST, USUARIO, SENHA, DB) or die ('Não foi possível conectar');
+?>

@@ -1,36 +1,30 @@
 <?php
 
-include 'conexao.php';
+session_start();
+include('conexao.php');
+ 
+if(empty($_POST['usuario']) || empty($_POST['senha'])) {
+	header('Location: tela_login.php');
+	exit();
+}
+ 
+$usuario = mysqli_real_escape_string($conexao, $_POST['usuario']);
+$senha = mysqli_real_escape_string($conexao, $_POST['senha']);
+ 
+$query = "select login from tb_usuario where login = '{$usuario}' and senha =('{$senha}')";
+ 
+$result = mysqli_query($conexao, $query);
 
-  // Verifica se houve POST e se o usuário ou a senha é(são) vazio(s)
-  if (!empty($_POST) AND (empty($_POST['usuario']) OR empty($_POST['senha']))) {
-      header("Location: tela_login.php"); exit;
-  }
+$row = mysqli_num_rows($result);
 
-  $usuario = mysql_real_escape_string($_POST['usuario']);
-  $senha = mysql_real_escape_string($_POST['senha']);
-
-  // Validação do usuário/senha digitados
-  $sql = "SELECT `id`, `nome` FROM `usuarios` WHERE (`login` = '".$usuario ."') AND (`senha` = '". sha1($senha) ."') AND (`ativo` = 1) LIMIT 1";
-  $query = mysqli_query($sql);
-  if (mysqli_num_rows($query) != 1) {
-      // Mensagem de erro quando os dados são inválidos e/ou o usuário não foi encontrado
-      echo "Login inválido!"; exit;
-  } else {
-      // Salva os dados encontados na variável $resultado
-      $resultado = mysqli_fetch_assoc($query);
-  }
-
-
-
-
-
-
-
-
-
-  ?>
-
-
+if($row == 1) {
+	$_SESSION['usuario'] = $usuario;
+	header('Location: index.thml');
+	exit();
+} else {
+	$_SESSION['nao_autenticado'] = true;
+	header('Location: tela_login.php');
+	exit();
+}
 
 

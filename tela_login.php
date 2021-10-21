@@ -39,17 +39,17 @@
                       <img src="img/logo.png" style="width: 185px;" alt="logo">
                       <h4 class="mt-1 mb-5 pb-1">Electronics Store </h4>
                   </div>
-                  <form action="login.php" method="POST" >
+                  <form action="login.php" method= "POST" >
                       <p>Faça login para entrar</p>
                       <div class="form-outline mb-4"> 
-                          <input name="usuario" type="text" id="form2Example11" class="form-control" placeholder="Login" />
+                          <input name="usuario" type="text" id="usuario" class="form-control" placeholder="Login" />
                       </div>
                       <div class="form-outline mb-4">
-                          <input name="senha" type="password" id="form2Example22" class="form-control" placeholder="Senha" />
+                          <input name="senha" type="password" id="senha" class="form-control" placeholder="Senha" />
                       </div>
                       
                       
-                      <button class="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3" type="submit">Entrar</button>
+                      <button class="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3" type="submit" name="join" id="join">Entrar</button>
                   </form>
                 </div>
               </div>
