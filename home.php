@@ -8,7 +8,6 @@ $sql_query = $mysqli->query($sql_code) or die("Falha na execução do código SQ
 
 ?>
 
-
 <!DOCTYPE html>
 <html lang="pt-BR">
     <head>
@@ -32,7 +31,7 @@ $sql_query = $mysqli->query($sql_code) or die("Falha na execução do código SQ
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
-                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="index.html">Compras</a></li>
+                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="home.php">Compras</a></li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle me-5" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Cadastros</a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -120,14 +119,12 @@ $sql_query = $mysqli->query($sql_code) or die("Falha na execução do código SQ
                     echo 
                     '<div class="col mb-5">
                         <div class="card h-100">
-                            <!-- Product image-->
+                            <!-- Foto do Produto-->
                             <img class="card-img-top" src="'.$row_produtos['foto'].'" alt="..." />
-                            <!-- Product details-->
                             <div class="card-body p-4">
                                 <div class="text-center">
                                     <!-- Nome do Produto-->
                                     <h5 class="fw-bolder">'.strtoupper($row_produtos['descricao']).'</h5>
-                                    
                                     <!-- Preco do Produto-->
                                     R$ '.$row_produtos['preco_venda'].'
                                 </div>
@@ -137,10 +134,8 @@ $sql_query = $mysqli->query($sql_code) or die("Falha na execução do código SQ
                                 <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Adicionar ao Carrinho</a></div>
                             </div>
                         </div>
-                    </div>';                    
-                }
+                    </div>';}
                 ?>
-                    
                 </div>
             </div>
         </section>
