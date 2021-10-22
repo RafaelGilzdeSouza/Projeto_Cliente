@@ -31,7 +31,19 @@ if(isset($_POST['login']) || isset($_POST['senha'])) {
             header("Location: home.php");
 
         } else {
-            echo "Falha ao logar! E-mail ou senha incorretos";
+?>         
+                  <div style="width: 455px;margin-top:0px;margin-left: 240;position:relative">
+                  <div class="alert alert-danger d-flex align-items-center" role="alert">
+          <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Danger:"><use xlink:href="#exclamation-triangle-fill"/></svg>
+          <div>
+            Login ou Senha incorretos!
+          </div>
+        </div>
+        </div>
+              
+
+  <?php
+           
         }
 
     }
@@ -88,6 +100,7 @@ if(isset($_POST['login']) || isset($_POST['senha'])) {
                       <div class="text-center pt-1 mb-5 pb-1">
                           <button class="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3" type="submit">Entrar</button>
                       </div>
+                      
                   </form>
                 </div>
               </div>

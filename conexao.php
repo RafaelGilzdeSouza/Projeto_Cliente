@@ -1,7 +1,7 @@
 <?php
 
 $usuario = 'root';
-$senha = 'root';
+$senha = '';
 $database = 'db_eletronicsstore';
 $host = 'localhost';
 
