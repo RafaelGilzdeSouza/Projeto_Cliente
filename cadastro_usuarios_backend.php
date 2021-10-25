@@ -33,7 +33,7 @@ $login_array = $array['login'];
 
         $mysqli->query($query) or die("Falha na execução do código SQL: " . $mysqli->error);
         if($mysqli){
-          echo"<script language='javascript' type='text/javascript'>alert('Usuário cadastrado com sucesso!');window.location.href='cadastros_usuarios'</script>";
+          echo"<script language='javascript' type='text/javascript'>alert('Usuário cadastrado com sucesso!');window.location.href='cadastros_usuarios.php'</script>";
         }else{
           echo"<script language='javascript' type='text/javascript'>alert('Não foi possível cadastrar esse usuário');window.location.href='cadastros_usuarios.php'</script>";
         }
