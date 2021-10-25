@@ -28,12 +28,12 @@ $login_array = $array['login'];
         echo"<script language='javascript' type='text/javascript'>alert('Esse login já existe');window.location.href='cadastros_usuarios.php';</script>";
         die();
       }else{
-        $query = "INSERT INTO tb_usuario (nome,login,cpf,cep,rua,numero_rua,telefone,email,senha) 
-                  VALUES ($nome,$login,$cpf,$cep,$rua,$numero,$telefone,$email,$senha);";
+        $query = "INSERT INTO tb_usuario (nome,login,cpf,cep,rua,numero_rua,telefone,email,senha,id_priv) 
+                  VALUES ('$nome','$login','$cpf','$cep','$rua','$numero','$telefone','$email','$senha','$permissao');";
 
         $mysqli->query($query) or die("Falha na execução do código SQL: " . $mysqli->error);
         if($mysqli){
-          echo"<script language='javascript' type='text/javascript'>alert('Usuário cadastrado com sucesso!');window.location.href=''</script>";
+          echo"<script language='javascript' type='text/javascript'>alert('Usuário cadastrado com sucesso!');window.location.href='cadastros_usuarios'</script>";
         }else{
           echo"<script language='javascript' type='text/javascript'>alert('Não foi possível cadastrar esse usuário');window.location.href='cadastros_usuarios.php'</script>";
         }
