@@ -107,7 +107,7 @@ include('conexao.php');
                         </div>
                         <div class="form-group col-md-4">
                             <label>E-mail</label>
-                            <input type="email" name="email" id="email" class="form-control" maxlength="100" placeholder="E-mail para contato">
+                            <input type="text" name="email" id="email" class="form-control" maxlength="100" placeholder="E-mail para contato">
                         </div>
                         <div class="form-group col-md-3">
                             <label>Senha*</label>
@@ -115,7 +115,7 @@ include('conexao.php');
                         </div>
                         <div class="form-group col-md-2">
                             <label>Permissão*</label>
-                            <input name="permissao" id="permissao" type="text" class="form-control" onkeypress="$(this).mask('0');">
+                            <input type="text" name="permissao" id="permissao" class="form-control" onkeypress="$(this).mask('0');">
                         </div>
                     </div>
                     <div class="form-row">

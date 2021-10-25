@@ -11,7 +11,6 @@ $telefone = $_POST['telefone'];
 $email = $_POST['email'];
 $senha = MD5($_POST['senha']);
 $permissao = $_POST['permissao'];
-$permissao = intval($permissao);
 
 $query_select = "SELECT login FROM tb_usuario WHERE login = '$login'";
 
@@ -30,8 +29,7 @@ $login_array = $array['login'];
         die();
       }else{
         $query = "INSERT INTO tb_usuario (nome,login,cpf,cep,rua,numero_rua,telefone,email,senha,id_priv) 
-                  VALUES ($nome,$login,$cpf,$cep,$rua,$numero,$telefone,$email,$senha,$permissao);";
-
+                  VALUES ($nome,$login,$cpf,$cep,$rua,$numero,$telefone,$email,$senha,cast($permissao as integer));";
 
         $mysqli->query($query) or die("Falha na execução do código SQL: " . $mysqli->error);
         if($mysqli){
