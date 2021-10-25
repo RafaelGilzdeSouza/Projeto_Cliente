@@ -1,3 +1,7 @@
+<?php
+include('conexao.php');
+?>
+
 <!DOCTYPE html>
 <html lang="pt-BR">
     <head>
@@ -35,7 +39,7 @@
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle me-5" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Cadastros</a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a name="link_cadastro_usuario" class="dropdown-item" href="cadastros_usuarios.html">Usuários</a></li>
+                                <li><a name="link_cadastro_usuario" class="dropdown-item" href="cadastros_usuarios.php">Usuários</a></li>
                                 <li><a name="link_cadastro_fornecedor" class="dropdown-item" href="cadastros_fornecedores.html">Fornecedores</a></li>
                                 <li><a name="link_cadastro_produto" class="dropdown-item" href="cadastros_produtos.html">Produtos</a></li>
                             </ul>
@@ -67,59 +71,61 @@
         </header>
         <!-- Formulário-->
             <div class="container">
-                <div class="form-row">
-                    <div class="form-group col-md-5">
-                        <label>Nome*</label>
-                        <input type="text" name="nome" id="nome" class="form-control" maxlength="100" placeholder="Nome completo">
+                <form method="POST" action="cadastro_usuarios.php">
+                    <div class="form-row">
+                        <div class="form-group col-md-5">
+                            <label>Nome*</label>
+                            <input type="text" name="nome" id="nome" class="form-control" maxlength="100" placeholder="Nome completo">
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label>Login*</label>
+                            <input type="text" name="login" id="login" class="form-control" maxlength="20" placeholder="Login de acesso">
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label>CPF*</label>
+                            <input type="text" name="cpf" id="cpf" class="form-control" minlength="14" maxlength="14" placeholder="CPF" onkeypress="$(this).mask('000.000.000-00');">
+                        </div>
                     </div>
-                    <div class="form-group col-md-3">
-                        <label>Login*</label>
-                        <input type="text" name="login" id="login" class="form-control" maxlength="20" placeholder="Login de acesso">
+                    <div class="form-row">
+                        <div class="form-group col-md-3">
+                            <label>CEP*</label>
+                            <input type="text" name="cep" id="cep" class="form-control" minlength="9" maxlength="9" placeholder="CEP" onkeypress="$(this).mask('00000-000');">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label>Rua</label>
+                            <input type="text" name="rua" id="rua" class="form-control" maxlength="200" placeholder="Rua">
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label>Número</label>
+                            <input type="text" name="numero" id="numero" class="form-control" maxlength="6" placeholder="Nº do imóvel">
+                        </div>
                     </div>
-                    <div class="form-group col-md-4">
-                        <label>CPF*</label>
-                        <input type="text" name="cpf" id="cpf" class="form-control" minlength="14" maxlength="14" placeholder="CPF" onkeypress="$(this).mask('000.000.000-00');">
+                    <div class="form-row">
+                        <div class="form-group col-md-3">
+                            <label>Telefone</label>
+                            <input type="text" name="telefone" id="telefone" class="form-control" maxlength="15" placeholder="Telefone" onkeypress="$(this).mask('(00)0.0000-0000');">
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label>E-mail</label>
+                            <input type="email" name="email" id="email" class="form-control" maxlength="100" placeholder="E-mail para contato">
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label>Senha*</label>
+                            <input type="password" name="senha" id="senha" class="form-control" maxlength="20" placeholder="Senha de acesso">
+                        </div>
+                        <div class="form-group col-md-2">
+                            <label>Permissão*</label>
+                            <input name="permissao" id="permissao" type="text" class="form-control" onkeypress="$(this).mask('0');">
+                        </div>
                     </div>
-                </div>
-                <div class="form-row">
-                    <div class="form-group col-md-3">
-                        <label>CEP*</label>
-                        <input type="text" name="cep" id="cep" class="form-control" minlength="9" maxlength="9" placeholder="CEP" onkeypress="$(this).mask('00000-000');">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <button name="btn_cadastrar_usuario" id="btn_cadastrar_usuario" type="submit" class="btn btn-primary">Cadastrar </button>
+                            <a href="cadastros_usuarios.php" name="btn_limpar_cadastro_usuario" id="" type="submit" class="btn btn-warning">Limpar </a>
+                            <button name="" id="btn_excluir_cadastro_usuario" type="submit" class="btn btn-danger">Excluir </button>
+                        </div>
                     </div>
-                    <div class="form-group col-md-6">
-                        <label>Rua</label>
-                        <input type="text" name="rua" id="rua" class="form-control" maxlength="200" placeholder="Rua">
-                    </div>
-                    <div class="form-group col-md-3">
-                        <label>Número</label>
-                        <input type="text" name="numero" id="numero" class="form-control" maxlength="6" placeholder="Nº do imóvel">
-                    </div>
-                </div>
-                <div class="form-row">
-                    <div class="form-group col-md-3">
-                        <label>Telefone</label>
-                        <input type="text" name="telefone" id="telefone" class="form-control" maxlength="15" placeholder="Telefone" onkeypress="$(this).mask('(00)0.0000-0000');">
-                    </div>
-                    <div class="form-group col-md-4">
-                        <label>E-mail</label>
-                        <input type="email" name="email" id="email" class="form-control" maxlength="100" placeholder="E-mail para contato">
-                    </div>
-                    <div class="form-group col-md-3">
-                        <label>Senha*</label>
-                        <input type="password" name="senha" id="senha" class="form-control" maxlength="20" placeholder="Senha de acesso">
-                    </div>
-                    <div class="form-group col-md-2">
-                        <label>Permissão*</label>
-                        <input name="permissao" id="permissao" type="text" class="form-control" onkeypress="$(this).mask('0');">
-                    </div>
-                </div>
-                <div class="form-row">
-                    <div class="form-group">
-                        <button name="btn_cadastrar_usuario" id="btn_cadastrar_usuario" type="submit" class="btn btn-primary">Cadastrar </button>
-                        <a href="cadastros_usuarios.html" name="btn_limpar_cadastro_usuario" id="" type="button" class="btn btn-warning">Limpar </a>
-                        <button name="" id="btn_excluir_cadastro_usuario" type="button" class="btn btn-danger">Excluir </button>
-                    </div>
-                </div>
+                </form>
             </div>
 
         <!-- Rodapé-->

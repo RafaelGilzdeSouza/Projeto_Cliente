@@ -7,8 +7,8 @@ if(isset($_POST['login']) || isset($_POST['senha'])) {
         echo "Preencha seu e-mail";
     } else if(strlen($_POST['senha']) == 0) {
         echo "Preencha sua senha";
-    } else {
-
+    } 
+    else {
         $login = $mysqli->real_escape_string($_POST['login']);
         $senha = $mysqli->real_escape_string($_POST['senha']);
 
@@ -29,25 +29,19 @@ if(isset($_POST['login']) || isset($_POST['senha'])) {
             $_SESSION['nome'] = $usuario['nome'];
 
             header("Location: home.php");
-
-        } else {
-?>         
-                  <div style="width: 455px;margin-top:0px;margin-left: 240;position:relative">
-                  <div class="alert alert-danger d-flex align-items-center" role="alert">
-          <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Danger:"><use xlink:href="#exclamation-triangle-fill"/></svg>
-          <div>
-            Login ou Senha incorretos!
-          </div>
-        </div>
-        </div>
-              
-
-  <?php
-           
+        } 
+        else {
+            echo '
+            <div style="width: 455px;margin-top:0px;margin-left: 240;position:relative">
+              <div class="alert alert-danger d-flex align-items-center" role="alert">
+                <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Danger:"><use xlink:href="#exclamation-triangle-fill"/></svg>
+                <div>
+                  Login ou Senha incorretos!
+                </div>
+              </div>
+            </div>';
         }
-
     }
-
 }
 ?>
 
