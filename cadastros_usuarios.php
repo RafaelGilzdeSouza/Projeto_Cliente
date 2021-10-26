@@ -40,7 +40,7 @@ include('conexao.php');
                             <a class="nav-link dropdown-toggle me-5" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Cadastros</a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <li><a name="link_cadastro_usuario" class="dropdown-item" href="cadastros_usuarios.php">Usuários</a></li>
-                                <li><a name="link_cadastro_fornecedor" class="dropdown-item" href="cadastros_fornecedores.html">Fornecedores</a></li>
+                                <li><a name="link_cadastro_fornecedor" class="dropdown-item" href="cadastros_fornecedores.php">Fornecedores</a></li>
                                 <li><a name="link_cadastro_produto" class="dropdown-item" href="cadastros_produtos.html">Produtos</a></li>
                             </ul>
                         </li>
