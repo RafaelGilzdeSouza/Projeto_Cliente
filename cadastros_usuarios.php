@@ -122,7 +122,7 @@ include('conexao.php');
                         <div class="form-group">
                             <button name="btn_cadastrar_usuario" id="btn_cadastrar_usuario" type="submit" class="btn btn-primary">Cadastrar </button>
                             <a href="cadastros_usuarios.php" name="btn_limpar_cadastro_usuario" id="" type="submit" class="btn btn-warning">Limpar </a>
-                            <button name="" id="btn_excluir_cadastro_usuario" type="submit" class="btn btn-danger">Excluir </button>
+                            <button name="btn_excluir_cadastro_usuario" id="btn_excluir_cadastro_usuario" type="submit" class="btn btn-danger">Excluir </button>
                         </div>
                     </div>
                 </form>
