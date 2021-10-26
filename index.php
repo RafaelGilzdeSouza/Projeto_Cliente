@@ -32,7 +32,7 @@ if(isset($_POST['login']) || isset($_POST['senha'])) {
         } 
         else {
             echo '
-            <div style="width: 455px;margin-top:0px;margin-left: 240;position:relative">
+            <div style="width: 455px; margin-top:100px;margin-left: 240;position:relative">
               <div class="alert alert-danger d-flex align-items-center" role="alert">
                 <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Danger:"><use xlink:href="#exclamation-triangle-fill"/></svg>
                 <div>

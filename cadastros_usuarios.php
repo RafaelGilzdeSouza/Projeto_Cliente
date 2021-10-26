@@ -71,7 +71,7 @@ include('conexao.php');
         </header>
         <!-- Formulário-->
             <div class="container">
-                <form method="POST" action="cadastro_usuarios_backend.php">
+                <form method="POST" action="usuarios_backend.php">
                     <div class="form-row">
                         <div class="form-group col-md-5">
                             <label>Nome*</label>
