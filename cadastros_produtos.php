@@ -1,17 +1,16 @@
 <?php
 include('conexao.php');
 ?>
-
 <!DOCTYPE html>
 <html lang="pt-BR">
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="description" content="" />   
+        <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Cadastros de Fornecedores</title> 
-        <!-- Favicon-->  
-        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />    
+        <title>Cadastro de Produtos</title>
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
         
         <!-- Adicionando a biblioteca jQuery Mask ao projeto -->
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
@@ -24,7 +23,7 @@ include('conexao.php');
         <!-- Bootstrap icons-->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
         
-        <!-- Core theme CSS (includes Bootstrap)-->   
+        <!-- Core theme CSS (includes Bootstrap)-->
         <link href="css/styles.css" rel="stylesheet" />
     </head>
     <body>
@@ -71,101 +70,91 @@ include('conexao.php');
         </header>
         <!-- Formulário abaixo-->
         <div class="container">
-            <form method="POST" action="fornecedores_backend.php">
+            <form method="POST" action="produtos_backend.php">
                 <div class="form-row">
-                    <div class="form-group col-md-8">
-                        <label>Razão Social*</label>
-                        <input type="text" name="razaosocial" id="razaosocial" class="form-control" maxlength="100" placeholder="Razão Social da Empresa">
+                    <div class="form-group col-md-5">
+                        <label>Descrição*</label>
+                        <input type="text" name="descricao_produto" id="descricao_produto" class="form-control" maxlength="200" placeholder="Descrição completa do produto">
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label>Fabricante</label>
+                        <input type="text" name="fabricante" id="fabricante" class="form-control" maxlength="200" placeholder="Fabricante do produto">
                     </div>
                     <div class="form-group col-md-4">
-                        <label>CNPJ*</label>
-                        <input type="text" name="cnpj" id="cnpj" class="form-control" minlength="18" maxlength="18" placeholder="CNPJ" onkeypress="$(this).mask('00.000.000/0000-00');">
+                        <label>Cód. de Barras</label>
+                        <input type="text" name="cod_barras" id="cod_barras" class="form-control" maxlength="50" placeholder="Código de Barras">
                     </div>
                 </div>
                 <div class="form-row">
                     <div class="form-group col-md-3">
-                        <label>CEP*</label>
-                        <input type="text" name="cep_empresa" id="cep_empresa" class="form-control" minlength="9" maxlength="9" placeholder="CEP" onkeypress="$(this).mask('00000-000');">
-                    </div>
-                    <div class="form-group col-md-6">
-                        <label>Rua</label>
-                        <input type="text" name="rua_empresa" id="rua_empresa" class="form-control" maxlength="200" placeholder="Rua">
+                        <label>Custo*</label>
+                        <input type="text" name="preco_custo" id="preco_custo" class="form-control" placeholder="Preço de custo">
                     </div>
                     <div class="form-group col-md-3">
-                        <label>Número</label>
-                        <input type="text" name="numero_empresa" id="numero_empresa" class="form-control" maxlength="6" placeholder="Nº do imóvel">
+                        <label>Margem %*</label>
+                        <input type="text" name="margem_lucro" id="margem_lucro" class="form-control" placeholder="Margem de lucro">
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label>Venda</label>
+                        <input type="text" name="preco_venda" id="preco_venda" class="form-control" placeholder="Preço de venda">
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label>Estoque</label>
+                        <input type="text" name="estoque" id="estoque" class="form-control" placeholder="Estoque atual">
                     </div>
                 </div>
                 <div class="form-row">
-                    <div class="form-group col-md-3">
-                        <label>Bairro</label>
-                        <input type="text" name="bairro" id="bairro" class="form-control" maxlength="20" placeholder="Bairro">
-                    </div>
-                    <div class="form-group col-md-3">
-                        <label>Cidade</label>
-                        <input type="text" name="cidade" id="cidade" class="form-control" maxlength="20" placeholder="Cidade">
-                    </div>
-                    <div class="form-group col-md-3">
-                        <label>Estado</label>
-                        <select name="estado" id="estado" class="form-select" aria-label="Disabled select example">
+                    <div class="form-group col-md-2">
+                        <label>Grupo</label>
+                        <select name="grupo" id="grupo" class="form-select" aria-label="Disabled select example">
                             <option selected>Selecione</option>
-                            <option value="1">SP</option>
-                            <option value="1">PR</option>
-                            <option value="1">SC</option>
-                            <option value="1">RS</option>
-                            <option value="1">MS</option>
-                            <option value="1">RO</option>
-                            <option value="1">AC</option>
-                            <option value="1">AM</option>
-                            <option value="1">RR</option>
-                            <option value="1">PA</option>
-                            <option value="1">AP</option>
-                            <option value="1">TO</option>
-                            <option value="1">MA</option>
-                            <option value="1">RN</option>
-                            <option value="1">PB</option>
-                            <option value="1">PE</option>
-                            <option value="1">AL</option>
-                            <option value="1">SE</option>
-                            <option value="1">BA</option>
-                            <option value="1">MG</option>
-                            <option value="1">RJ</option>
-                            <option value="1">MT</option>
-                            <option value="1">GO</option>
-                            <option value="1">DF</option>
-                            <option value="1">PI</option>
-                            <option value="1">CE</option>
-                            <option value="1">ES</option>
+                            <option value="Celulares">Celulares</option>
+                            <option value="Computadores">Computadores</option>
+                            <option value="Câmeras">Câmeras</option>
+                            <option value="Tablets">Tablets</option>
+                            <option value="TV's">TV's</option>
                         </select>
                     </div>
-                    <div class="form-group col-md-3">
-                        <label>Status</label>
-                        <select name="status" id="status" class="form-select" aria-label="Disabled select example">
+                    <div class="form-group col-md-2">
+                        <label>Foto</label>
+                        <input type="text" name="foto" id="foto" class="form-control" maxlength="250" placeholder="Link da imagem">
+                    </div>
+                    <div class="form-group col-md-2">
+                        <label>Data últ. Entrega</label>
+                        <input type="text" name="data_ult_entrega" id="data_ult_entrega" class="form-control" placeholder="Data">
+                    </div>
+                    <div class="form-group col-md-2">
+                        <label>Fornecedor</label>
+                        <input type="text" name="forn_ult_entrega" id="forn_ult_entrega" class="form-control" placeholder="Forn. últ. Entrega">
+                    </div>
+                    <div class="form-group col-md-2">
+                        <label>Promoção</label>
+                        <select name="promocao" id="promocao" class="form-select" aria-label="Disabled select example">
                             <option selected>Selecione</option>
-                            <option value="0">Ativo</option>
-                            <option value="1">Inativo</option>
+                            <option value=0>0</option>
+                            <option value=1>1</option>
                         </select>
                     </div>
-                </div>
-                <div class="form-row">
-                    <div class="form-group col-md-4">
-                        <label>Telefone</label>
-                        <input type="text" name="telefone" id="telefone" class="form-control" maxlength="15" placeholder="Telefone" onkeypress="$(this).mask('(00)0.0000-0000');">
-                    </div>
-                    <div class="form-group col-md-8">
-                        <label>E-mail</label>
-                        <input type="email" name="email" id="email" class="form-control" maxlength="100" placeholder="E-mail para contato">
+                    <div class="form-group col-md-2">
+                        <label>Curva ABC</label>
+                        <select name="curvaABC" id="curvaABC" class="form-select" aria-label="Disabled select example">
+                            <option selected>Selecione</option>
+                            <option value="A">A</option>
+                            <option value="B">B</option>
+                            <option value="C">C</option>
+                        </select>
                     </div>
                 </div>
                 <div class="form-row">
                     <div class="form-group">
-                        <button name="btn_cadastrar_fornecedores" id="btn_cadastrar_fornecedores" type="submit" class="btn btn-primary">Cadastrar </button>
-                        <a href="cadastros_fornecedores.php" name="btn_limpar_cadastro_fornecedores" id="btn_limpar_cadastro_fornecedores" type="submit" class="btn btn-warning">Limpar </a>
-                        <button name="btn_excluir_cadastro_fornecedores" id="btn_excluir_cadastro_fornecedores" type="submit" class="btn btn-danger">Excluir </button>
+                        <button name="btn_cadastrar_produtos" id="btn_cadastrar_produtos" type="submit" class="btn btn-primary">Cadastrar </button>
+                        <a href="cadastros_produtos.php" name="btn_limpar_cadastro_produtos" id="btn_limpar_cadastro_produtos" type="submit" class="btn btn-warning">Limpar </a>
+                        <button name="btn_excluir_cadastro_produtos" id="btn_excluir_cadastro_produtos" type="submit" class="btn btn-danger">Excluir </button>
                     </div>
                 </div>
-            </form>    
+            </form>
         </div>
+
 
         <!-- Rodapé-->
         <div class="rodape">

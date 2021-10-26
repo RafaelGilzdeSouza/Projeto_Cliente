@@ -36,7 +36,7 @@ $sql_query = $mysqli->query($sql_code) or die("Falha na execução do código SQ
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <li><a name="link_cadastro_usuario" class="dropdown-item" href="cadastros_usuarios.php">Usuários</a></li>
                                 <li><a name="link_cadastro_fornecedor" class="dropdown-item" href="cadastros_fornecedores.php">Fornecedores</a></li>
-                                <li><a name="link_cadastro_produto" class="dropdown-item" href="cadastros_produtos.html">Produtos</a></li>
+                                <li><a name="link_cadastro_produto" class="dropdown-item" href="cadastros_produtos.php">Produtos</a></li>
                             </ul>
                         </li>
                         <li class="nav-item dropdown">
