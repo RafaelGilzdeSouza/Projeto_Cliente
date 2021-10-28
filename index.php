@@ -1,50 +1,53 @@
 <?php
 include('conexao.php');
 
-if(isset($_POST['login']) || isset($_POST['senha'])) {
+if(isset($_POST['btn_entrar'])){
+  if(isset($_POST['login']) || isset($_POST['senha'])) {
 
-    if(strlen($_POST['login']) == 0) {
-        echo "Preencha seu e-mail";
-    } else if(strlen($_POST['senha']) == 0) {
-        echo "Preencha sua senha";
-    } 
-    else {
-        $login = $mysqli->real_escape_string($_POST['login']);
-        $senha = $mysqli->real_escape_string($_POST['senha']);
+      if($_POST['login'] === '' || $_POST['senha'] === '') {
+        echo '
+        <div style=" margin-top:10px;margin-left: 10;margin-bottom: 5%; position:absolute ;top: 5px;">
+          <div class="alert alert-danger d-flex align-items-center" role="alert">
+            <svg class="bi flex-shrink-0 me-2" width="15" height="10" role="img" aria-label="Danger:"><use xlink:href="#exclamation-triangle-fill"/></svg>
+            <div>Todos os campos precisam estar preenchidos</div>
+          </div>
+        </div>';
+      }
+      else {
+          $login = $mysqli->real_escape_string($_POST['login']);
+          $senha = $mysqli->real_escape_string($_POST['senha']);
 
-        $sql_code = "SELECT * FROM tb_usuario WHERE login = '$login' AND senha = '$senha'";
-        $sql_query = $mysqli->query($sql_code) or die("Falha na execução do código SQL: " . $mysqli->error);
+          $sql_code = "SELECT * FROM tb_usuario WHERE login = '$login' AND senha = '$senha'";
+          $sql_query = $mysqli->query($sql_code) or die("Falha na execução do código SQL: " . $mysqli->error);
 
-        $quantidade = $sql_query->num_rows;
+          $quantidade = $sql_query->num_rows;
 
-        if($quantidade == 1) {
-            
-            $usuario = $sql_query->fetch_assoc();
+          if($quantidade == 1) {
+              
+              $usuario = $sql_query->fetch_assoc();
 
-            if(!isset($_SESSION)) {
-                session_start();
-            }
+              if(!isset($_SESSION)) {
+                  session_start();
+              }
 
-            $_SESSION['cod_interno'] = $usuario['cod_interno'];
-            $_SESSION['nome'] = $usuario['nome'];
+              $_SESSION['cod_interno'] = $usuario['cod_interno'];
+              $_SESSION['nome'] = $usuario['nome'];
 
-            header("Location: home.php");
-        } 
-        else {
-            echo '
-            <div style="width: 455px; margin-top:100px;margin-left: 240;position:relative">
-              <div class="alert alert-danger d-flex align-items-center" role="alert">
-                <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Danger:"><use xlink:href="#exclamation-triangle-fill"/></svg>
-                <div>
-                  Login ou Senha incorretos!
+              header("Location: home.php");
+          } 
+          else {
+              echo '
+              <div style=" margin-top:10px;margin-left: 10;margin-bottom: 5%; position:absolute ;top: 5px;">
+                <div class="alert alert-danger d-flex align-items-center" role="alert">
+                  <svg class="bi flex-shrink-0 me-2" width="15" height="10" role="img" aria-label="Danger:"><use xlink:href="#exclamation-triangle-fill"/></svg>
+                  <div>Login ou Senha incorretos!</div>
                 </div>
-              </div>
-            </div>';
-        }
-    }
+              </div>';
+          }
+      }
+  }
 }
 ?>
-
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -72,8 +75,8 @@ if(isset($_POST['login']) || isset($_POST['senha'])) {
     <link href="css/styles.css" rel="stylesheet" />
 <body>
   <div class=telaLogin>
-    <div class="container py-5 h-100">
-      <div class="row d-flex justify-content-center align-items-center h-100">
+    <div class="container py-5 h-20">
+      <div class="row d-flex justify-content-center align-items-center h-20">
         <div class="col-xl-9"> 
           <div class="card rounded-3 text-black">
             <div class="row g-0">
@@ -83,18 +86,17 @@ if(isset($_POST['login']) || isset($_POST['senha'])) {
                       <img src="img/logo.png" style="width: 185px;" alt="logo">
                       <h4 class="mt-1 mb-5 pb-1">Electronics Store </h4>
                   </div>
-                  <form action="" method="POST">
+                  <form name='formulario' action="" method="POST">
                       <p>Faça login para entrar</p>
                       <div class="form-outline mb-4"> 
                           <input name="login" type="text" id="login" class="form-control" placeholder="Login" />
                       </div>
                       <div class="form-outline mb-4">
-                          <input name="senha" type="password" id="login" class="form-control" placeholder="Senha" />
+                          <input name="senha" type="password" id="senha" class="form-control" placeholder="Senha" />
                       </div>
                       <div class="text-center pt-1 mb-5 pb-1">
-                          <button class="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3" type="submit">Entrar</button>
+                          <button name='btn_entrar' id='btn_entrar' class="btn btn-primary btn-block fa-lg gradient-custom-2 mb-3" type="submit">Entrar</button>
                       </div>
-                      
                   </form>
                 </div>
               </div>
