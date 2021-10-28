@@ -1,7 +1,8 @@
 <?php
 include('protect.php');
 include('conexao.php');
-
+//include('home_backend.php');
+//$sql_code = consulta_banco("Celulares-Samsung");
 $sql_code = "SELECT * FROM tb_produtos WHERE promocao = 1";
 $sql_query = $mysqli->query($sql_code) or die("Falha na execução do código SQL: " . $mysqli->error);
 
@@ -42,39 +43,41 @@ $sql_query = $mysqli->query($sql_code) or die("Falha na execução do código SQ
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Celulares</a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a name="filtro_celulares_samsung" class="dropdown-item" href="home.php">Samsung</a></li>
-                                <li><a name="filtro_celulares_apple" class="dropdown-item" href="">Apple</a></li>
-                                <li><a name="filtro_celulares_todos" class="dropdown-item" href="">Ver todos</a></li>
+                                <li>
+                                    <a name="Celulares-Samsung" class="dropdown-item" href="home_backend.php?grupo=Celulares&&fabricante=Samsung">Samsung</a>
+                                </li>
+                                <li><a name="Celulares_Apple" class="dropdown-item" href="">Apple</a></li>
+                                <li><a name="Celulares_Todos" class="dropdown-item" href="">Ver todos</a></li>
                             </ul>
                         </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Televisores</a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a name="filtro_tvs_sony" class="dropdown-item" href="">Sony</a></li>
-                                <li><a name="filtro_tvs_lg" class="dropdown-item" href="">LG</a></li>
-                                <li><a name="filtro_tvs_todos" class="dropdown-item" href="">Ver todos</a></li>
+                                <li><a name="tvs_sony" class="dropdown-item" href="">Sony</a></li>
+                                <li><a name="tvs_lg" class="dropdown-item" href="">LG</a></li>
+                                <li><a name="tvs_todos" class="dropdown-item" href="">Ver todos</a></li>
                             </ul>
                         </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Tablets</a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a name="filtro_tablets_xiaomi" class="dropdown-item" href="">Xiaomi</a></li>
-                                <li><a name="filtro_tablets_apple" class="dropdown-item" href="">Apple</a></li>
-                                <li><a name="filtro_tablets_todos" class="dropdown-item" href="">Ver todos</a></li>
+                                <li><a name="tablets_xiaomi" class="dropdown-item" href="">Xiaomi</a></li>
+                                <li><a name="tablets_apple" class="dropdown-item" href="">Apple</a></li>
+                                <li><a name="tablets_todos" class="dropdown-item" href="">Ver todos</a></li>
                             </ul>
                         </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Câmeras</a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a name="filtro_cameras_canon" class="dropdown-item" href="">Canon</a></li>
-                                <li><a name="filtro_cameras_sony" class="dropdown-item" href="">Sony</a></li>
-                                <li><a name="filtro_cameras_todos" class="dropdown-item" href="">Ver todos</a></li>
+                                <li><a name="cameras_canon" class="dropdown-item" href="">Canon</a></li>
+                                <li><a name="cameras_sony" class="dropdown-item" href="">Sony</a></li>
+                                <li><a name="cameras_todos" class="dropdown-item" href="">Ver todos</a></li>
                             </ul>
                         </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Outros</a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a name="filtro_outros_todos" class="dropdown-item" href="">Ver todos</a></li>
+                                <li><a name="outros_todos" class="dropdown-item" href="">Ver todos</a></li>
                             </ul>
                         </li>
                     </ul>

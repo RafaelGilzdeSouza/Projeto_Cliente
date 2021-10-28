@@ -17,7 +17,6 @@ if(isset($_POST['btn_cadastrar_produtos'])){
   $promocao = $_POST['promocao'];
   $curvaABC = $_POST['curvaABC'];
   
-
   $query_select = "SELECT codigo_barras FROM tb_produtos WHERE codigo_barras = '$cod_barras'";
 
   $select = $mysqli->query($query_select) or die("Falha na execução do código SQL: " . $mysqli->error);
