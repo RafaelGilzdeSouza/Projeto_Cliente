@@ -3,14 +3,14 @@ include('protect.php');
 include('conexao.php');
 
 //$grupo = "Celulares";
-$grupo = "Tv\'s";
+//$grupo = "Tv\'s";
 
 //$fabricante = 'Apple';
-$fabricante = 'Samsung';
+//$fabricante = 'Samsung';
 
-$sql_code = "SELECT * FROM tb_produtos WHERE grupo = '$grupo' and fabricante = '$fabricante'";
+//$sql_code = "SELECT * FROM tb_produtos WHERE grupo = '$grupo' and fabricante = '$fabricante'";
 
-//$sql_code = "SELECT * FROM tb_produtos WHERE promocao = 1";
+$sql_code = "SELECT * FROM tb_produtos WHERE promocao = 1";
 
 $sql_query = $mysqli->query($sql_code) or die("Falha na execução do código SQL: " . $mysqli->error);
 
@@ -52,7 +52,7 @@ $sql_query = $mysqli->query($sql_code) or die("Falha na execução do código SQ
                             <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Celulares</a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <li>
-                                    <a name="Celulares-Samsung" class="dropdown-item" href="home.php?grupo='Celulares'&&fabricante='Samsung'">Samsung</a>
+                                    <a name="Celulares-Samsung" class="dropdown-item" href="">Samsung</a>
                                 </li>
                                 <li><a name="Celulares_Apple" class="dropdown-item" href="">Apple</a></li>
                                 <li><a name="Celulares_Todos" class="dropdown-item" href="">Ver todos</a></li>
