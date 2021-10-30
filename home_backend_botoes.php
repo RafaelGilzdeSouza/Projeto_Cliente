@@ -1,10 +1,13 @@
 <?php 
     include('conexao.php');
-    $produtos = $_GET['produtos'];
+    $grupo = $_GET['grupo'];
+    $fabricante = $_GET['fabricante'];
+    if ($fabricante !=''){
+        $resultado_prod = "select * from tb_produtos where fabricante ='$fabricante' and grupo = '$grupo'";
+    }else{
+        $resultado_prod = "select * from tb_produtos where grupo = '$grupo'";
+    }
 
-    if(strlen($produtos) > 1){
-
-    $resultado_prod = "select * from tb_produtos where descricao like '%$produtos%' or grupo like '%$produtos%' order by descricao asc";
     $resultado_busca = $mysqli->query($resultado_prod) or die("Falha na execução do código SQL: " . $mysqli->error);
     if (($resultado_busca) AND ($resultado_busca->num_rows != 0)) {
         while($row_produtos = mysqli_fetch_assoc($resultado_busca)){
@@ -28,7 +31,6 @@
                 </div>
             </div>');}
     }else{
-    echo utf8_encode("produto nao encontrado");}
-    }
+    echo utf8_encode("produto naooooooooo encontrado");}
 
 ?>

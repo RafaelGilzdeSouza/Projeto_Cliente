@@ -1,20 +1,4 @@
-<?php
-include('protect.php');
-include('conexao.php');
 
-//$grupo = "Celulares";
-//$grupo = "Tv\'s";
-
-//$fabricante = 'Apple';
-//$fabricante = 'Samsung';
-
-//$sql_code = "SELECT * FROM tb_produtos WHERE grupo = '$grupo' and fabricante = '$fabricante'";
-
-$sql_code = "SELECT * FROM tb_produtos WHERE promocao = 1";
-
-$sql_query = $mysqli->query($sql_code) or die("Falha na execução do código SQL: " . $mysqli->error);
-
-?>
 
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -28,6 +12,8 @@ $sql_query = $mysqli->query($sql_code) or die("Falha na execução do código SQ
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
         <!-- Bootstrap icons-->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
+        <script src="js/scripts.js"></script>
+
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="css/styles.css" rel="stylesheet" />
     </head>
@@ -50,48 +36,46 @@ $sql_query = $mysqli->query($sql_code) or die("Falha na execução do código SQ
                         </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Celulares</a>
-                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li>
-                                    <a name="Celulares-Samsung" class="dropdown-item" href="">Samsung</a>
-                                </li>
-                                <li><a name="Celulares_Apple" class="dropdown-item" href="">Apple</a></li>
-                                <li><a name="Celulares_Todos" class="dropdown-item" href="">Ver todos</a></li>
+                            <ul class="dropdown-menu" value="teste" aria-labelledby="navbarDropdown">
+                                <li><button name="Celulares-Samsung" type="text" id="Celulares-Samsung" class="dropdown-item" onclick="AlteraConteudoDrop(this.value);" value="Celulares-Samsung" >Samsung</button></li>
+                                <li><button name="Celulares_Apple" class="dropdown-item"  onclick="AlteraConteudoDrop(this.value);" value="Celulares-Apple" >Apple</button></li>
+                                <li><button name="Celulares_Todos" class="dropdown-item" onclick="AlteraConteudoDrop(this.value);" value="Celulares" >Ver todos</button></li>
                             </ul>
                         </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Televisores</a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a name="tvs_sony" class="dropdown-item" href="">Sony</a></li>
-                                <li><a name="tvs_lg" class="dropdown-item" href="">LG</a></li>
-                                <li><a name="tvs_todos" class="dropdown-item" href="">Ver todos</a></li>
+                                <li><button name="tvs_sony" class="dropdown-item" onclick="AlteraConteudoDrop(this.value);" value="TV\'s-Sony" >Sony</button></li>
+                                <li><button name="tvs_lg" class="dropdown-item" onclick="AlteraConteudoDrop(this.value);" value="TV\'s-LG" >LG</button></li>
+                                <li><button name="tvs_todos" class="dropdown-item" onclick="AlteraConteudoDrop(this.value);" value="TV\'s" >Ver todos</button></li>
                             </ul>
                         </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Tablets</a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a name="tablets_xiaomi" class="dropdown-item" href="">Xiaomi</a></li>
-                                <li><a name="tablets_apple" class="dropdown-item" href="">Apple</a></li>
-                                <li><a name="tablets_todos" class="dropdown-item" href="">Ver todos</a></li>
+                                <li><button name="tablets_xiaomi" class="dropdown-item" onclick="AlteraConteudoDrop(this.value);" value="Tablets-Xiaomi" >Xiaomi</button></li>
+                                <li><button name="tablets_apple" class="dropdown-item" onclick="AlteraConteudoDrop(this.value);" value="Tablets-Apple" >Apple</button></li>
+                                <li><button name="tablets_todos" class="dropdown-item" onclick="AlteraConteudoDrop(this.value);" value="Tablets" >Ver todos</button></li>
                             </ul>
                         </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Câmeras</a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a name="cameras_canon" class="dropdown-item" href="">Canon</a></li>
-                                <li><a name="cameras_sony" class="dropdown-item" href="">Sony</a></li>
-                                <li><a name="cameras_todos" class="dropdown-item" href="">Ver todos</a></li>
+                                <li><button name="cameras_canon" class="dropdown-item" onclick="AlteraConteudoDrop(this.value);" value="Câmeras-Canon" >Canon</button></li>
+                                <li><button name="cameras_sony" class="dropdown-item" onclick="AlteraConteudoDrop(this.value);" value="Câmeras-Sony" >Sony</button></li>
+                                <li><button name="cameras_todos" class="dropdown-item" onclick="AlteraConteudoDrop(this.value);" value="Câmeras" >Ver todos</button></li>
                             </ul>
                         </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Outros</a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a name="outros_todos" class="dropdown-item" href="">Ver todos</a></li>
+                                <li><button name="outros_todos" class="dropdown-item" onclick="AlteraConteudoDrop(this.value);" value="" >Ver todos</button></li>
                             </ul>
                         </li>
                     </ul>
                     <form class="d-flex">
                         <input name="input_produtos" id="input_produtos" type="text" class="form-control me-0" placeholder="Buscar">
-                        <button name="btn_buscar_produtos" id="btn_buscar_produtos" type="button" class="btn btn-primary me-2">Buscar</button>
+                        <button name="btn_buscar_produtos" id="btn_buscar_produtos" type="button" onclick="AlteraConteudo()" class="btn btn-primary me-2">Buscar</button>
                     </form>
                 </div>
                     <form action="carrinho.html">
@@ -104,7 +88,6 @@ $sql_query = $mysqli->query($sql_code) or die("Falha na execução do código SQ
                         <button name="btn_logoff" id="btn_logoff" class="btn btn-outline-dark-logoff " type="auto">
                             logoff
                         </button>
-                   
                     </form>
                 </div>
             </div>
@@ -123,29 +106,7 @@ $sql_query = $mysqli->query($sql_code) or die("Falha na execução do código SQ
         <!-- Section-->
         <section class="py-5">
             <div class="container px-4 px-lg-5 mt-5">
-                <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
-                <?php   
-                while($row_produtos = mysqli_fetch_assoc($sql_query)){
-                    echo 
-                    '<div class="col mb-5">
-                        <div class="card h-100">
-                            <!-- Foto do Produto-->
-                            <img class="card-img-top" src="'.$row_produtos['foto'].'" alt="..." />
-                            <div class="card-body p-4">
-                                <div class="text-center">
-                                    <!-- Nome do Produto-->
-                                    <h5 class="fw-bolder">'.strtoupper($row_produtos['descricao']).'</h5>
-                                    <!-- Preco do Produto-->
-                                    R$ '.$row_produtos['preco_venda'].'
-                                </div>
-                            </div>
-                            <!-- Product actions-->
-                            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Adicionar ao Carrinho</a></div>
-                            </div>
-                        </div>
-                    </div>';}
-                ?>
+                <div id="conteudo" class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
                 </div>
             </div>
         </section>
