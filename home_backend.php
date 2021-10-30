@@ -1,4 +1,5 @@
 <?php 
+    //teste
     include('conexao.php');
     $produtos = $_GET['produtos'];
 

@@ -1,4 +1,5 @@
 <?php 
+    //teste
     include('conexao.php');
     $grupo = $_GET['grupo'];
     $fabricante = $_GET['fabricante'];

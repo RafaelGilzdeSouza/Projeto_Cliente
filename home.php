@@ -1,4 +1,5 @@
 <?php
+//teste
 include('conexao.php');
 $resultado_prod = "select * from tb_produtos where promocao = 1";
 $resultado_busca = $mysqli->query($resultado_prod) or die("Falha na execução do código SQL: " . $mysqli->error);
