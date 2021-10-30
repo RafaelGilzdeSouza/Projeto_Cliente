@@ -35,6 +35,6 @@
                 </div>
             </div>');}
     }else{
-    echo utf8_encode("produto naooooooooo encontrado");}
+    echo utf8_encode('<p class="lead fw-normal text-white-50 mb-0">Produto não encontrado :(</p>');}
 
 ?>

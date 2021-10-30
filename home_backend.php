@@ -28,7 +28,7 @@
                 </div>
             </div>');}
     }else{
-    echo utf8_encode("produto nao encontrado");}
+        echo utf8_encode('<p class="lead fw-normal text-white-50 mb-0">Produto nao encontrado :(</p>');}
     }
 
 ?>
