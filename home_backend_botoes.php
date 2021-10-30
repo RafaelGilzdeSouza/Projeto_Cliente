@@ -2,12 +2,16 @@
     include('conexao.php');
     $grupo = $_GET['grupo'];
     $fabricante = $_GET['fabricante'];
-    if ($fabricante !=''){
+
+    if($fabricante !=''){
         $resultado_prod = "select * from tb_produtos where fabricante ='$fabricante' and grupo = '$grupo'";
     }else{
-        $resultado_prod = "select * from tb_produtos where grupo = '$grupo'";
+        if($grupo !=''){
+            $resultado_prod = "select * from tb_produtos where grupo = '$grupo'";
+        }else{
+            $resultado_prod = "select * from tb_produtos order by grupo desc";
+        }
     }
-
     $resultado_busca = $mysqli->query($resultado_prod) or die("Falha na execução do código SQL: " . $mysqli->error);
     if (($resultado_busca) AND ($resultado_busca->num_rows != 0)) {
         while($row_produtos = mysqli_fetch_assoc($resultado_busca)){

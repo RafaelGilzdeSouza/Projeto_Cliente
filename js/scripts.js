@@ -51,45 +51,6 @@ ajax.send();
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 function AlteraConteudoDrop(name)
 {
 	var ajax = AjaxF();
@@ -100,14 +61,19 @@ function AlteraConteudoDrop(name)
 	  document.getElementById('conteudo').innerHTML = ajax.responseText;
 	 }
 	}
-
+	
 	var info_produtos = name.split("-");
 	if (name.includes('-')){
 		var grupo = info_produtos[0];
 		var fabricante = info_produtos[1];
 		var dados = "grupo="+grupo+"&&"+"fabricante="+fabricante;
 	}else{
-		dados = "grupo="+name+"&&"+"fabricante="+'';
+		if(name.includes('todos')){
+			dados = "grupo="+''+"&&"+"fabricante="+'';
+		}else{
+			var grupo = name;
+			dados = "grupo="+grupo+"&&"+"fabricante="+'';
+		}
 	}
 	
 	ajax.open("GET", "home_backend_botoes.php?"+dados);
