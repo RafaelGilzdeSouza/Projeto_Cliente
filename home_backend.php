@@ -12,7 +12,7 @@
             '<div class="col mb-5">
                 <div class="card h-100">
                     <!-- Foto do Produto-->
-                    <img class="card-img-top" src="'.$row_produtos['foto'].'" alt="..." />
+                    <img src="'.$row_produtos['foto'].'" alt="..." />
                     <div class="card-body p-4">
                         <div class="text-center">
                             <!-- Nome do Produto-->
