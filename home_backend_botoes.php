@@ -21,17 +21,21 @@
                 <div class="card h-100">
                     <!-- Foto do Produto-->
                     <img src="'.$row_produtos['foto'].'" alt="..." />
-
+                    
                     <!-- div card e Py-4 define o comprimento do card-->
-                    <div class="card-body p-4 text-center">
-                            <!-- Nome do Produto-->
-                            <h5 class="fw-bolder">'.($row_produtos['descricao']).'</h5>
-                            <!-- Preco do Produto-->
-                            R$ '.$row_produtos['preco_venda'].'
+                    <div class="card-body py-4 text-center">
+                        <!-- Nome do Produto-->
+                        <h6 class="fw-bolder">'.($row_produtos['descricao']).'</h6>
+                        
+                        <!-- Preco do Produto-->
+                        R$ '.$row_produtos['preco_venda'].'
                     </div>
-                    <!-- Product actions-->
-                    <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                        <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Adicionar ao Carrinho</a></div>
+                    
+                    <!-- Botoes de acao do card-->
+                    <div class="card-footer p-4 pt-0 border-top-0 bg-transparent text-center">
+                        <button class="btn btn-outline-dark mt-auto" onclick="add_qtd('.$row_produtos['cod_prod'].')" href="#">+</button>
+                        0
+                        <button class="btn btn-outline-dark mt-auto" onclick="sub_qtd('.$row_produtos['cod_prod'].')" href="#">-</button>
                     </div>
                 </div>
             </div>');}

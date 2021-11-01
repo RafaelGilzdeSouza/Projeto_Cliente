@@ -82,23 +82,14 @@ function AlteraConteudoDrop(name)
 	
 }
 
-function add_item_carrinho()
+var i = 0;
+function add_qtd()
 {
-	var ajax = AjaxF();
+	document.getElementById('num_carrinho').innerHTML = ++i;
+}
 
-	ajax.onreadystatechange = function(){
-	 if(ajax.readyState == 4)
-	 {
-	  document.getElementById('num_carrinho').innerHTML = ajax.responseText;
-	 }
-	}
-	qtd_add = document.querySelector("#btn_item").value;
-	qtd_atual = document.getElementById("num_carrinho");
-	//var add = document.querySelector("#input_add_qtd").value;
-	//add = add + document.querySelector("#num_carrinho").value;
-	//add = "qtd="+add;
-	//ajax.open("GET", "num_itens_carrinho.php?"+add);
-	//ajax.setRequestHeader("Content-Type", "text/html");
-	//ajax.send();
-	
+function sub_qtd()
+{
+	document.getElementById('num_carrinho').innerHTML = --i;
+
 }

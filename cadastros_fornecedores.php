@@ -44,6 +44,7 @@ include('conexao.php');
                         <input type="text" name="cnpj" id="cnpj" class="form-control" minlength="18" maxlength="18" placeholder="CNPJ" onkeypress="$(this).mask('00.000.000/0000-00');">
                     </div>
                 </div>
+                
                 <div class="form-row">
                     <div class="form-group col-md-3">
                         <label>CEP*</label>

@@ -13,6 +13,7 @@ $resultado_busca = $mysqli->query($resultado_prod) or die("Falha na execução d
         <meta name="description" content="" />
         <meta name="author" content="" />
         <title>Eletronics Store</title>
+
         <!-- Favicon-->
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
         <!-- Bootstrap icons-->
@@ -38,7 +39,7 @@ $resultado_busca = $mysqli->query($resultado_prod) or die("Falha na execução d
                         while($row_produtos = mysqli_fetch_assoc($resultado_busca)){
                             echo utf8_encode('
                             <!-- div que define o espacamento horizontal-->
-                            <div class="col mb-">
+                            <div class="col mb-4">
                                 <div class="card h-100">
                                     <!-- Foto do Produto-->
                                     <img src="'.$row_produtos['foto'].'" alt="..." />
@@ -50,17 +51,14 @@ $resultado_busca = $mysqli->query($resultado_prod) or die("Falha na execução d
                                         
                                         <!-- Preco do Produto-->
                                         R$ '.$row_produtos['preco_venda'].'
-                                        <br><br>
-                                        
-                                        <!-- Botoes de acao do card-->
-                                        <form id="form_qtd_carrinho" name="form_qtd_carrinho" method="GET">
-                                            <button name="btn_item" id="btn_item" class="btn btn-outline-dark mt-auto" onclick="add_item_carrinho()" value="1" type="submit" >+</button>
-                                            0
-                                            <button name="btn_item" id="btn_item" class="btn btn-outline-dark mt-auto" onclick="add_item_carrinho()" value="1" type="submit" >+</button>
-                                        </form>
-                                        </div>
+                                    </div>
                                     
-                                    
+                                    <!-- Botoes de acao do card-->
+                                    <div class="card-footer p-4 pt-0 border-top-0 bg-transparent text-center">
+                                        <button class="btn btn-outline-dark mt-auto" onclick="add_qtd('.$row_produtos['cod_prod'].')" href="#">+</button>
+                                        0
+                                        <button class="btn btn-outline-dark mt-auto" onclick="sub_qtd('.$row_produtos['cod_prod'].')" href="#">-</button>
+                                    </div>
                                 </div>
                             </div>');}
                     }

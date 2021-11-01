@@ -76,8 +76,8 @@
                     <li class="nav-item dropdown">
                         <button name="btn_carrinho" id="btn_carrinho" class="btn btn-outline-dark " type="submit">
                             <img src="img/shopcart2.ico" style="height: 18px;" alt="logo">
-                            <span class="badge bg-dark text-white ms-1 badge-pill">0
-                                <div name="num_carrinho" id="num_carrinho" class="num_carrinho"></div>
+                            <span class="badge bg-dark text-white ms-1 badge-pill">
+                                <div name="num_carrinho" id="num_carrinho" class="num_carrinho" value="0"></div>
                             </span>
                         </button>
                     </li>
