@@ -11,13 +11,10 @@
             echo utf8_encode(
             '<div class="col mb-5">
                 <div class="card h-100">
-                    <!-- Foto do Produto-->
                     <img src="'.$row_produtos['foto'].'" alt="..." />
                     <div class="card-body p-4">
                         <div class="text-center">
-                            <!-- Nome do Produto-->
                             <h5 class="fw-bolder">'.($row_produtos['descricao']).'</h5>
-                            <!-- Preco do Produto-->
                             R$ '.$row_produtos['preco_venda'].'
                         </div>
                     </div>
