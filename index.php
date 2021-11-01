@@ -21,7 +21,7 @@ if(isset($_POST['btn_entrar'])){
           $sql_query = $mysqli->query($sql_code) or die("Falha na execução do código SQL: " . $mysqli->error);
 
           $quantidade = $sql_query->num_rows;
-
+        
           if($quantidade == 1) {
               
               $usuario = $sql_query->fetch_assoc();

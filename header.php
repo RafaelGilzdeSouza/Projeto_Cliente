@@ -1,5 +1,4 @@
-<!-- Navbar-->
-<?php echo '
+<html>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <!--Container para centralizar a navbar-->
             <div class="container px-4 px-lg-1">
@@ -34,7 +33,7 @@
 
                     <li class="nav-item dropdown">
                         <a class="nav-link active dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Televisores</a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <ul class="dropdown-menu" value="teste" aria-labelledby="navbarDropdown">
                             <li><button name="Tvs_sony" class="dropdown-item" onclick="AlteraConteudoDrop(this.value);" value="Tvs-Sony" >Sony</button></li>
                             <li><button name="Tvs_lg" class="dropdown-item" onclick="AlteraConteudoDrop(this.value);" value="Tvs-LG" >LG</button></li>
                             <li><button name="Tvs_todos" class="dropdown-item" onclick="AlteraConteudoDrop(this.value);" value="Tvs" >Ver todos</button></li>
@@ -103,4 +102,4 @@
                 </div>
             </div> <!--Fim do container para centralizar o header-->
         </header>' 
-?>
+        </html>
