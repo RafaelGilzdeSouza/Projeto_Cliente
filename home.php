@@ -19,13 +19,15 @@ $resultado_busca = $mysqli->query($resultado_prod) or die("Falha na execução d
         <!-- Bootstrap icons-->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
 
-<<<<<<< HEAD
-        <!-- Core theme CSS (includes Bootstrap)-->
-        <link href="css/styles.css?version=2" rel="stylesheet" />
+        <!-- Nucleo do CSS e JS -->
+        <link href="css/styles.css" rel="stylesheet" />
+        <script src="js/scripts.js"></script>
+
     </head>
     <body>
-=======
-
+        <!-- Definindo o header padrão das páginas -->
+        <?php include ('header.php');
+        ?>  
         <!-- Section-->
         <section class="py-2">
             <!-- Container que centraliza os produtos a serem mostrados-->
