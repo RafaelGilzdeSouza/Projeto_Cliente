@@ -81,3 +81,23 @@ function AlteraConteudoDrop(name)
 	ajax.send();
 	
 }
+
+function add_item_carrinho()
+{
+	var ajax = AjaxF();
+
+	ajax.onreadystatechange = function(){
+	 if(ajax.readyState == 4)
+	 {
+	  document.getElementById('num_carrinho').innerHTML = ajax.responseText;
+	 }
+	}
+
+	//var add = document.querySelector("#input_add_qtd").value;
+	//add = add + document.querySelector("#num_carrinho").value;
+	//add = "qtd="+add;
+	//ajax.open("GET", "num_itens_carrinho.php?"+add);
+	//ajax.setRequestHeader("Content-Type", "text/html");
+	//ajax.send();
+	
+}

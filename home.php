@@ -86,7 +86,9 @@ $resultado_busca = $mysqli->query($resultado_prod) or die("Falha na execução d
                     <form action="carrinho.html">
                         <button name="btn_carrinho" id="btn_carrinho" class="btn btn-outline-dark " type="submit">
                             Carrinho
-                            <span class="badge bg-dark text-white ms-1 rounded-pill">0</span>
+                            <span class="badge bg-dark text-white ms-1 rounded-pill">
+                                <div name="num_carrinho" id="num_carrinho" class="num_carrinho">0</div>
+                            </span>
                         </button>
                     </form>
                     <form action="logout.php">
@@ -130,7 +132,11 @@ $resultado_busca = $mysqli->query($resultado_prod) or die("Falha na execução d
                                     </div>
                                     <!-- Product actions-->
                                     <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                                        <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Adicionar ao Carrinho</a></div>
+                                        <form id="form_qtd_carrinho" name="form_qtd_carrinho" method="GET">
+                                            <div class="text-center"><a name="btn_item" id="btn_item" class="btn btn-outline-dark mt-auto" onclick="add_item_carrinho()" type="submit" >+</a></div> 
+                                            <input type="text" name="input_add_qtd" id="input_add_qtd" class="form-control" placeholder=" 0 ">
+                                            <div class="text-center"><a name="btn_item_" id="btn_item_" class="btn btn-outline-dark mt-auto" onclick="add_item_carrinho()" type="submit" >-</a></div>
+                                        </form>
                                     </div>
                                 </div>
                             </div>');}
