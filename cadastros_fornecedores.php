@@ -28,47 +28,9 @@ include('conexao.php');
         <link href="css/styles.css" rel="stylesheet" />
     </head>
     <body>
-        <!-- Navbar-->
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <div class="container px-4 px-lg-1">
-                <a class="navbar-brand me-0" href="home.php">Eletronics Store</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
-                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="home.php">Compras</a></li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle me-5" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Cadastros</a>
-                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a name="link_cadastro_usuario" class="dropdown-item" href="cadastros_usuarios.php">Usuários</a></li>
-                                <li><a name="link_cadastro_fornecedor" class="dropdown-item" href="cadastros_fornecedores.php">Fornecedores</a></li>
-                                <li><a name="link_cadastro_produto" class="dropdown-item" href="cadastros_produtos.php">Produtos</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                    <form class="d-flex">
-                        <input class="form-control me-0" type="text" placeholder="Buscar">
-                        <button class="btn btn-primary me-2" type="button">Buscar</button>
-                    </form>
-                </div>
-                    <form class="d-flex">
-                        <button class="btn btn-outline-dark " type="submit">
-                            <i class="bi-cart-fill me-1" ></i>
-                            Carrinho
-                            <span class="badge bg-dark text-white ms-1 rounded-pill">0</span>
-                        </button>
-                    </form>
-                </div>
-            </div>
-        </nav>
-        <!-- Header-->
-        <header class="bg-dark py-1">
-            <div class="container px-4 px-lg-5 my-5">
-                <div class="text-center text-white">
-                    <h1 class="display-4 fw-bolder">Eletronics Store</h1>
-                    <p class="lead fw-normal text-white-50 mb-0">Economize seu dinheiro comprando conosco!</p>
-                </div>
-            </div>
-        </header>
+        <!-- Incluindo o header padrão das páginas -->
+        <?php include ('header.php');?>
+        
         <!-- Formulário abaixo-->
         <div class="container">
             <form method="POST" action="fornecedores_backend.php">
@@ -82,6 +44,7 @@ include('conexao.php');
                         <input type="text" name="cnpj" id="cnpj" class="form-control" minlength="18" maxlength="18" placeholder="CNPJ" onkeypress="$(this).mask('00.000.000/0000-00');">
                     </div>
                 </div>
+                
                 <div class="form-row">
                     <div class="form-group col-md-3">
                         <label>CEP*</label>
@@ -167,12 +130,9 @@ include('conexao.php');
             </form>    
         </div>
 
-        <!-- Rodapé-->
-        <div class="rodape">
-            <footer class="py-3 bg-dark">
-                <p class="m-0 text-center text-white">Copyright &copy; Eletronics Store 2021</p>
-            </footer>
-        </div>
+        <!-- Definindo o footer padrão das páginas -->
+        <?php include ('footer.php');?>
+        
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS-->

@@ -28,112 +28,71 @@ include('conexao.php');
         <link href="css/styles.css" rel="stylesheet" />
     </head>
     <body>
-        <!-- Navbar-->
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <div class="container px-4 px-lg-1">
-                <a class="navbar-brand me-0" href="home.php">Eletronics Store</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
-                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="home.php">Compras</a></li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle me-5" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Cadastros</a>
-                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a name="link_cadastro_usuario" class="dropdown-item" href="cadastros_usuarios.php">Usuários</a></li>
-                                <li><a name="link_cadastro_fornecedor" class="dropdown-item" href="cadastros_fornecedores.php">Fornecedores</a></li>
-                                <li><a name="link_cadastro_produto" class="dropdown-item" href="cadastros_produtos.php">Produtos</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                    <form class="d-flex">
-                        <input class="form-control me-0" type="text" placeholder="Buscar">
-                        <button class="btn btn-primary me-2" type="button">Buscar</button>
-                    </form>
-                </div>
-                    <form class="d-flex">
-                        <button class="btn btn-outline-dark " type="submit">
-                            <i class="bi-cart-fill me-1" ></i>
-                            Carrinho
-                            <span class="badge bg-dark text-white ms-1 rounded-pill">0</span>
-                        </button>
-                    </form>
-                </div>
-            </div>
-        </nav>
-        <!-- Header-->
-        <header class="bg-dark py-1">
-            <div class="container px-4 px-lg-5 my-5">
-                <div class="text-center text-white">
-                    <h1 class="display-4 fw-bolder">Eletronics Store</h1>
-                    <p class="lead fw-normal text-white-50 mb-0">Economize seu dinheiro comprando conosco!</p>
-                </div>
-            </div>
-        </header>
+        <!-- Incluindo o header padrão das páginas -->
+        <?php include ('header.php');?>
+        
         <!-- Formulário-->
-            <div class="container">
-                <form method="POST" action="usuarios_backend.php">
-                    <div class="form-row">
-                        <div class="form-group col-md-5">
-                            <label>Nome*</label>
-                            <input type="text" name="nome" id="nome" class="form-control" maxlength="100" placeholder="Nome completo">
-                        </div>
-                        <div class="form-group col-md-3">
-                            <label>Login*</label>
-                            <input type="text" name="login" id="login" class="form-control" maxlength="20" placeholder="Login de acesso">
-                        </div>
-                        <div class="form-group col-md-4">
-                            <label>CPF*</label>
-                            <input type="text" name="cpf" id="cpf" class="form-control" minlength="14" maxlength="14" placeholder="CPF" onkeypress="$(this).mask('000.000.000-00');">
-                        </div>
+        <div class="container">
+            <form method="POST" action="usuarios_backend.php">
+                <div class="form-row">
+                    <div class="form-group col-md-5">
+                        <label>Nome*</label>
+                        <input type="text" name="nome" id="nome" class="form-control" maxlength="100" placeholder="Nome completo">
                     </div>
-                    <div class="form-row">
-                        <div class="form-group col-md-3">
-                            <label>CEP*</label>
-                            <input type="text" name="cep" id="cep" class="form-control" minlength="9" maxlength="9" placeholder="CEP" onkeypress="$(this).mask('00000-000');">
-                        </div>
-                        <div class="form-group col-md-6">
-                            <label>Rua</label>
-                            <input type="text" name="rua" id="rua" class="form-control" maxlength="200" placeholder="Rua">
-                        </div>
-                        <div class="form-group col-md-3">
-                            <label>Número</label>
-                            <input type="text" name="numero" id="numero" class="form-control" maxlength="6" placeholder="Nº do imóvel">
-                        </div>
+                    <div class="form-group col-md-3">
+                        <label>Login*</label>
+                        <input type="text" name="login" id="login" class="form-control" maxlength="20" placeholder="Login de acesso">
                     </div>
-                    <div class="form-row">
-                        <div class="form-group col-md-3">
-                            <label>Telefone</label>
-                            <input type="text" name="telefone" id="telefone" class="form-control" maxlength="15" placeholder="Telefone" onkeypress="$(this).mask('(00)0.0000-0000');">
-                        </div>
-                        <div class="form-group col-md-4">
-                            <label>E-mail</label>
-                            <input type="text" name="email" id="email" class="form-control" maxlength="100" placeholder="E-mail para contato">
-                        </div>
-                        <div class="form-group col-md-3">
-                            <label>Senha*</label>
-                            <input type="password" name="senha" id="senha" class="form-control" maxlength="20" placeholder="Senha de acesso">
-                        </div>
-                        <div class="form-group col-md-2">
-                            <label>Permissão*</label>
-                            <input type="text" name="permissao" id="permissao" class="form-control" onkeypress="$(this).mask('0');">
-                        </div>
+                    <div class="form-group col-md-4">
+                        <label>CPF*</label>
+                        <input type="text" name="cpf" id="cpf" class="form-control" minlength="14" maxlength="14" placeholder="CPF" onkeypress="$(this).mask('000.000.000-00');">
                     </div>
-                    <div class="form-row">
-                        <div class="form-group">
-                            <button name="btn_cadastrar_usuario" id="btn_cadastrar_usuario" type="submit" class="btn btn-primary">Cadastrar </button>
-                            <a href="cadastros_usuarios.php" name="btn_limpar_cadastro_usuario" id="" type="submit" class="btn btn-warning">Limpar </a>
-                            <button name="btn_excluir_cadastro_usuario" id="btn_excluir_cadastro_usuario" type="submit" class="btn btn-danger">Excluir </button>
-                        </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-3">
+                        <label>CEP*</label>
+                        <input type="text" name="cep" id="cep" class="form-control" minlength="9" maxlength="9" placeholder="CEP" onkeypress="$(this).mask('00000-000');">
                     </div>
-                </form>
-            </div>
+                    <div class="form-group col-md-6">
+                        <label>Rua</label>
+                        <input type="text" name="rua" id="rua" class="form-control" maxlength="200" placeholder="Rua">
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label>Número</label>
+                        <input type="text" name="numero" id="numero" class="form-control" maxlength="6" placeholder="Nº do imóvel">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-3">
+                        <label>Telefone</label>
+                        <input type="text" name="telefone" id="telefone" class="form-control" maxlength="15" placeholder="Telefone" onkeypress="$(this).mask('(00)0.0000-0000');">
+                    </div>
+                    <div class="form-group col-md-4">
+                        <label>E-mail</label>
+                        <input type="text" name="email" id="email" class="form-control" maxlength="100" placeholder="E-mail para contato">
+                    </div>
+                    <div class="form-group col-md-3">
+                        <label>Senha*</label>
+                        <input type="password" name="senha" id="senha" class="form-control" maxlength="20" placeholder="Senha de acesso">
+                    </div>
+                    <div class="form-group col-md-2">
+                        <label>Permissão*</label>
+                        <input type="text" name="permissao" id="permissao" class="form-control" onkeypress="$(this).mask('0');">
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <button name="btn_cadastrar_usuario" id="btn_cadastrar_usuario" type="submit" class="btn btn-primary">Cadastrar </button>
+                        <a href="cadastros_usuarios.php" name="btn_limpar_cadastro_usuario" id="" type="submit" class="btn btn-warning">Limpar </a>
+                        <button name="btn_excluir_cadastro_usuario" id="btn_excluir_cadastro_usuario" type="submit" class="btn btn-danger">Excluir </button>
+                    </div>
+                </div>
+            </form>
+        </div>
 
-        <!-- Rodapé-->
-        <div class="rodape">
-        <footer class="py-3 bg-dark">
-            <p class="m-0 text-center text-white">Copyright &copy; Eletronics Store 2021</p>
-        </footer>
-    </div>
+        <!-- Definindo o footer padrão das páginas -->
+        <?php include ('footer.php');?>
+
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS-->

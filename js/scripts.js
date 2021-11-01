@@ -81,3 +81,15 @@ function AlteraConteudoDrop(name)
 	ajax.send();
 	
 }
+
+var i = 0;
+function add_qtd()
+{
+	document.getElementById('num_carrinho').innerHTML = ++i;
+}
+
+function sub_qtd()
+{
+	document.getElementById('num_carrinho').innerHTML = --i;
+
+}
