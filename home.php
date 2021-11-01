@@ -20,12 +20,13 @@ $resultado_busca = $mysqli->query($resultado_prod) or die("Falha na execução d
         <script src="js/scripts.js"></script>
 
         <!-- Core theme CSS (includes Bootstrap)-->
-        <link href="css/styles.css" rel="stylesheet" />
+        <link href="css/styles.css?version=2" rel="stylesheet" />
     </head>
     <body>
         <!-- Navbar-->
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container px-4 px-lg-1">
+            
                 <a class="navbar-brand me-0">Eletronics Store</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
