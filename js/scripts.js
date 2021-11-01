@@ -92,7 +92,8 @@ function add_item_carrinho()
 	  document.getElementById('num_carrinho').innerHTML = ajax.responseText;
 	 }
 	}
-
+	qtd_add = document.querySelector("#btn_item").value;
+	qtd_atual = document.getElementById("num_carrinho");
 	//var add = document.querySelector("#input_add_qtd").value;
 	//add = add + document.querySelector("#num_carrinho").value;
 	//add = "qtd="+add;

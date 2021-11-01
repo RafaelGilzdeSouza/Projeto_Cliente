@@ -103,8 +103,8 @@ if(isset($_POST['btn_entrar'])){
               <div class="col-lg-6 d-flex align-items-center gradient-custom-2">
                 <div class="text-white text-center px-3 py-4 p-md-5 mx-md-4">
                   <img src="img/logousuario.png" style="width: 185px;" alt="logo">
-                  <h4 class="mb-4">Welcome!</h4>
-                  <p3 class="medium mb-0">Buy with the best experience possible. Join us!</p>
+                  <h4 class="mb-4">Bem vindo!</h4>
+                  <p3 class="medium mb-0">Acesse nosso site para comprar ;)</p>
                 </div>
               </div>
             </div>
