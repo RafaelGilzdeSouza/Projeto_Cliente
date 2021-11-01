@@ -39,10 +39,11 @@ $resultado_busca = $mysqli->query($resultado_prod) or die("Falha na execução d
                                 <li><a name="link_cadastro_produto" class="dropdown-item" href="cadastros_produtos.php">Produtos</a></li>
                             </ul>
                         </li>
+                       
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Celulares</a>
                             <ul class="dropdown-menu" value="teste" aria-labelledby="navbarDropdown">
-                                <li><button name="Celulares-Samsung" type="text" id="Celulares-Samsung" class="dropdown-item" onclick="AlteraConteudoDrop(this.value);" value="Celulares-Samsung" >Samsung</button></li>
+                                <li><button name="Celulares-Samsung" class="dropdown-item" onclick="AlteraConteudoDrop(this.value);" value="Celulares-Samsung" >Samsung</button></li>
                                 <li><button name="Celulares_Apple" class="dropdown-item"  onclick="AlteraConteudoDrop(this.value);" value="Celulares-Apple" >Apple</button></li>
                                 <li><button name="Celulares_Todos" class="dropdown-item" onclick="AlteraConteudoDrop(this.value);" value="Celulares" >Ver todos</button></li>
                             </ul>
@@ -121,7 +122,7 @@ $resultado_busca = $mysqli->query($resultado_prod) or die("Falha na execução d
                             '<div class="col mb-5">
                                 <div class="card h-100">
                                     <!-- Foto do Produto-->
-                                    <img class="card-img-top" src="'.$row_produtos['foto'].'" alt="..." />
+                                    <img src="'.$row_produtos['foto'].'" alt="..." />
                                     <div class="card-body p-4">
                                         <div class="text-center">
                                             <!-- Nome do Produto-->
