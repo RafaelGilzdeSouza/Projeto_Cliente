@@ -19,11 +19,10 @@ if(isset($_POST['btn_entrar'])){
 
           $sql_code = "SELECT * FROM tb_usuario WHERE login = '$login' AND senha = '$senha'";
           $sql_query = $mysqli->query($sql_code) or die("Falha na execução do código SQL: " . $mysqli->error);
-
+        
           $quantidade = $sql_query->num_rows;
-
+        
           if($quantidade == 1) {
-              
               $usuario = $sql_query->fetch_assoc();
 
               if(!isset($_SESSION)) {
@@ -46,6 +45,7 @@ if(isset($_POST['btn_entrar'])){
           }
       }
   }
+
 }
 ?>
 <!DOCTYPE html>

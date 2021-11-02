@@ -26,8 +26,8 @@ $resultado_busca = $mysqli->query($resultado_prod) or die("Falha na execução d
     </head>
     <body>
         <!-- Definindo o header padrão das páginas -->
-        <?php include ('header.php');?>
-
+        <?php include ('header.php');
+        ?>  
         <!-- Section-->
         <section class="py-2">
             <!-- Container que centraliza os produtos a serem mostrados-->
