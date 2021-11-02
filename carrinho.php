@@ -18,8 +18,8 @@
 </head>
 
 <body>
-    <!-- Navbar-->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <!-- Navbar -->
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container px-4 px-lg-1">
             <a class="navbar-brand me-0" href="home.php">Eletronics Store</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -56,7 +56,7 @@
         </div>
         </div>
     </nav>
-    <!-- Carrinho abaixo-->
+  
 
     <main class="page">
         <section class="shopping-cart dark">
@@ -132,7 +132,7 @@
             </div>
         </section>
     </main>
-
+-->
 
 
     

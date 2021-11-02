@@ -34,7 +34,7 @@
                     <!-- Botoes de acao do card-->
                     <div class="card-footer p-4 pt-0 border-top-0 bg-transparent text-center">
                         <button class="btn btn-outline-dark mt-auto" onclick="add_qtd('.$row_produtos['cod_prod'].')" href="#">+</button>
-                        0
+                     
                         <button class="btn btn-outline-dark mt-auto" onclick="sub_qtd('.$row_produtos['cod_prod'].')" href="#">-</button>
                     </div>
                 </div>
