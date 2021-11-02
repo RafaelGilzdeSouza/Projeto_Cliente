@@ -1,7 +1,7 @@
-
-
+// teste https://www.portugal-a-programar.pt/forums/topic/11615-php-carrinho-de-compras/
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 
 <head>
     <meta charset="utf-8" />
