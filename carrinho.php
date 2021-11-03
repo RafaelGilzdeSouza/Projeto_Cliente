@@ -1,4 +1,3 @@
-// teste https://www.portugal-a-programar.pt/forums/topic/11615-php-carrinho-de-compras/
 <!DOCTYPE html>
 <html lang="pt-BR">
 
@@ -18,7 +17,6 @@
 </head>
 
 <body>
-<<<<<<< HEAD:carrinho.html
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <!--Container para centralizar a navbar-->
         <div class="container px-4 px-lg-1">
@@ -114,47 +112,6 @@
         </div> <!--Fim do container para centralizar a navbar-->
     </nav> <!--Fim do navbar-->
     <!-- Carrinho abaixo-->
-=======
-    <!-- Navbar -->
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container px-4 px-lg-1">
-            <a class="navbar-brand me-0" href="home.php">Eletronics Store</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
-                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="home.php">Compras</a></li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle me-5" id="navbarDropdown" href="#" role="button"
-                            data-bs-toggle="dropdown" aria-expanded="false">Cadastros</a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a name="link_cadastro_usuario" class="dropdown-item"
-                                    href="cadastros_usuarios.php">Usuários</a></li>
-                            <li><a name="link_cadastro_fornecedor" class="dropdown-item"
-                                    href="cadastros_fornecedores.php">Fornecedores</a></li>
-                            <li><a name="link_cadastro_produto" class="dropdown-item"
-                                    href="cadastros_produtos.php">Produtos</a></li>
-                        </ul>
-                    </li>
-                </ul>
-                <form class="d-flex">
-                    <input class="form-control me-0" type="text" placeholder="Buscar">
-                    <button class="btn btn-primary me-2" type="button">Buscar</button>
-                </form>
-            </div>
-            <form class="d-flex">
-                <button class="btn btn-outline-dark " type="submit">
-                    <i class="bi-cart-fill me-1"></i>
-                    Carrinho
-                    <span class="badge bg-dark text-white ms-1 rounded-pill">0</span>
-                </button>
-            </form>
-        </div>
-        </div>
-    </nav>
-  
->>>>>>> 8365cdaa5e72d3905ca757af99c7e6db34e44dcd:carrinho.php
 
     <main class="page">
         <section class="shopping-cart dark">
