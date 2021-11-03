@@ -1,5 +1,4 @@
 <html>
-    <?php echo "'";?>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <!--Container para centralizar a navbar-->
         <div class="container px-4 px-lg-1">
@@ -104,5 +103,5 @@
                 <p class="lead fw-normal text-white-50 mb-0">Economize seu dinheiro comprando conosco!</p>
             </div>
         </div> <!--Fim do container para centralizar o header-->
-    </header><?php  echo "'";?>
+    </header>
 </html>
