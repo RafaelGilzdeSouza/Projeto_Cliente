@@ -73,7 +73,7 @@
                 </li>
                 
                 <li class="nav-item dropdown">
-                    <form action="carrinho.html">
+                    <form action="carrinho.php">
                     <button name="btn_carrinho" id="btn_carrinho" class="btn btn-outline-dark " type="submit">
                         <img src="img/shopcart2.ico" style="height: 18px;" alt="logo">
                         <span class="badge bg-dark text-white ms-1 badge-pill">
