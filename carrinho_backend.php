@@ -1,53 +1,47 @@
 <?php
-if(isset($_GET['add_produto'])){ // o botao adicionar foi pressionado? (sim)
+include('conexao.php');
+if(isset($_GET['add_produto'])){ // o botao + foi pressionado? (sim)
+    $idProduto = (int) $_GET['add_produto'];
+    $query = 'select * from tb_carrinho where cod_produto = '.$idProduto.';';
+    $resultado = $mysqli->query($query) or die("Falha na execução do código SQL: " . $mysqli->error);
+    $array_produto = mysqli_fetch_assoc($resultado);
+    if ($array_produto['cod_prod'] == $idProduto){ // o produto ja esta no carrinho de compras? (sim)
+        if($array_produto['qtd_compra'] == 10){ // ainda tem estoque? (nao)
+            echo 'Produto nao possui estoque.';
+        }else{ // ainda tem estoque? (sim)
+            $qtd_atual = $array_produto['qtd_compra'] + 1;
+            $query_att = 'update tb_carrinho set qtd_compra ='.$qtd_atual.';';
+            $resultado = $mysqli->query($query) or die("Falha na execução do código SQL: " . $mysqli->error);
+            $array_produto = mysqli_fetch_assoc($resultado);
+        }
+    }else{ // o produto ja esta no carrinho de compras? (nao)
         $idProduto = (int) $_GET['add_produto'];
-        echo $_GET['add_produto'];
-}
-
-if(isset($_GET['diminuir_produto'])){ // o botao adicionar foi pressionado? (sim)
-    $idProduto = (int) $_GET['diminuir_produto'];
-    echo $_GET['diminuir_produto'];
-}
-
-if(isset($_GET['atualizaCarrinho'])){ // o botao adicionar foi pressionado? (sim)
-    echo ($_GET['atualizaCarrinho']);
-}
-
-
-
-
-    if(isset($_GET['remover'])){ // o botao remover foi pressionado? (sim)
-        $idProduto = (int) $_GET['remover'];
-        if(isset($itens[$idProduto])){ //exite um produto no banco de dados com esse id? (sim)
-            if(isset($_SESSION['carrinho'][$idProduto])){ //ja existe um produto com esse id no carrinho? (sim)
-                if($_SESSION['carrinho'][$idProduto]['quantidade'] > 0){
-                    $_SESSION['carrinho'][$idProduto]['quantidade']--;
-                    echo 'O item foi removido com sucesso';
-                }else{
-                    echo'O produto nao está no carrinho.';
-                }
-            }
-        }else{ //exite um produto no banco de dados com esse id? (nao)
-            die("voce nao pode remover um item que nao exise");
-        }
+        $query = 'select * from tb_produtos where cod_prod = '.$idProduto.';';
+        $resultado = $mysqli->query($query) or die("Falha na execução do código SQL: " . $mysqli->error);
+        $array_produto = mysqli_fetch_assoc($resultado);
+        $query = "insert into tb_carrinho (descricao, qtd_comprada, data_compra, valor_unitario_prod, cod_fornecedor, valor_total, operacao, cod_produto) values (
+            '".$array_produto['descricao']."',
+            1,
+            '04/11/2021',
+            ".$array_produto['preco_venda'].",
+            1,
+            ".$array_produto['preco_venda'].",
+            'pendente',
+            ".$array_produto['cod_prod'].");";
+        $resultado = $mysqli->query($query) or die("Falha na execução do código SQL: " . $mysqli->error);
     }
-    if(isset($_GET['limparcarrinho'])){ // o botao remover foi pressionado? (sim)
-        $idProduto = (int) $_GET['limparcarrinho'];
-        if(isset($itens[$idProduto])){ //exite um produto no banco de dados com esse id? (sim)
-            if(isset($_SESSION['carrinho'][$idProduto])){ //ja existe um produto com esse id no carrinho? (sim)
-                $_SESSION['carrinho'][$idProduto]['quantidade'] = 0;
-            }else{
-                echo'O produto nao está no carrinho.';
-            }
-        }
-        else{ //exite um produto no banco de dados com esse id? (nao)
-            die("voce nao pode remover um item que nao exise");
-        }
-    }
-    if(isset($_POST['btn_mais'])){echo'teste';}
+}
 
+if(isset($_GET['diminuir_produto'])){ // o botao - foi pressionado? (sim)
+$idProduto = (int) $_GET['diminuir_produto'];
+echo $_GET['diminuir_produto'];
+}
 
-
+if(isset($_GET['atualizaCarrinho'])){ // funcao executada ao pressionar os botoes + ou -
+    $idProduto = (int) $_GET['add_produto'];
+    $query = 'select * from tb_produtos where cod_prod = '.$idProduto.';';
+    $resultado = $mysqli->query($query) or die("Falha na execução do código SQL: " . $mysqli->error);
+    $array_produto = mysqli_fetch_assoc($resultado);}
 
 
     

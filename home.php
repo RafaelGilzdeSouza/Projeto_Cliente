@@ -37,7 +37,6 @@ $resultado_busca = $mysqli->query($resultado_prod) or die("Falha na execução d
 function atualizaCarrinho(produto){
     var ajax = AjaxF();
 	var prod = produto;
-    prod = prod + 10;
     ajax.onreadystatechange = function(){
         if(ajax.readyState == 4){
             document.getElementById('num_carrinho').innerHTML = ajax.responseText;
@@ -55,7 +54,7 @@ function adicionar(cod_produto)
     var produto = cod_produto;
 	ajax.onreadystatechange = function(){
         if(ajax.readyState == 4){
-            document.getElementById('demo').innerHTML = ajax.responseText;
+            //document.getElementById('demo').innerHTML = ajax.responseText;
             atualizaCarrinho(produto);
         }
 	}
