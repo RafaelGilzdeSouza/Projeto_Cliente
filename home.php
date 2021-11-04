@@ -55,7 +55,7 @@ function adicionar(cod_produto)
 	ajax.onreadystatechange = function(){
         if(ajax.readyState == 4){
             document.getElementById('demo').innerHTML = ajax.responseText;
-            //atualizaCarrinho(produto);
+            atualizaCarrinho(produto);
         }
 	}
 
