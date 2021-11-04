@@ -27,7 +27,60 @@ $resultado_busca = $mysqli->query($resultado_prod) or die("Falha na execução d
     <body>
         <!-- Definindo o header padrão das páginas -->
         <?php include ('header.php');
-        ?>  
+        ?>          
+
+<p id="demo"></p>
+<p id="demo2"></p>
+
+<script>
+
+function atualizaCarrinho(produto){
+    var ajax = AjaxF();
+	var prod = produto;
+    prod = prod + 10;
+    ajax.onreadystatechange = function(){
+        if(ajax.readyState == 4){
+            document.getElementById('num_carrinho').innerHTML = ajax.responseText;
+        }
+	}
+
+    ajax.open("GET", "carrinho_backend.php?atualizaCarrinho="+prod);
+	ajax.setRequestHeader("Content-Type", "text/html");
+	ajax.send();
+}
+
+function adicionar(cod_produto)
+{
+    var ajax = AjaxF();
+    var produto = cod_produto;
+	ajax.onreadystatechange = function(){
+        if(ajax.readyState == 4){
+            document.getElementById('demo').innerHTML = ajax.responseText;
+            atualizaCarrinho(produto);
+        }
+	}
+
+    ajax.open("GET", "carrinho_backend.php?add_produto="+produto);
+	ajax.setRequestHeader("Content-Type", "text/html");
+	ajax.send();
+}
+
+function diminuir(cod_produto)
+{
+    var ajax = AjaxF();
+    var produto = cod_produto;
+	ajax.onreadystatechange = function(){
+        if(ajax.readyState == 4){
+            document.getElementById('demo2').innerHTML = ajax.responseText;
+            atualizaCarrinho(produto);
+        }
+	}
+
+    ajax.open("GET", "carrinho_backend.php?diminuir_produto="+produto);
+	ajax.setRequestHeader("Content-Type", "text/html");
+	ajax.send();
+}
+</script>
         <!-- Section-->
         <section class="py-2">
             <!-- Container que centraliza os produtos a serem mostrados-->
@@ -55,18 +108,16 @@ $resultado_busca = $mysqli->query($resultado_prod) or die("Falha na execução d
                                     
                                     <!-- Botoes de acao do card-->
                                     <div class="card-footer p-4 pt-0 border-top-0 bg-transparent text-center">
-                                        <a class="btn btn-outline-dark mt-auto" onclick="adiciona(this.value)" value="'.$row_produtos['cod_prod'].'">+</a>
-                                        0
-                                        <a name="" class="btn btn-outline-dark mt-auto" href="?remover='.$row_produtos['cod_prod'].'">-</a>
+                                    <button name="btn_mais" class="btn btn-outline-dark mt-auto" onclick="adicionar(this.value)" value="'.$row_produtos['cod_prod'].'">+</button>
+                                    <button name="btn_menos" class="btn btn-outline-dark mt-auto" onclick="diminuir(this.value)" value="'.$row_produtos['cod_prod'].'">-</button>
                                     </div>
                                 </div>
                             </div>');}
                     }
                     ?>
-                </div> <div class="msg_add" name="msg_add"></div>
+                </div>
             </div> <!-- Fim do container que centraliza os produtos a serem mostrados-->
         </section> <!-- Fim da section-->
-
         <!-- Definindo o footer padrão das páginas -->
         <?php include ('footer.php');?>
 
