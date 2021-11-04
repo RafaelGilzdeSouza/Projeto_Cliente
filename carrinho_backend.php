@@ -1,21 +1,22 @@
 <?php
 include('conexao.php');
+
 if(isset($_GET['add_produto'])){ // o botao + foi pressionado? (sim)
     $idProduto = (int) $_GET['add_produto'];
     $query = 'select * from tb_carrinho where cod_produto = '.$idProduto.';';
     $resultado = $mysqli->query($query) or die("Falha na execução do código SQL: " . $mysqli->error);
     $array_produto = mysqli_fetch_assoc($resultado);
-    if ($array_produto['cod_prod'] == $idProduto){ // o produto ja esta no carrinho de compras? (sim)
-        if($array_produto['qtd_compra'] == 10){ // ainda tem estoque? (nao)
-            echo 'Produto nao possui estoque.';
+    if ($array_produto['cod_produto'] == $idProduto){ // o produto ja esta no carrinho de compras? (sim)
+        if($array_produto['qtd_comprada'] == 10){ // ainda tem estoque? (nao)
+            echo 'Produto '.$array_produto['cod_produto'].' nao possui estoque.'; // msg de retorno
         }else{ // ainda tem estoque? (sim)
-            $qtd_atual = $array_produto['qtd_compra'] + 1;
-            $query_att = 'update tb_carrinho set qtd_compra ='.$qtd_atual.';';
-            $resultado = $mysqli->query($query) or die("Falha na execução do código SQL: " . $mysqli->error);
-            $array_produto = mysqli_fetch_assoc($resultado);
+            $qtd_atual = $array_produto['qtd_comprada'] + 1;
+            
+            $query_att = 'update tb_carrinho SET qtd_comprada = '.$qtd_atual.' WHERE (id_venda = '.$array_produto['id_venda'].');';
+            $resultado = $mysqli->query($query_att) or die("Falha na execução do código SQL: " . $mysqli->error);
+            echo 'Produto '.$array_produto['cod_produto'].' add +1 | qtd_atual: '.$array_produto['qtd_comprada']; // msg de retorno
         }
     }else{ // o produto ja esta no carrinho de compras? (nao)
-        $idProduto = (int) $_GET['add_produto'];
         $query = 'select * from tb_produtos where cod_prod = '.$idProduto.';';
         $resultado = $mysqli->query($query) or die("Falha na execução do código SQL: " . $mysqli->error);
         $array_produto = mysqli_fetch_assoc($resultado);
@@ -29,6 +30,10 @@ if(isset($_GET['add_produto'])){ // o botao + foi pressionado? (sim)
             'pendente',
             ".$array_produto['cod_prod'].");";
         $resultado = $mysqli->query($query) or die("Falha na execução do código SQL: " . $mysqli->error);
+        
+        echo 'Produto add ao carrinho | qtd_atual: '.$array_produto['qtd_comprada']; // msg de retorno
+
+        
     }
 }
 
@@ -38,10 +43,9 @@ echo $_GET['diminuir_produto'];
 }
 
 if(isset($_GET['atualizaCarrinho'])){ // funcao executada ao pressionar os botoes + ou -
-    $idProduto = (int) $_GET['add_produto'];
-    $query = 'select * from tb_produtos where cod_prod = '.$idProduto.';';
-    $resultado = $mysqli->query($query) or die("Falha na execução do código SQL: " . $mysqli->error);
-    $array_produto = mysqli_fetch_assoc($resultado);}
+    
+    echo 1;    
+}
 
 
     
