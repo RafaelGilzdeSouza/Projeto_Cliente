@@ -82,12 +82,26 @@ function AlteraConteudoDrop(name)
 	
 }
 
-var i = 0;
-function add_qtd()
+function adiciona(cod_prod)
 {
-	document.getElementById('num_carrinho').innerHTML = ++i;
+	var ajax = AjaxF();
+
+	ajax.onreadystatechange = function(){
+	 if(ajax.readyState == 4)
+	 {
+	  document.getElementById('num_carrinho').innerHTML = ajax.responseText;
+	 }
+	}
+	
+	var cod = cod_prod;
+		
+	ajax.open("GET", "carrinho_backend.php?produto="+cod);
+	ajax.setRequestHeader("Content-Type", "text/html");
+	ajax.send();	
 }
 
+
+var i = 0;
 function sub_qtd()
 {
 	document.getElementById('num_carrinho').innerHTML = --i;

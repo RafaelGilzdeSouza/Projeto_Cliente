@@ -55,15 +55,15 @@ $resultado_busca = $mysqli->query($resultado_prod) or die("Falha na execução d
                                     
                                     <!-- Botoes de acao do card-->
                                     <div class="card-footer p-4 pt-0 border-top-0 bg-transparent text-center">
-                                        <button class="btn btn-outline-dark mt-auto" onclick="add_qtd('.$row_produtos['cod_prod'].')" href="#">+</button>
+                                        <a class="btn btn-outline-dark mt-auto" onclick="adiciona(this.value)" value="'.$row_produtos['cod_prod'].'">+</a>
                                         0
-                                        <button class="btn btn-outline-dark mt-auto" onclick="sub_qtd('.$row_produtos['cod_prod'].')" href="#">-</button>
+                                        <a name="" class="btn btn-outline-dark mt-auto" href="?remover='.$row_produtos['cod_prod'].'">-</a>
                                     </div>
                                 </div>
                             </div>');}
                     }
                     ?>
-                </div>
+                </div> <div class="msg_add" name="msg_add"></div>
             </div> <!-- Fim do container que centraliza os produtos a serem mostrados-->
         </section> <!-- Fim da section-->
 
