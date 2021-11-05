@@ -120,7 +120,7 @@ function diminuir(cod_produto)
         </section> <!-- Fim da section-->
         <!-- Definindo o footer padrão das páginas -->
         <?php include ('footer.php');?>
-
+        <script>atualizaCarrinho()</script>
         <!-- Nucleo Bootstrap JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Nucleo JS-->

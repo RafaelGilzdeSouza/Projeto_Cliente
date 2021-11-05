@@ -97,5 +97,20 @@ include('conexao.php');
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS-->
         <script src="js/scripts.js"></script>
+        <script>
+            function atualizaCarrinho(produto){
+                var ajax = AjaxF();
+                var prod = produto;
+                ajax.onreadystatechange = function(){
+                    if(ajax.readyState == 4){
+                        document.getElementById('num_carrinho').innerHTML = ajax.responseText;
+                    }
+                }
+                ajax.open("GET", "carrinho_backend.php?atualizaCarrinho="+prod);
+                ajax.setRequestHeader("Content-Type", "text/html");
+                ajax.send();
+            }
+        atualizaCarrinho()
+        </script>
     </body>
 </html>
