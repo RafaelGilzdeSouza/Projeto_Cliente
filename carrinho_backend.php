@@ -41,7 +41,21 @@ if(isset($_GET['add_produto'])){ // o botao + foi pressionado? (sim)
 
 if(isset($_GET['diminuir_produto'])){ // o botao - foi pressionado? (sim)
     $idProduto = (int) $_GET['diminuir_produto'];
-    echo 'Botao diminuir pressionado. ID do produto: '.$_GET['diminuir_produto'];
+    $query = 'select * from tb_carrinho where cod_produto = '.$idProduto.';';
+    $resultado = $mysqli->query($query) or die("Falha na execução do código SQL: " . $mysqli->error);
+    $array_produto = mysqli_fetch_assoc($resultado);
+    if ($array_produto['cod_produto'] == $idProduto){ // o produto ja esta no carrinho de compras? (sim)
+        if($array_produto['qtd_comprada'] >1 ){ // a qtd comprada é maior ou igual a 1 (sim)
+            $qtd_atual = $array_produto['qtd_comprada'] - 1;
+            $query_att = 'update tb_carrinho SET qtd_comprada = '.$qtd_atual.' WHERE (id_venda = '.$array_produto['id_venda'].');';
+            $resultado = $mysqli->query($query_att) or die("Falha na execução do código SQL: " . $mysqli->error);
+            echo 'Produto '.$array_produto['cod_produto'].' sub -1 | qtd_atual: '.$qtd_atual; // msg de retorno
+        }elseif($array_produto['qtd_comprada'] <= 1){ // a qtd comprada é menor ou igual a 1 (sim)
+            $query_delete = 'delete from tb_carrinho where id_venda ='.$array_produto['id_venda'].';';
+            $resultado = $mysqli->query($query_delete) or die("Falha na execução do código SQL: " . $mysqli->error);
+        }
+    }    
+    echo '<br>Botao diminuir pressionado. ID do produto: '.$_GET['diminuir_produto'];
 }
 
 if(isset($_GET['atualizaCarrinho'])){ // funcao executada ao pressionar os botoes + ou -
