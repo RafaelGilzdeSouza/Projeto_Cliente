@@ -1,3 +1,13 @@
+<?php
+include('conexao.php');
+$resultado_prod = "select cod_produto, descricao, valor_unitario_prod, qtd_comprada, valor_total from tb_carrinho;";
+$resultado_busca = $mysqli->query($resultado_prod) or die("Falha na execução do código SQL: " . $mysqli->error);
+
+$query_total_geral = 'select sum(valor_total) as total_geral, (select razaoSocial from tb_fornecedor where cod_forn = 1) as dist from tb_carrinho;';
+$resultado_total_geral = $mysqli->query($query_total_geral) or die("Falha na execução do código SQL: " . $mysqli->error);
+$array_total = mysqli_fetch_assoc($resultado_total_geral);
+
+?>
 <!DOCTYPE html>
 <html lang="pt-BR">
 
@@ -95,7 +105,7 @@
                     <button name="btn_carrinho" id="btn_carrinho" class="btn btn-outline-dark disabled" type="submit">
                         <img src="img/shopcart2.ico" style="height: 18px;" alt="logo">
                         <span class="badge bg-dark text-white ms-1 badge-pill">
-                            <div name="num_carrinho" id="num_carrinho" class="num_carrinho">0</div>
+                            <div name="num_carrinho" id="num_carrinho" class="num_carrinho"></div>
                         </span>
                     </button>
                     </form>
@@ -111,106 +121,112 @@
             </ul>
         </div> <!--Fim do container para centralizar a navbar-->
     </nav> <!--Fim do navbar-->
-    <!-- Carrinho abaixo-->
+    
+    <!--Header-->
+    <header class="bg-dark py-1">
+        <!--Container para centralizar o header-->
+        <div class="container px-lg-5 my-4">
+            <div class="text-center text-white">
+                <h1 class="display-4 fw-bolder">Eletronics Store</h1>
+                <p class="lead fw-normal text-white-50 mb-0">Economize seu dinheiro comprando conosco!</p>
+            </div>
+        </div> <!--Fim do container para centralizar o header-->
+    </header>
 
     <main class="page">
         <section class="shopping-cart dark">
-            <div class="container">
-                <div class="block-heading">
-                    <br>
-                    <br>
-                    <h2>Carrinho de Compras</h2>
-                    <br>
-                    <br>
-                </div>
-                <div class="content">
-                    <div class="row">
-                        <div class="col-md-12 col-lg-8">
-                            <div class="card">
-                                <div class="items">
-                                    <div class="product">
-                                        <div class="row">
-                                            <div class="col-md-3">
-
-                                                <img class="img-fluid mx-auto d-block image" src="img/logo.png">
+            <div class="container px-4 px-lg-5 mt-5">  <!--Div dos produtos-->
+                <div class="col-md-12"> <!--Div dos produtos-->
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr class="table-active"><!--Linha do cabecalho da tabela-->
+                                <th>Cod. Prod.</th>
+                                <th>Descricao</th>
+                                <th>Valor Unitario</th>
+                                <th>Qtd</th>
+                                <th>Valor Total</th>
+                                <th>Alterar Quantidade</th>
+                            </tr>
+                        </thead>
+                        <tbody><!--Estrutura das linhas da tabela-->
+                        <?php
+                            if (($resultado_busca) AND ($resultado_busca->num_rows != 0)) { // o valor é valido? (sim)
+                                while($row_produtos = mysqli_fetch_assoc($resultado_busca)){
+                                    echo utf8_encode('
+                                    <tr class="table-active"><!--Conteudo da linha do produto 1-->
+                                        <td>'.$row_produtos['cod_produto'].'</td>
+                                        <td>'.$row_produtos['descricao'].'</td>
+                                        <td>'.$row_produtos['valor_unitario_prod'].'</td>
+                                        <td>'.$row_produtos['qtd_comprada'].'</td>
+                                        <td>'.$row_produtos['valor_total'].'</td>
+                                        <td>
+                                            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent text-center">
+                                                <button name="btn_mais" class="btn btn-outline-dark mt-auto  btn-block" onclick="adicionar(this.value)" value="'.$row_produtos['cod_produto'].'">+</button>
+                                                <button name="btn_menos" class="btn btn-outline-dark mt-auto  btn-block" onclick="diminuir(this.value)" value="'.$row_produtos['cod_produto'].'">-</button>
                                             </div>
-                                            <div class="col-md-8">
-                                                <div class="info">
-                                                    <div class="row">
-                                                        <div class="col-md-5 product-name">
-                                                            <div class="product-name">
-                                                                <a href="#">produto 1</a>
-                                                                <div class="product-info">
-                                                                    <div>Display: <span class="value">5 inch</span>
-                                                                    </div>
-                                                                    <div>RAM: <span class="value">4GB</span></div>
-                                                                    <div>Memory: <span class="value">32GB</span></div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-md-4 quantity">
-                                                            <label for="quantity">Quantity:</label>
-                                                            <input id="quantity" type="number" value="1"
-                                                                class="form-control quantity-input">
-                                                        </div>
-                                                        <div class="col-md-3 price">
-                                                            <br>
-                                                            <span>$120</span>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                        </div>
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-12 col-lg-4">
-                            <div class="card h-auto" style="width:200px;">
-                                <div class="summary">
-                                    
-                                    <h3>Total</h3>
-                                    <div class="summary-item"><span class="text">SubTotal:  </span><span
-                                            class="price">$360</span></div>
-                                            <br>
-
-                                </div>
-                            </div>
-                            <br>
-                            <button type="button" class="btn btn-primary btn-lg btn-block">Confirmar Compra</button>
-                        </div>
-                    </div>
+                                        </td>
+                                    </tr>'
+                                    );
+                                }
+                            }
+                        ?>
+                        </tbody>
+                        <thead>
+                            <tr class="table-active"><!--Linha do cabecalho da tabela-->
+                                <th><th><th><th><th><th> <!--Linha/divisoria com os 6 campos em branco-->
+                            </tr>
+                        </thead>
+                        <tbody><!--Estrutura da linha de resumo do total geral-->
+                            <tr><!--Cabecalho da linha de resumo do total geral-->
+                                <th>Itens dist.</th>
+                                <th>Fornecedor</th>
+                                <th>Total Bruto</th>
+                                <th>Total Desconto</th>
+                                <th>Total Líquido</th>
+                                <th>Observações finais</th>
+                            </tr>
+                            <tr class="table-active"><!--Conteudo da linha de resumo do total geral-->
+                                <td><?php echo ($resultado_busca->num_rows) ?></td>
+                                <td><?php echo $array_total['dist']?></td>
+                                <td><?php echo $array_total['total_geral'] ?></td>
+                                <td>R$ 0,00</td>
+                                <td><?php echo $array_total['total_geral'] ?></td>
+                                <td>Não há observações.</td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
-            </div>
-            </div>
+            </div>    
         </section>
-    </main>
--->
-
-
-    
+    </main>    
 
     <!-- Bootstrap core JS-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"></script>
     <!-- Core theme JS-->
     <script src="js/scripts.js"></script>
     <script>
-            function atualizaCarrinho(produto){
-                var ajax = AjaxF();
-                var prod = produto;
-                ajax.onreadystatechange = function(){
-                    if(ajax.readyState == 4){
-                        document.getElementById('num_carrinho').innerHTML = ajax.responseText;
-                    }
+        function atualizaCarrinho(produto){
+            var ajax = AjaxF();
+            var prod = produto;
+            ajax.onreadystatechange = function(){
+                if(ajax.readyState == 4){
+                    document.getElementById('num_carrinho').innerHTML = ajax.responseText;
                 }
-                ajax.open("GET", "carrinho_backend.php?atualizaCarrinho="+prod);
-                ajax.setRequestHeader("Content-Type", "text/html");
-                ajax.send();
             }
+            ajax.open("GET", "carrinho_backend.php?atualizaCarrinho="+prod);
+            ajax.setRequestHeader("Content-Type", "text/html");
+            ajax.send();
+        }
         atualizaCarrinho()
-        </script>
+    </script>
+        
+    <!-- Definindo o footer padrão das páginas -->
+    <?php include ('footer.php');?>
+    <script>atualizaCarrinho()</script>
+    <!-- Nucleo Bootstrap JS-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Nucleo JS-->
+    <script src="js/scripts.js"></script>
 </body>
 
 </html>

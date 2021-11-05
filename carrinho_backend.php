@@ -69,5 +69,8 @@ if(isset($_GET['atualizaCarrinho'])){ // funcao executada ao pressionar os botoe
 }
 
 
+
+
+
     
 ?>
