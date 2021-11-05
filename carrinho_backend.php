@@ -8,7 +8,7 @@ if(isset($_GET['add_produto'])){ // o botao + foi pressionado? (sim)
     $array_produto = mysqli_fetch_assoc($resultado);
     if ($array_produto['cod_produto'] == $idProduto){ // o produto ja esta no carrinho de compras? (sim)
         if($array_produto['qtd_comprada'] == 10){ // ainda tem estoque? (nao)
-            echo 'Produto '.$array_produto['cod_produto'].' nao possui estoque.'; // msg de retorno
+            echo 'Produto nao possui estoque.'; // msg de retorno
         }else{ // ainda tem estoque? (sim)
             $qtd_atual = $array_produto['qtd_comprada'] + 1;
             
@@ -53,9 +53,9 @@ if(isset($_GET['diminuir_produto'])){ // o botao - foi pressionado? (sim)
         }elseif($array_produto['qtd_comprada'] <= 1){ // a qtd comprada é menor ou igual a 1 (sim)
             $query_delete = 'delete from tb_carrinho where id_venda ='.$array_produto['id_venda'].';';
             $resultado = $mysqli->query($query_delete) or die("Falha na execução do código SQL: " . $mysqli->error);
+            echo 'deletando produto do carrinho';
         }
-    }    
-    echo '<br>Botao diminuir pressionado. ID do produto: '.$_GET['diminuir_produto'];
+    }
 }
 
 if(isset($_GET['atualizaCarrinho'])){ // funcao executada ao pressionar os botoes + ou -

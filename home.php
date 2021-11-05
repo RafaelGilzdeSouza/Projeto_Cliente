@@ -53,9 +53,20 @@ function adicionar(cod_produto)
     var ajax = AjaxF();
     var produto = cod_produto;
 	ajax.onreadystatechange = function(){
+        var resultado = ajax.responseText;
         if(ajax.readyState == 4){
-            document.getElementById('demo').innerHTML = ajax.responseText;
-            atualizaCarrinho(produto);
+            if (resultado.includes("nao possui estoque")){
+                alert("Produto não mais possui estoque");
+                atualizaCarrinho(produto);
+            }
+            if(resultado.includes("add +1")){
+                alert("Adicionado +1");
+                atualizaCarrinho(produto);
+            }
+            if(resultado.includes("add ao carrinho")){
+                alert("Produto adicionado ao carrinho");
+                atualizaCarrinho(produto);
+            }
         }
 	}
 
@@ -69,12 +80,18 @@ function diminuir(cod_produto)
     var ajax = AjaxF();
     var produto = cod_produto;
 	ajax.onreadystatechange = function(){
+        var resultado = ajax.responseText;
         if(ajax.readyState == 4){
-            document.getElementById('demo2').innerHTML = ajax.responseText;
-            atualizaCarrinho(produto);
+            if (resultado.includes("sub -1")){
+                alert("Retirando -1 do carrinho");
+                atualizaCarrinho(produto);
+            }
+            if (resultado.includes("deletando produto do carrinho")){
+                atualizaCarrinho(produto);
+            }
         }
 	}
-
+    
     ajax.open("GET", "carrinho_backend.php?diminuir_produto="+produto);
 	ajax.setRequestHeader("Content-Type", "text/html");
 	ajax.send();
