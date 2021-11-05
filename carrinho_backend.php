@@ -11,8 +11,8 @@ if(isset($_GET['add_produto'])){ // o botao + foi pressionado? (sim)
             echo 'Produto nao possui estoque.'; // msg de retorno
         }else{ // ainda tem estoque? (sim)
             $qtd_atual = $array_produto['qtd_comprada'] + 1;
-            
-            $query_att = 'update tb_carrinho SET qtd_comprada = '.$qtd_atual.' WHERE (id_venda = '.$array_produto['id_venda'].');';
+            $novo_valor_total = $array_produto['valor_unitario_prod'] * $qtd_atual;
+            $query_att = 'update tb_carrinho SET qtd_comprada = '.$qtd_atual.', valor_total = '.$novo_valor_total.' WHERE (id_venda = '.$array_produto['id_venda'].');';
             $resultado = $mysqli->query($query_att) or die("Falha na execução do código SQL: " . $mysqli->error);
             echo 'Produto '.$array_produto['cod_produto'].' add +1 | qtd_atual: '.$qtd_atual; // msg de retorno
         }
@@ -47,7 +47,8 @@ if(isset($_GET['diminuir_produto'])){ // o botao - foi pressionado? (sim)
     if ($array_produto['cod_produto'] == $idProduto){ // o produto ja esta no carrinho de compras? (sim)
         if($array_produto['qtd_comprada'] >1 ){ // a qtd comprada é maior ou igual a 1 (sim)
             $qtd_atual = $array_produto['qtd_comprada'] - 1;
-            $query_att = 'update tb_carrinho SET qtd_comprada = '.$qtd_atual.' WHERE (id_venda = '.$array_produto['id_venda'].');';
+            $novo_valor_total = $array_produto['valor_unitario_prod'] * $qtd_atual;
+            $query_att = 'update tb_carrinho SET qtd_comprada = '.$qtd_atual.', valor_total = '.$novo_valor_total.' WHERE (id_venda = '.$array_produto['id_venda'].');';
             $resultado = $mysqli->query($query_att) or die("Falha na execução do código SQL: " . $mysqli->error);
             echo 'Produto '.$array_produto['cod_produto'].' sub -1 | qtd_atual: '.$qtd_atual; // msg de retorno
         }elseif($array_produto['qtd_comprada'] <= 1){ // a qtd comprada é menor ou igual a 1 (sim)

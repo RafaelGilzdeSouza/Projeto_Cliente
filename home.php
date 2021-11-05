@@ -125,7 +125,6 @@ function diminuir(cod_produto)
                                     <!-- Botoes de acao do card-->
                                     <div class="card-footer p-4 pt-0 border-top-0 bg-transparent text-center">
                                     <button name="btn_mais" class="btn btn-outline-dark mt-auto" onclick="adicionar(this.value)" value="'.$row_produtos['cod_prod'].'">+</button>
-                                    <p id="qtd_produto"></p>
                                     <button name="btn_menos" class="btn btn-outline-dark mt-auto" onclick="diminuir(this.value)" value="'.$row_produtos['cod_prod'].'">-</button>
                                     </div>
                                 </div>

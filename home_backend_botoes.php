@@ -15,8 +15,8 @@
     $resultado_busca = $mysqli->query($resultado_prod) or die("Falha na execução do código SQL: " . $mysqli->error);
     if (($resultado_busca) AND ($resultado_busca->num_rows != 0)) {
         while($row_produtos = mysqli_fetch_assoc($resultado_busca)){
-            echo utf8_encode(
-            '<!-- div que define o espacamento horizontal-->
+            echo utf8_encode('
+            <!-- div que define o espacamento horizontal-->
             <div class="col mb-4">
                 <div class="card h-100">
                     <!-- Foto do Produto-->
@@ -33,9 +33,8 @@
                     
                     <!-- Botoes de acao do card-->
                     <div class="card-footer p-4 pt-0 border-top-0 bg-transparent text-center">
-                        <button class="btn btn-outline-dark mt-auto" onclick="add_qtd('.$row_produtos['cod_prod'].')" href="#">+</button>
-                     
-                        <button class="btn btn-outline-dark mt-auto" onclick="sub_qtd('.$row_produtos['cod_prod'].')" href="#">-</button>
+                    <button name="btn_mais" class="btn btn-outline-dark mt-auto" onclick="adicionar(this.value)" value="'.$row_produtos['cod_prod'].'">+</button>
+                    <button name="btn_menos" class="btn btn-outline-dark mt-auto" onclick="diminuir(this.value)" value="'.$row_produtos['cod_prod'].'">-</button>
                     </div>
                 </div>
             </div>');}
