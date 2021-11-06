@@ -160,10 +160,10 @@ $array_total = mysqli_fetch_assoc($resultado_total_geral);
                                         <td>'.$row_produtos['qtd_comprada'].'</td>
                                         <td>'.$row_produtos['valor_total'].'</td>
                                         <td>
-                                            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent text-center">
-                                                <button name="btn_mais" class="btn btn-outline-dark mt-auto  btn-block" onclick="adicionar(this.value)" value="'.$row_produtos['cod_produto'].'">+</button>
-                                                <button name="btn_menos" class="btn btn-outline-dark mt-auto  btn-block" onclick="diminuir(this.value)" value="'.$row_produtos['cod_produto'].'">-</button>
-                                            </div>
+                                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent text-center">
+                                            <button name="btn_mais" class="btn btn-outline-dark mt-auto" onclick="adicionar(this.value)" value="'.$row_produtos['cod_produto'].'">+</button>
+                                            <button name="btn_menos" class="btn btn-outline-dark mt-auto" onclick="diminuir(this.value)" value="'.$row_produtos['cod_produto'].'">-</button>
+                                        </div>
                                         </td>
                                     </tr>'
                                     );
@@ -205,7 +205,7 @@ $array_total = mysqli_fetch_assoc($resultado_total_geral);
     <!-- Core theme JS-->
     <script src="js/scripts.js"></script>
     <script>
-        function atualizaCarrinho(produto){
+        function atualizaIconeCarrinho(produto){
             var ajax = AjaxF();
             var prod = produto;
             ajax.onreadystatechange = function(){
@@ -213,16 +213,90 @@ $array_total = mysqli_fetch_assoc($resultado_total_geral);
                     document.getElementById('num_carrinho').innerHTML = ajax.responseText;
                 }
             }
-            ajax.open("GET", "carrinho_backend.php?atualizaCarrinho="+prod);
+            ajax.open("GET", "carrinho_backend.php?atualizaIconeCarrinho="+prod);
             ajax.setRequestHeader("Content-Type", "text/html");
             ajax.send();
         }
-        atualizaCarrinho()
+        atualizaIconeCarrinho();
+
+        function atualizaListaProdutos(produto){
+            var ajax = AjaxF();
+            var prod = produto;
+            ajax.onreadystatechange = function(){
+                var resultado = ajax.responseText;
+                if(ajax.readyState == 4){
+                    if (resultado.includes("nao possui estoque")){
+                        alert("Produto não mais possui estoque");
+                        atualizaIconeCarrinho(produto);
+                    }
+                    if(resultado.includes("add +1")){
+                        alert("Adicionado +1");
+                        atualizaIconeCarrinho(produto);
+                        atualizaListaProdutos(produto);
+                    }
+                    if(resultado.includes("add ao carrinho")){
+                        alert("Produto adicionado ao carrinho");
+                        atualizaIconeCarrinho(produto);
+                    }
+                }
+            }
+            ajax.open("GET", "carrinho_backend.php?atualizaTabelaCarrinho="+prod);
+            ajax.setRequestHeader("Content-Type", "text/html");
+            ajax.send();
+        }
+
+        function adicionar(cod_produto){
+            var ajax = AjaxF();
+            var produto = cod_produto;
+            ajax.onreadystatechange = function(){
+                var resultado = ajax.responseText;
+                if(ajax.readyState == 4){
+                    if (resultado.includes("nao possui estoque")){
+                        alert("Produto não mais possui estoque");
+                        atualizaIconeCarrinho(produto);
+                    }
+                    if(resultado.includes("add +1")){
+                        alert("Adicionado +1");
+                        atualizaIconeCarrinho(produto);
+                        atualizaListaProdutos(produto);
+                    }
+                    if(resultado.includes("add ao carrinho")){
+                        alert("Produto adicionado ao carrinho");
+                        atualizaIconeCarrinho(produto);
+                    }
+                }
+            }
+            ajax.open("GET", "carrinho_backend.php?add_qtd_prod="+produto);
+            ajax.setRequestHeader("Content-Type", "text/html");
+            ajax.send();
+        }
+
+        function diminuir(cod_produto)
+        {
+            var ajax = AjaxF();
+            var produto = cod_produto;
+            ajax.onreadystatechange = function(){
+                var resultado = ajax.responseText;
+                if(ajax.readyState == 4){
+                    if (resultado.includes("sub -1")){
+                        alert("Retirando -1 do carrinho");
+                        atualizaIconeCarrinho(produto);
+                    }
+                    if (resultado.includes("deletando produto do carrinho")){
+                        atualizaIconeCarrinho(produto);
+                    }
+                }
+            }
+            ajax.open("GET", "carrinho_backend.php?dim_qtd_prod="+produto);
+            ajax.setRequestHeader("Content-Type", "text/html");
+            ajax.send();
+        }
+
     </script>
         
     <!-- Definindo o footer padrão das páginas -->
     <?php include ('footer.php');?>
-    <script>atualizaCarrinho()</script>
+    <script>atualizaIconeCarrinho()</script>
     <!-- Nucleo Bootstrap JS-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"></script>
     <!-- Nucleo JS-->
