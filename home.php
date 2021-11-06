@@ -47,8 +47,7 @@ function atualizaIconeCarrinho(produto){
 	ajax.send();
 }
 
-function adicionar(cod_produto)
-{
+function adicionar(cod_produto){
     var ajax = AjaxF();
     var produto = cod_produto;
 	ajax.onreadystatechange = function(){
@@ -62,7 +61,7 @@ function adicionar(cod_produto)
                 alert("Adicionado +1");
                 atualizaIconeCarrinho(produto);
             }
-            if(resultado.includes("add ao carrinho")){
+            if(resultado.includes("Produto add ao carrinho")){
                 alert("Produto adicionado ao carrinho");
                 atualizaIconeCarrinho(produto);
             }

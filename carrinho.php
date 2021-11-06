@@ -220,29 +220,7 @@ $array_total = mysqli_fetch_assoc($resultado_total_geral);
         atualizaIconeCarrinho();
 
         function atualizaListaProdutos(produto){
-            var ajax = AjaxF();
-            var prod = produto;
-            ajax.onreadystatechange = function(){
-                var resultado = ajax.responseText;
-                if(ajax.readyState == 4){
-                    if (resultado.includes("nao possui estoque")){
-                        alert("Produto não mais possui estoque");
-                        atualizaIconeCarrinho(produto);
-                    }
-                    if(resultado.includes("add +1")){
-                        alert("Adicionado +1");
-                        atualizaIconeCarrinho(produto);
-                        atualizaListaProdutos(produto);
-                    }
-                    if(resultado.includes("add ao carrinho")){
-                        alert("Produto adicionado ao carrinho");
-                        atualizaIconeCarrinho(produto);
-                    }
-                }
-            }
-            ajax.open("GET", "carrinho_backend.php?atualizaTabelaCarrinho="+prod);
-            ajax.setRequestHeader("Content-Type", "text/html");
-            ajax.send();
+            location.reload(); //atualizar pagina
         }
 
         function adicionar(cod_produto){
@@ -253,16 +231,9 @@ $array_total = mysqli_fetch_assoc($resultado_total_geral);
                 if(ajax.readyState == 4){
                     if (resultado.includes("nao possui estoque")){
                         alert("Produto não mais possui estoque");
-                        atualizaIconeCarrinho(produto);
                     }
-                    if(resultado.includes("add +1")){
-                        alert("Adicionado +1");
-                        atualizaIconeCarrinho(produto);
+                    if(resultado.includes("add +1 no carrinho final")){
                         atualizaListaProdutos(produto);
-                    }
-                    if(resultado.includes("add ao carrinho")){
-                        alert("Produto adicionado ao carrinho");
-                        atualizaIconeCarrinho(produto);
                     }
                 }
             }
@@ -278,12 +249,11 @@ $array_total = mysqli_fetch_assoc($resultado_total_geral);
             ajax.onreadystatechange = function(){
                 var resultado = ajax.responseText;
                 if(ajax.readyState == 4){
-                    if (resultado.includes("sub -1")){
-                        alert("Retirando -1 do carrinho");
-                        atualizaIconeCarrinho(produto);
+                    if (resultado.includes("sub -1 no carrinho final")){
+                        atualizaListaProdutos(produto);
                     }
-                    if (resultado.includes("deletando produto do carrinho")){
-                        atualizaIconeCarrinho(produto);
+                    if (resultado.includes("deletando produto do carrinho final")){
+                        atualizaListaProdutos(produto);
                     }
                 }
             }

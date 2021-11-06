@@ -1,8 +1,9 @@
 <?php
 include('conexao.php');
 
+//funcoes do home.php
 if(isset($_GET['adicionar_produto'])){ // o botao + foi pressionado? (sim)
-    $idProduto = (int) $_GET['add_produto'];
+    $idProduto = (int) $_GET['adicionar_produto'];
     $query = 'select * from tb_carrinho where cod_produto = '.$idProduto.';';
     $resultado = $mysqli->query($query) or die("Falha na execução do código SQL: " . $mysqli->error);
     $array_produto = mysqli_fetch_assoc($resultado);
@@ -59,6 +60,7 @@ if(isset($_GET['diminuir_produto'])){ // o botao - foi pressionado? (sim)
     }
 }
 
+//funcoes do carrinho.php
 if(isset($_GET['add_qtd_prod'])){ // o botao + foi pressionado? (sim)
     $idProduto = (int) $_GET['add_qtd_prod'];
     $query = 'select * from tb_carrinho where cod_produto = '.$idProduto.';';
@@ -97,16 +99,29 @@ if(isset($_GET['dim_qtd_prod'])){ // o botao - foi pressionado? (sim)
     }
 }
 
-if(isset($_GET['atualizaIconeCarrinho'])){ // funcao executada ao pressionar os botoes + ou -
-    
-    $query = 'select count(*) as qtd from tb_carrinho where qtd_comprada > 0;';
-    $resultado = $mysqli->query($query) or die("Falha na execução do código SQL: " . $mysqli->error);
-    $array_produto = mysqli_fetch_assoc($resultado);
-    $qtd = $array_produto['qtd'];
-    echo $qtd;
-}
+//if(isset($_GET['atualizaTabelaCarrinho'])){ // funcao executada ao pressionar os botoes + ou -
+//    
+//    $query = 'select count(*) as qtd from tb_carrinho where qtd_comprada > 0;';
+//    $resultado = $mysqli->query($query) or die("Falha na execução do código SQL: " . $mysqli->error);
+//    if (($resultado_busca) AND ($resultado_busca->num_rows != 0)) {
+//        while($row_produtos = mysqli_fetch_assoc($resultado_busca)){
+//            echo utf8_encode('
+//            
+//            
+//            
+//            
+//            
+//            ');}
+//    }
+//    $array_produto = mysqli_fetch_assoc($resultado);
+//    $qtd = $array_produto['qtd'];
+//    echo $qtd;
+//}
 
-if(isset($_GET['atualizaTabelaCarrinho'])){ // funcao executada ao pressionar os botoes + ou -
+
+//funcao compartilhada
+
+if(isset($_GET['atualizaIconeCarrinho'])){ // funcao executada ao pressionar os botoes + ou -
     
     $query = 'select count(*) as qtd from tb_carrinho where qtd_comprada > 0;';
     $resultado = $mysqli->query($query) or die("Falha na execução do código SQL: " . $mysqli->error);
