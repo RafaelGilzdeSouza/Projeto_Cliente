@@ -31,7 +31,7 @@ include('conexao.php');
         <?php include ('header.php');?>
         
         <!-- Formulário abaixo-->
-        <div class="container">
+        <div class="container px-4 px-lg-5">
             <form method="POST" action="produtos_backend.php">
                 <div class="form-row">
                     <div class="form-group col-md-5">
