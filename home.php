@@ -33,7 +33,7 @@ $resultado_busca = $mysqli->query($resultado_prod) or die("Falha na execução d
 
 <script>
 
-function atualizaCarrinho(produto){
+function atualizaIconeCarrinho(produto){
     var ajax = AjaxF();
 	var prod = produto;
     ajax.onreadystatechange = function(){
@@ -42,7 +42,7 @@ function atualizaCarrinho(produto){
         }
 	}
 
-    ajax.open("GET", "carrinho_backend.php?atualizaCarrinho="+prod);
+    ajax.open("GET", "carrinho_backend.php?atualizaIconeCarrinho="+prod);
 	ajax.setRequestHeader("Content-Type", "text/html");
 	ajax.send();
 }
@@ -56,20 +56,20 @@ function adicionar(cod_produto)
         if(ajax.readyState == 4){
             if (resultado.includes("nao possui estoque")){
                 alert("Produto não mais possui estoque");
-                atualizaCarrinho(produto);
+                atualizaIconeCarrinho(produto);
             }
             if(resultado.includes("add +1")){
                 alert("Adicionado +1");
-                atualizaCarrinho(produto);
+                atualizaIconeCarrinho(produto);
             }
             if(resultado.includes("add ao carrinho")){
                 alert("Produto adicionado ao carrinho");
-                atualizaCarrinho(produto);
+                atualizaIconeCarrinho(produto);
             }
         }
 	}
 
-    ajax.open("GET", "carrinho_backend.php?add_produto="+produto);
+    ajax.open("GET", "carrinho_backend.php?adicionar_produto="+produto);
 	ajax.setRequestHeader("Content-Type", "text/html");
 	ajax.send();
 }
@@ -83,10 +83,10 @@ function diminuir(cod_produto)
         if(ajax.readyState == 4){
             if (resultado.includes("sub -1")){
                 alert("Retirando -1 do carrinho");
-                atualizaCarrinho(produto);
+                atualizaIconeCarrinho(produto);
             }
             if (resultado.includes("deletando produto do carrinho")){
-                atualizaCarrinho(produto);
+                atualizaIconeCarrinho(produto);
             }
         }
 	}
@@ -135,7 +135,7 @@ function diminuir(cod_produto)
         </section> <!-- Fim da section-->
         <!-- Definindo o footer padrão das páginas -->
         <?php include ('footer.php');?>
-        <script>atualizaCarrinho()</script>
+        <script>atualizaIconeCarrinho()</script>
         <!-- Nucleo Bootstrap JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Nucleo JS-->

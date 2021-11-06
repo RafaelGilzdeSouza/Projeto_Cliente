@@ -98,7 +98,7 @@ include('conexao.php');
         <!-- Core theme JS-->
         <script src="js/scripts.js"></script>
         <script>
-            function atualizaCarrinho(produto){
+            function atualizaIconeCarrinho(produto){
                 var ajax = AjaxF();
                 var prod = produto;
                 ajax.onreadystatechange = function(){
@@ -106,11 +106,11 @@ include('conexao.php');
                         document.getElementById('num_carrinho').innerHTML = ajax.responseText;
                     }
                 }
-                ajax.open("GET", "carrinho_backend.php?atualizaCarrinho="+prod);
+                ajax.open("GET", "carrinho_backend.php?atualizaIconeCarrinho="+prod);
                 ajax.setRequestHeader("Content-Type", "text/html");
                 ajax.send();
             }
-        atualizaCarrinho()
+        atualizaIconeCarrinho()
         </script>
     </body>
 </html>
