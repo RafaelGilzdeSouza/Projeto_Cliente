@@ -163,6 +163,7 @@ $array_total = mysqli_fetch_assoc($resultado_total_geral);
                                         <div class="card-footer p-4 pt-0 border-top-0 bg-transparent text-center">
                                             <button name="btn_mais" class="btn btn-outline-dark mt-auto" onclick="adicionar(this.value)" value="'.$row_produtos['cod_produto'].'">+</button>
                                             <button name="btn_menos" class="btn btn-outline-dark mt-auto" onclick="diminuir(this.value)" value="'.$row_produtos['cod_produto'].'">-</button>
+                                            <button name="btn_excluir" class="btn btn-outline-dark mt-auto" onclick="excluir(this.value)" value="'.$row_produtos['cod_produto'].'">x</button>
                                         </div>
                                         </td>
                                     </tr>'
@@ -242,8 +243,7 @@ $array_total = mysqli_fetch_assoc($resultado_total_geral);
             ajax.send();
         }
 
-        function diminuir(cod_produto)
-        {
+        function diminuir(cod_produto){
             var ajax = AjaxF();
             var produto = cod_produto;
             ajax.onreadystatechange = function(){
@@ -262,6 +262,21 @@ $array_total = mysqli_fetch_assoc($resultado_total_geral);
             ajax.send();
         }
 
+        function excluir(cod_produto){
+            var ajax = AjaxF();
+            var produto = cod_produto;
+            ajax.onreadystatechange = function(){
+                var resultado = ajax.responseText;
+                if(ajax.readyState == 4){
+                    if (resultado.includes("produto excluido do carrinho final")){
+                        atualizaListaProdutos(produto);
+                    }
+                }
+            }
+            ajax.open("GET", "carrinho_backend.php?excluir_prod_carrinho="+produto);
+            ajax.setRequestHeader("Content-Type", "text/html");
+            ajax.send();
+        }
     </script>
         
     <!-- Definindo o footer padrão das páginas -->
