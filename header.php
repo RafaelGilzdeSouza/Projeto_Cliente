@@ -20,13 +20,12 @@ function confere_permissao(pagina){
     </head>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
 
-
         <!--Container para centralizar a navbar-->
-        <div class="container px-4 px-lg-1">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
-        <li class="nav-item">
-            <?php echo $_SESSION['nome']; ?></li>
-        </ul>
+                <li class="nav-item">
+                    <a class="navbar-brand fw-bolder me-0" href="home.php">Bem Vindo!  <?php echo $_SESSION['nome'];?></a>
+                </li>
+            </ul>
 
             <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
                 <li class="nav-item">
@@ -116,6 +115,7 @@ function confere_permissao(pagina){
                         </button>
                     </form>
                 </li>
+               
             </ul>
         </div> <!--Fim do container para centralizar a navbar-->
     </nav> <!--Fim do navbar-->

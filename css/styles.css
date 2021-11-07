@@ -87,11 +87,6 @@ ul {
     margin-bottom: 0px
 }
 
-h12{
-  font-weight: bolder !important;
-  color: #084298;
-
-}
 
 .button {
     display: inline-block;
@@ -3726,6 +3721,12 @@ textarea.form-control-lg {
   border-color: #212529;
   margin-left:7px;
 }
+.btn-outline-dark-name {
+  color: #212529;
+  border-color: #212529;
+  margin-left:7px;
+  width:190px;
+}
 .btn-outline-dark-logoff:hover {
   color: #fff;
   background-color: #212529;
@@ -4348,6 +4349,8 @@ textarea.form-control-lg {
   padding-left: 0;
   margin-bottom: 0;
   list-style: none;
+  margin-right: 0;
+  
 }
 .navbar-nav .nav-link {
   padding-right: 0;
