@@ -1,5 +1,7 @@
 <?php
 include('conexao.php');
+session_start();
+$GLOBALS['ID'] = $_SESSION['id_priv'];
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">

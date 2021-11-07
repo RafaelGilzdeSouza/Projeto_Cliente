@@ -51,8 +51,7 @@ ajax.send();
 }
 
 
-function AlteraConteudoDrop(name)
-{
+function AlteraConteudoDrop(name){
 	var ajax = AjaxF();
 
 	ajax.onreadystatechange = function(){
@@ -81,3 +80,4 @@ function AlteraConteudoDrop(name)
 	ajax.send();
 	
 }
+
