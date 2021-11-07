@@ -81,13 +81,3 @@ function AlteraConteudoDrop(name){
 	
 }
 
-function confere_permissao(valor)
-{
-    if(valor == 'usuario'){
-        alert("usuario");
-
-    }else{
-        alert("caiu no else");
-
-    }
-}
