@@ -40,11 +40,11 @@ $GLOBALS['ID'] = $_SESSION['id_priv'];
         <form method="POST" action="usuarios_backend.php">
             <div class="form-row">
                 <div class="form-group col-md-5">
-                    <label>Nome*</label>
+                    <label>Nome</label>
                     <input type="text" name="nome" id="nome" class="form-control" maxlength="100" placeholder="Nome completo">
                 </div>
                 <div class="form-group form_margin col-md-5">
-                    <label>Login*</label>
+                    <label>Login</label>
                     <input type="text" name="login" id="login" class="form-control" maxlength="20" placeholder="Login de acesso">
                 </div>
                 </div>
@@ -53,11 +53,11 @@ $GLOBALS['ID'] = $_SESSION['id_priv'];
 
                 <div class="form-row">
                 <div class="form-group col-md-5">
-                    <label>CPF*</label>
+                    <label>CPF</label>
                     <input type="text" name="cpf" id="cpf" class="form-control" minlength="14" maxlength="14" placeholder="CPF" onkeypress="$(this).mask('000.000.000-00');">
                 </div>
                 <div class="form-group form_margin col-md-5">
-                    <label>CEP*</label>
+                    <label>CEP</label>
                     <input type="text" name="cep" id="cep" class="form-control" minlength="9" maxlength="9" placeholder="CEP" onkeypress="$(this).mask('00000-000');">
                 </div>
                 </div>
@@ -84,11 +84,11 @@ $GLOBALS['ID'] = $_SESSION['id_priv'];
                 </div>
                 <div class="form-row">
                 <div class="form-group col-md-5">
-                    <label>Senha*</label>
+                    <label>Senha</label>
                     <input type="password" name="senha" id="senha" class="form-control" maxlength="20" placeholder="Senha de acesso">
                 </div>
                 <div class="form-group form_margin col-md-5">
-                    <label>Permissão*</label>
+                    <label>Permissão</label>
                     <input type="text" name="permissao" id="permissao" class="form-control" onkeypress="$(this).mask('0');" placeholder="Qual o nível de Acesso">
                 </div>
             </div>

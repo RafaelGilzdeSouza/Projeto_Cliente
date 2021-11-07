@@ -33,41 +33,44 @@ $GLOBALS['ID'] = $_SESSION['id_priv'];
         <?php include ('header.php');?>
         
         <!-- Formulário abaixo-->
-        <div class="container px-4 px-lg-5">
+        <div class="formulario fieldset px-4 px-lg-5">
             <form method="POST" action="produtos_backend.php">
                 <div class="form-row">
                     <div class="form-group col-md-5">
-                        <label>Descrição*</label>
+                        <label>Descrição</label>
                         <input type="text" name="descricao_produto" id="descricao_produto" class="form-control" maxlength="200" placeholder="Descrição completa do produto">
                     </div>
-                    <div class="form-group col-md-3">
+                    <div class="form-group form_margin col-md-5">
                         <label>Fabricante</label>
                         <input type="text" name="fabricante" id="fabricante" class="form-control" maxlength="200" placeholder="Fabricante do produto">
                     </div>
-                    <div class="form-group col-md-4">
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-5">
                         <label>Cód. de Barras</label>
                         <input type="text" name="cod_barras" id="cod_barras" class="form-control" maxlength="50" placeholder="Código de Barras">
                     </div>
-                </div>
-                <div class="form-row">
-                    <div class="form-group col-md-3">
-                        <label>Custo*</label>
+                
+                    <div class="form-group form_margin col-md-5">
+                        <label>Custo</label>
                         <input type="text" name="preco_custo" id="preco_custo" class="form-control" placeholder="Preço de custo">
                     </div>
-                    <div class="form-group col-md-3">
-                        <label>Margem %*</label>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-5">
+                        <label>Margem %</label>
                         <input type="text" name="margem_lucro" id="margem_lucro" class="form-control" placeholder="Margem de lucro">
                     </div>
-                    <div class="form-group col-md-3">
+                    <div class="form-group form_margin col-md-5">
                         <label>Venda</label>
                         <input type="text" name="preco_venda" id="preco_venda" class="form-control" placeholder="Preço de venda">
                     </div>
-                    <div class="form-group col-md-3">
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-3 ">
                         <label>Estoque</label>
                         <input type="text" name="estoque" id="estoque" class="form-control" placeholder="Estoque atual">
                     </div>
-                </div>
-                <div class="form-row">
                     <div class="form-group col-md-2">
                         <label>Grupo</label>
                         <select name="grupo" id="grupo" class="form-select" aria-label="Disabled select example">
@@ -79,19 +82,21 @@ $GLOBALS['ID'] = $_SESSION['id_priv'];
                             <option value="TV's">TV's</option>
                         </select>
                     </div>
-                    <div class="form-group col-md-2">
+                    <div class="form-group form_margin col-md-3">
                         <label>Foto</label>
                         <input type="text" name="foto" id="foto" class="form-control" maxlength="250" placeholder="Link da imagem">
                     </div>
-                    <div class="form-group col-md-2">
+                    <div class="form-group  col-md-2">
                         <label>Data últ. Entrega</label>
                         <input type="text" name="data_ult_entrega" id="data_ult_entrega" class="form-control" placeholder="Data">
                     </div>
-                    <div class="form-group col-md-2">
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-5">
                         <label>Fornecedor</label>
                         <input type="text" name="forn_ult_entrega" id="forn_ult_entrega" class="form-control" placeholder="Forn. últ. Entrega">
                     </div>
-                    <div class="form-group col-md-2">
+                    <div class="form-group form_margin col-md-2">
                         <label>Promoção</label>
                         <select name="promocao" id="promocao" class="form-select" aria-label="Disabled select example">
                             <option selected>Selecione</option>
@@ -99,7 +104,7 @@ $GLOBALS['ID'] = $_SESSION['id_priv'];
                             <option value=1>1</option>
                         </select>
                     </div>
-                    <div class="form-group col-md-2">
+                    <div class="form-group form_margin col-md-2">
                         <label>Curva ABC</label>
                         <select name="curvaABC" id="curvaABC" class="form-select" aria-label="Disabled select example">
                             <option selected>Selecione</option>
@@ -111,7 +116,7 @@ $GLOBALS['ID'] = $_SESSION['id_priv'];
                 </div>
                 <div class="form-row">
                     <div class="form-group">
-                        <button name="btn_cadastrar_produtos" id="btn_cadastrar_produtos" type="submit" class="btn btn-primary">Cadastrar </button>
+                        <button name="btn_cadastrar_produtos" id="btn_cadastrar_produtos" type="submit" class="btn btn-primarycad">Cadastrar </button>
                         <a href="cadastros_produtos.php" name="btn_limpar_cadastro_produtos" id="btn_limpar_cadastro_produtos" type="submit" class="btn btn-warning">Limpar </a>
                         <button name="btn_excluir_cadastro_produtos" id="btn_excluir_cadastro_produtos" type="submit" class="btn btn-danger">Excluir </button>
                     </div>

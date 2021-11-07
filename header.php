@@ -15,6 +15,9 @@ function confere_permissao(pagina){
 </script>
 
 <html>
+    <head>
+    <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
+    </head>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <!--Container para centralizar a navbar-->
         <div class="container px-4 px-lg-1">
@@ -86,7 +89,7 @@ function confere_permissao(pagina){
                 <li class="nav-item dropdown">
                     <form class="d-flex">
                         <input name="input_produtos" id="input_produtos" type="text" class="form-control me-0" placeholder="Buscar">
-                        <button name="btn_buscar_produtos" id="btn_buscar_produtos" type="button" onclick="AlteraConteudo()" class="btn btn-primary me-2">Buscar</button>
+                        <button name="btn_buscar_produtos" id="btn_buscar_produtos" type="button" onclick="AlteraConteudo()" class="btn btn-primary me-2"><i class='bx bx-search-alt'></i></button>
                     </form>
                 </li>
                 
