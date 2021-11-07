@@ -20,12 +20,14 @@ function confere_permissao(pagina){
     </head>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
 
-    <?php 
-    echo 'Bem vindo!  <br> '; 
-    echo $_SESSION['nome'];
-    ?>
+
         <!--Container para centralizar a navbar-->
         <div class="container px-4 px-lg-1">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
+        <li class="nav-item">
+            <?php echo $_SESSION['nome']; ?></li>
+        </ul>
+
             <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
                 <li class="nav-item">
                     <a class="navbar-brand me-0" href="home.php">Eletronics Store</a>
