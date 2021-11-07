@@ -36,8 +36,8 @@
                         
                         <!-- Botoes de acao do card-->
                         <div class="card-footer p-4 pt-0 border-top-0 bg-transparent text-center">
-                        <button name="btn_mais" class="btn btn-outline-dark mt-auto" onclick="adicionar(this.value)" value="'.$row_produtos['cod_prod'].'"><i class="bi bi-bag-plus" width="10" height="10"></i></button>
-                        <button name="btn_menos" class="btn btn-outline-dark mt-auto" onclick="diminuir(this.value)" value="'.$row_produtos['cod_prod'].'"><i class="bi bi-bag-dash" width="16" height="16"></i></button>
+                        <button name="btn_mais" class="btn btn-outline-dark mt-auto" onclick="adicionar(this.value)" value="'.$row_produtos['cod_prod'].'"><i class="bi bi-bag-plus" ></i></button>
+                        <button name="btn_menos" class="btn btn-outline-dark mt-auto" onclick="diminuir(this.value)" value="'.$row_produtos['cod_prod'].'"><i class="bi bi-bag-dash" ></i></button>
                         </div>
                     </div>
                 </div>');
@@ -60,9 +60,9 @@
                         </div>
                         
                         <!-- Botoes de acao do card-->
-                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent text-center">
-                        <button name="btn_mais" class="btn btn-outline-dark mt-auto" onclick="adicionar(this.value)" value="'.$row_produtos['cod_prod'].'">+</button>
-                        <button name="btn_menos" class="btn btn-outline-dark mt-auto" onclick="diminuir(this.value)" value="'.$row_produtos['cod_prod'].'">-</button>
+                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent text-center">                        
+                        <button name="btn_mais" class="btn btn-outline-dark mt-auto" onclick="adicionar(this.value)" value="'.$row_produtos['cod_prod'].'"><i class="bi bi-bag-plus" ></i></button>
+                        <button name="btn_menos" class="btn btn-outline-dark mt-auto" onclick="diminuir(this.value)" value="'.$row_produtos['cod_prod'].'"><i class="bi bi-bag-dash" ></i></button>
                         </div>
                     </div>
                 </div>');

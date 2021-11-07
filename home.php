@@ -20,13 +20,9 @@ $GLOBALS['ID'] = $_SESSION['id_priv'];
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
         <!-- Bootstrap icons-->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
-<<<<<<< HEAD
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.0/font/bootstrap-icons.css">
-=======
-
         <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
         
->>>>>>> 43c44095592de3c0ff653f30b8121075ad7ebd91
         <!-- Nucleo do CSS e JS -->
         <link href="css/styles.css" rel="stylesheet" />
         <script src="js/scripts.js"></script>
