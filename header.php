@@ -19,7 +19,11 @@ function confere_permissao(pagina){
     <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
     </head>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        
+
+    <?php 
+    echo 'Bem vindo!  <br> '; 
+    echo $_SESSION['nome'];
+    ?>
         <!--Container para centralizar a navbar-->
         <div class="container px-4 px-lg-1">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
