@@ -1,0 +1,52 @@
+
+.gradient-custom-2 {
+  
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: linear-gradient(to right, #32a0fa, #257df1, #5264ff, #4f4cf3);
+  }
+  
+   @media (min-width: 768px) {
+    .gradient-form {
+      height: 100vh !important;
+    }
+  }
+  @media (min-width: 769px) {
+    .gradient-custom-2 {
+      border-top-right-radius: .3rem;
+      border-bottom-right-radius: .3rem;
+    }
+  } 
+
+
+
+/*cadastro*/
+
+  #containerCad{
+
+    background: linear-gradient(to right, #32a0fa, #257df1, #5264ff, #4f4cf3);
+    width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 20px 30px;
+    margin-top: 10vh;
+    border-radius: 10px;
+    text-align: left ;
+    
+  }
+  body{
+    /*background-color:rgb(70, 70, 70);*/
+    background-image: url(img/cidade.jpg);
+    background-attachment: fixed;
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-color: #000;
+  }
+  label {
+    display: inline-block;
+    margin-bottom: .5rem;
+    font-size: .950rem;
+}
+h1{
+  text-align: center;
+}
+
