@@ -15,7 +15,7 @@ if(isset($_POST['btn_entrar'])){
       }
       else {
           $login = $mysqli->real_escape_string($_POST['login']);
-          $senha = $mysqli->real_escape_string(md5($_POST['senha']));
+          $senha = $mysqli->real_escape_string(($_POST['senha']));
 
           $sql_code = "SELECT * FROM tb_usuario WHERE login = '$login' AND senha = '$senha'";
           $sql_query = $mysqli->query($sql_code) or die("Falha na execução do código SQL: " . $mysqli->error);
