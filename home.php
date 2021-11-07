@@ -9,8 +9,8 @@ $GLOBALS['ID'] = $_SESSION['id_priv'];
 <!DOCTYPE html>
 <html lang="pt-BR">
     <head>
-        
-        <meta charset="utf-8" />
+   
+        <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
@@ -32,7 +32,7 @@ $GLOBALS['ID'] = $_SESSION['id_priv'];
         <!-- Definindo o header padrão das páginas -->
         <?php include ('header.php');?>          
 
-    <p id="demo"><?php echo ($GLOBALS['ID'])?></p>
+        <p id="demo"><?php echo ($GLOBALS['ID'])?></p>
     <p id="demo2"></p>
 
         <!-- Section-->
@@ -55,7 +55,7 @@ $GLOBALS['ID'] = $_SESSION['id_priv'];
                                     <div class="card-body py-4 text-center">
                                         <!-- Nome do Produto-->
                                         <h6 class="fw-bolder">'.($row_produtos['descricao']).'</h6>
-                                        
+                                        <h5 class="fw-bolder">Em Promoção</h5>
                                         <!-- Preco do Produto-->
                                         R$ '.$row_produtos['preco_venda'].'
                                     </div>

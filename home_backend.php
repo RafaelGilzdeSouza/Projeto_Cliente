@@ -42,6 +42,7 @@ if (($resultado_busca) AND ($resultado_busca->num_rows != 0)) {
             <!-- div que define o espacamento horizontal-->
             <div class="col mb-4">
                 <div class="card h-100">
+
                     <!-- Foto do Produto-->
                     <img src="'.$row_produtos['foto'].'" alt="..." />
                     
@@ -49,7 +50,7 @@ if (($resultado_busca) AND ($resultado_busca->num_rows != 0)) {
                     <div class="card-body py-4 text-center">
                         <!-- Nome do Produto-->
                         <h6 class="fw-bolder">'.($row_produtos['descricao']).'</h6>
-                        
+                        <h5 class="fw-bolder">Em Promoção</h5>
                         <!-- Preco do Produto-->
                         R$ '.$row_produtos['preco_venda'].'
                     </div>

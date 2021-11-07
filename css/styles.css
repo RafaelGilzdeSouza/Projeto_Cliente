@@ -87,6 +87,12 @@ ul {
     margin-bottom: 0px
 }
 
+h12{
+  font-weight: bolder !important;
+  color: #084298;
+
+}
+
 .button {
     display: inline-block;
     background: #0e8ce4;
@@ -361,11 +367,14 @@ h4, .h4 {
 @media (min-width: 1200px) {
   h4, .h4 {
     font-size: 1.5rem;
+
+    
   }
 }
 
 h5, .h5 {
   font-size: 1.25rem;
+  color: #28cc19;
 }
 
 h6, .h6 {
@@ -435,7 +444,7 @@ small, .small {
 
 mark, .mark {
   padding: 0.2em;
-  background-color: #fcf8e3;
+  background-color: #fcd200;
 }
 
 sub,

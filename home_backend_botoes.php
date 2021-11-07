@@ -31,6 +31,7 @@
                         R$ '.$row_produtos['preco_venda'].'
                     </div>
                     
+                    
                     <!-- Botoes de acao do card-->
                     <div class="card-footer p-4 pt-0 border-top-0 bg-transparent text-center">
                     <button name="btn_mais" class="btn btn-outline-dark mt-auto" onclick="adicionar(this.value)" value="'.$row_produtos['cod_prod'].'">+</button>
