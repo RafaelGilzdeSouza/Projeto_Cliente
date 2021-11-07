@@ -51,8 +51,7 @@ ajax.send();
 }
 
 
-function AlteraConteudoDrop(name)
-{
+function AlteraConteudoDrop(name){
 	var ajax = AjaxF();
 
 	ajax.onreadystatechange = function(){
@@ -80,4 +79,15 @@ function AlteraConteudoDrop(name)
 	ajax.setRequestHeader("Content-Type", "text/html");
 	ajax.send();
 	
+}
+
+function confere_permissao(valor)
+{
+    if(valor == 'usuario'){
+        alert("usuario");
+
+    }else{
+        alert("caiu no else");
+
+    }
 }

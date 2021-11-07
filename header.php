@@ -1,3 +1,19 @@
+<script>
+function confere_permissao(pagina){
+        if(<?php echo ($GLOBALS['ID'])?> > 1){
+            alert("Acesso negado, consulte o(a) administrador(a) do site para mais informações.");
+        }else{
+            if(pagina == 'Usuario'){
+                window.location.href = "cadastros_usuarios.php";
+            }else if(pagina == 'Fornecedores'){
+                window.location.href = "cadastros_fornecedores.php";
+            }else if(pagina == 'Produtos'){
+                window.location.href = "cadastros_produtos.php";
+            }
+        }
+    }
+</script>
+
 <html>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <!--Container para centralizar a navbar-->
@@ -12,15 +28,17 @@
                 <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="home.php">Compras</a>
                 </li>
-                
-                <li class="nav-item dropdown">
-                    <a class="nav-link active dropdown-toggle me-4" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Cadastros</a>
-                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li><a name="link_cadastro_usuario" class="dropdown-item" href="cadastros_usuarios.php">Usuários</a></li>
-                        <li><a name="link_cadastro_fornecedor" class="dropdown-item" href="cadastros_fornecedores.php">Fornecedores</a></li>
-                        <li><a name="link_cadastro_produto" class="dropdown-item" href="cadastros_produtos.php">Produtos</a></li>
-                    </ul>
-                </li>
+                    <?php
+                    if(($GLOBALS['ID']) == 1){?>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link active dropdown-toggle me-4" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Cadastros</a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <input type="button" class="dropdown-item" onclick="confere_permissao(this.value)" value="Usuario" />
+                                <input type="button" class="dropdown-item" onclick="confere_permissao(this.value)" value="Fornecedores" />
+                                <input type="button" class="dropdown-item" onclick="confere_permissao(this.value)" value="Produtos" />
+                            </ul>
+                        </li>
+                    <?php }?>                
             
                 <li class="nav-item dropdown">
                     <a class="nav-link active dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Celulares</a>
@@ -73,14 +91,12 @@
                 </li>
                 
                 <li class="nav-item dropdown">
-                    <form action="carrinho.php">
-                    <button name="btn_carrinho" id="btn_carrinho" class="btn btn-outline-dark " type="submit">
+                    <a name="btn_carrinho" id="btn_carrinho" href="carrinho.php" class="btn btn-outline-dark " >
                         <img src="img/shopcart2.ico" style="height: 18px;" alt="logo">
                         <span class="badge bg-dark text-white ms-1 badge-pill">
                             <div name="num_carrinho" id="num_carrinho" class="num_carrinho">0</div>
                         </span>
-                    </button>
-                    </form>
+                    </a>
                 </li>
                 
                 <li class="nav-item dropdown">
@@ -104,4 +120,6 @@
             </div>
         </div> <!--Fim do container para centralizar o header-->
     </header>
+
+
 </html>
