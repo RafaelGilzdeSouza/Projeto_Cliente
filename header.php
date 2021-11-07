@@ -106,7 +106,7 @@ function confere_permissao(pagina){
                 <li class="nav-item dropdown">
                     <form action="logout.php">
                         <button name="btn_logoff" id="btn_logoff" class="btn btn-outline-dark-logoff " type="auto">
-                        <i class="bi bi-door-open-fill"></i>logoff
+                        <i class='bx bx-door-open' ></i>logoff
                         </button>
                     </form>
                 </li>
