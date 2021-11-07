@@ -37,12 +37,12 @@ $GLOBALS['ID'] = $_SESSION['id_priv'];
                     <table class="table table-bordered">
                         <thead>
                             <tr class="table-active"><!--Linha do cabecalho da tabela-->
-                                <th>Cod. Prod.</th>
-                                <th>Descricao</th>
-                                <th>Valor Unitario</th>
-                                <th>Qtd</th>
-                                <th>Valor Total</th>
-                                <th>Alterar Quantidade</th>
+                                <th class="text-center">Cod. Prod.</th>
+                                <th class="text-center">Descricao</th>
+                                <th class="text-center">Valor Unitario</th>
+                                <th class="text-center">Qtd</th>
+                                <th class="text-center">Valor Total</th>
+                                <th class="text-center">Alterar Quantidade</th>
                             </tr>
                         </thead>
                         <tbody><!--Estrutura das linhas da tabela-->
@@ -51,16 +51,20 @@ $GLOBALS['ID'] = $_SESSION['id_priv'];
                                 while($row_produtos = mysqli_fetch_assoc($resultado_busca)){
                                     echo utf8_encode('
                                     <tr class="table-active"><!--Conteudo da linha do produto 1-->
-                                        <td>'.$row_produtos['cod_produto'].'</td>
-                                        <td>'.$row_produtos['descricao'].'</td>
-                                        <td>'.$row_produtos['valor_unitario_prod'].'</td>
-                                        <td>'.$row_produtos['qtd_comprada'].'</td>
-                                        <td>'.$row_produtos['valor_total'].'</td>
+                                        <td class="text-center">'.$row_produtos['cod_produto'].'</td>
+                                        <td class="text-center">'.$row_produtos['descricao'].'</td>
+                                        <td class="text-center">'.$row_produtos['valor_unitario_prod'].'</td>
+                                        <td class="text-center">'.$row_produtos['qtd_comprada'].'</td>
+                                        <td class="text-center">'.$row_produtos['valor_total'].'</td>
                                         <td>
-                                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent text-center">
-                                            <button name="btn_mais" class="btn btn-outline-dark mt-auto" onclick="adicionar(this.value)" value="'.$row_produtos['cod_produto'].'">+</button>
-                                            <button name="btn_menos" class="btn btn-outline-dark mt-auto" onclick="diminuir(this.value)" value="'.$row_produtos['cod_produto'].'">-</button>
-                                            <button name="btn_excluir" class="btn btn-outline-dark mt-auto" onclick="excluir(this.value)" value="'.$row_produtos['cod_produto'].'">x</button>
+                                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent text-center" style="
+                                        padding-bottom: 12px;
+                                        width: 208px;
+                                        height: 44px;
+                                    ">
+                                            <button name="btn_mais" class="btn btn-outline-dark mt-auto" onclick="adicionar(this.value)" value="'.$row_produtos['cod_produto'].'"><i class="bi bi-bag-plus"></i></button>
+                                            <button name="btn_menos" class="btn btn-outline-dark mt-auto" onclick="diminuir(this.value)" value="'.$row_produtos['cod_produto'].'"><i class="bi bi-bag-dash"></i></button>
+                                            <button name="btn_excluir" class="btn btn-outline-dark mt-auto" onclick="excluir(this.value)" value="'.$row_produtos['cod_produto'].'"><i class="bi bi-trash"></i></button>
                                         </div>
                                         </td>
                                     </tr>'
@@ -76,20 +80,20 @@ $GLOBALS['ID'] = $_SESSION['id_priv'];
                         </thead>
                         <tbody><!--Estrutura da linha de resumo do total geral-->
                             <tr><!--Cabecalho da linha de resumo do total geral-->
-                                <th>Itens dist.</th>
-                                <th>Fornecedor</th>
-                                <th>Total Bruto</th>
-                                <th>Total Desconto</th>
-                                <th>Total Líquido</th>
-                                <th>Observações finais</th>
+                                <th class="text-center">Itens dist.</th>
+                                <th class="text-center">Fornecedor</th>
+                                <th class="text-center">Total Bruto</th>
+                                <th class="text-center">Total Desconto</th>
+                                <th class="text-center">Total Líquido</th>
+                                <th class="text-center">Observações finais</th>
                             </tr>
                             <tr class="table-active"><!--Conteudo da linha de resumo do total geral-->
-                                <td><?php echo ($resultado_busca->num_rows) ?></td>
-                                <td><?php echo $array_total['dist']?></td>
-                                <td><?php echo $array_total['total_geral'] ?></td>
-                                <td>R$ 0,00</td>
-                                <td><?php echo $array_total['total_geral'] ?></td>
-                                <td>Não há observações.</td>
+                                <td class="text-center"><?php echo ($resultado_busca->num_rows) ?></td>
+                                <td class="text-center"><?php echo $array_total['dist']?></td>
+                                <td class="text-center"><?php echo $array_total['total_geral'] ?></td>
+                                <td class="text-center">R$ 0,00</td>
+                                <td class="text-center"><?php echo $array_total['total_geral'] ?></td>
+                                <td class="text-center">Não há observações.</td>
                             </tr>
                         </tbody>
                     </table>
