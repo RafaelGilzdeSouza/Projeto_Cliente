@@ -78,6 +78,10 @@ body {
     color: #000000
 }
 
+i{
+  font-size: 1.3rem;
+}
+
 ul {
     list-style: none;
     margin-bottom: 0px
@@ -3280,6 +3284,7 @@ textarea.form-control-lg {
 .btn-primary {
   color: #fff;
   background-color: #0d6efd;
+  margin-left: 10px;
 }
 
 .btn-primarycad {
