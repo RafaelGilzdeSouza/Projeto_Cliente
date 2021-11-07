@@ -39,11 +39,11 @@ $GLOBALS['ID'] = $_SESSION['id_priv'];
     <div class="formulario fieldset px-4 px-lg-5">
         <form method="POST" action="usuarios_backend.php">
             <div class="form-row">
-                <div class="form-group col-md-5">
+                <div class="form-group fw-bolder col-md-5">
                     <label>Nome</label>
                     <input type="text" name="nome" id="nome" class="form-control" maxlength="100" placeholder="Nome completo">
                 </div>
-                <div class="form-group form_margin col-md-5">
+                <div class="form-group form_margin fw-bolder col-md-5">
                     <label>Login</label>
                     <input type="text" name="login" id="login" class="form-control" maxlength="20" placeholder="Login de acesso">
                 </div>
@@ -52,42 +52,42 @@ $GLOBALS['ID'] = $_SESSION['id_priv'];
 
 
                 <div class="form-row">
-                <div class="form-group col-md-5">
+                <div class="form-group fw-bolder col-md-5">
                     <label>CPF</label>
                     <input type="text" name="cpf" id="cpf" class="form-control" minlength="14" maxlength="14" placeholder="CPF" onkeypress="$(this).mask('000.000.000-00');">
                 </div>
-                <div class="form-group form_margin col-md-5">
+                <div class="form-group form_margin fw-bolder col-md-5">
                     <label>CEP</label>
                     <input type="text" name="cep" id="cep" class="form-control" minlength="9" maxlength="9" placeholder="CEP" onkeypress="$(this).mask('00000-000');">
                 </div>
                 </div>
 
                 <div class="form-row">
-                <div class="form-group col-md-5">
+                <div class="form-group fw-bolder col-md-5">
                     <label>Rua</label>
                     <input type="text" name="rua" id="rua" class="form-control" maxlength="200" placeholder="Rua">
                 </div>
-                <div class="form-group form_margin col-md-5">
+                <div class="form-group form_margin fw-bolder col-md-5">
                     <label>Número</label>
                     <input type="text" name="numero" id="numero" class="form-control" maxlength="6" placeholder="Nº do imóvel">
                 </div>
             </div>
             <div class="form-row">
-                <div class="form-group col-md-5">
+                <div class="form-group fw-bolder col-md-5">
                     <label>Telefone</label>
                     <input type="text" name="telefone" id="telefone" class="form-control" maxlength="15" placeholder="Telefone" onkeypress="$(this).mask('(00)0.0000-0000');">
                 </div>
-                <div class="form-group form_margin col-md-5">
+                <div class="form-group form_margin fw-bolder col-md-5">
                     <label>E-mail</label>
                     <input type="text" name="email" id="email" class="form-control" maxlength="100" placeholder="E-mail para contato">
                 </div>
                 </div>
                 <div class="form-row">
-                <div class="form-group col-md-5">
+                <div class="form-group fw-bolder col-md-5">
                     <label>Senha</label>
                     <input type="password" name="senha" id="senha" class="form-control" maxlength="20" placeholder="Senha de acesso">
                 </div>
-                <div class="form-group form_margin col-md-5">
+                <div class="form-group form_margin fw-bolder col-md-5">
                     <label>Permissão</label>
                     <input type="text" name="permissao" id="permissao" class="form-control" onkeypress="$(this).mask('0');" placeholder="Qual o nível de Acesso">
                 </div>

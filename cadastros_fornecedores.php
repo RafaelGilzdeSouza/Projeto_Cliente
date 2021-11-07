@@ -37,43 +37,43 @@ $GLOBALS['ID'] = $_SESSION['id_priv'];
         <div class="formulario fieldset px-4 px-lg-5">
             <form method="POST" action="fornecedores_backend.php">
                 <div class="form-row">
-                    <div class="form-group col-md-5">
+                    <div class="form-group fw-bolder col-md-5">
                         <label>Razão Social</label>
                         <input type="text" name="razaosocial" id="razaosocial" class="form-control" maxlength="100" placeholder="Razão Social da Empresa">
                     </div>
-                    <div class="form-group form_margin col-md-5">
+                    <div class="form-group form_margin fw-bolder col-md-5">
                         <label>CNPJ</label>
                         <input type="text" name="cnpj" id="cnpj" class="form-control" minlength="18" maxlength="18" placeholder="CNPJ" onkeypress="$(this).mask('00.000.000/0000-00');">
                     </div>
                 </div>
                 
                 <div class="form-row">
-                    <div class="form-group col-md-5">
+                    <div class="form-group fw-bolder col-md-5">
                         <label>CEP</label>
                         <input type="text" name="cep_empresa" id="cep_empresa" class="form-control" minlength="9" maxlength="9" placeholder="CEP" onkeypress="$(this).mask('00000-000');">
                     </div>
-                    <div class="form-group form_margin col-md-5">
+                    <div class="form-group form_margin fw-bolder col-md-5">
                         <label>Rua</label>
                         <input type="text" name="rua_empresa" id="rua_empresa" class="form-control" maxlength="200" placeholder="Rua">
                     </div>
                     
                 </div>
                 <div class="form-row">
-                    <div class="form-group col-md-5">
+                    <div class="form-group fw-bolder col-md-5">
                         <label>Bairro</label>
                         <input type="text" name="bairro" id="bairro" class="form-control" maxlength="20" placeholder="Bairro">
                     </div>
-                    <div class="form-group form_margin col-md-5">
+                    <div class="form-group form_margin fw-bolder col-md-5">
                         <label>Número</label>
                         <input type="text" name="numero_empresa" id="numero_empresa" class="form-control" maxlength="6" placeholder="Nº do imóvel">
                     </div>
                 </div>
                 <div class="form-row">
-                    <div class="form-group col-md-5">
+                    <div class="form-group fw-bolder col-md-5">
                         <label>Cidade</label>
                         <input type="text" name="cidade" id="cidade" class="form-control" maxlength="20" placeholder="Cidade">
                     </div>
-                    <div class="form-group form_margin col-md-2">
+                    <div class="form-group form_margin fw-bolder col-md-2">
                         <label>Estado</label>
                         <select name="estado" id="estado" class="form-select" aria-label="Disabled select example">
                             <option selected>Selecione</option>
@@ -106,7 +106,7 @@ $GLOBALS['ID'] = $_SESSION['id_priv'];
                             <option value="1">ES</option>
                         </select>
                     </div>
-                    <div class="form-group form_margin col-md-2">
+                    <div class="form-group form_margin fw-bolder col-md-2">
                         <label>Status</label>
                         <select name="status" id="status" class="form-select" aria-label="Disabled select example">
                             <option selected>Selecione</option>
@@ -117,11 +117,11 @@ $GLOBALS['ID'] = $_SESSION['id_priv'];
                    
                 </div>
                 <div class="form-row">
-                    <div class="form-group col-md-5">
+                    <div class="form-group fw-bolder col-md-5">
                         <label>Telefone</label>
                         <input type="text" name="telefone" id="telefone" class="form-control" maxlength="15" placeholder="Telefone" onkeypress="$(this).mask('(00)0.0000-0000');">
                     </div>
-                    <div class="form-group form_margin col-md-5">
+                    <div class="form-group form_margin fw-bolder col-md-5">
                         <label>E-mail</label>
                         <input type="email" name="email" id="email" class="form-control" maxlength="100" placeholder="E-mail para contato">
                     </div>
