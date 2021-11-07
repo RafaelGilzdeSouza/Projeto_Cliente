@@ -23,7 +23,7 @@ function confere_permissao(pagina){
         <!--Container para centralizar a navbar-->
         <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
                 <li class="nav-item">
-                    <a class="navbar-brand fw-bolder me-0" href="home.php">Bem Vindo!  <?php echo $_SESSION['nome'];?></a>
+                    <a class="navbar-brand fw-bolder me-0" href="home.php"><i class='bx bxs-user-circle bx-sm'> <?php echo $_SESSION['nome'];?></i> </a>
                 </li>
             </ul>
 
