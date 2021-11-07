@@ -75,7 +75,8 @@ body {
     font-size: 14px;
     font-weight: 400;
     background: #E0E0E0;
-    color: #000000
+    color: #000000;
+    min-height: 100vh!important;
 }
 
 ul {
