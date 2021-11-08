@@ -89,13 +89,13 @@ function confere_permissao(pagina){
                 <li class="nav-item dropdown">
                     <form class="d-flex">
                         <input name="input_produtos" id="input_produtos" type="text" class="form-control me-0" placeholder="Buscar">
-                        <button name="btn_buscar_produtos" id="btn_buscar_produtos" type="button" onclick="AlteraConteudo()" class="btn btn-primary me-2"><i class='bx bx-search-alt'></i></button>
+                        <button name="btn_buscar_produtos" id="btn_buscar_produtos" type="button" onclick="AlteraConteudo()" class="btn btn-outline-dark-busca me-2 "><i class='bx bx-search-alt'></i></button>
                     </form>
                 </li>
                 
                 <li class="nav-item dropdown">
                     <a name="btn_carrinho" id="btn_carrinho" href="carrinho.php" class="btn btn-outline-dark " >
-                        <img src="img/shopcart2.ico" style="height: 18px;" alt="logo">
+                    <i class='bx bxs-cart-add '></i>
                         <span class="badge bg-dark text-white ms-1 badge-pill">
                             <div name="num_carrinho" id="num_carrinho" class="num_carrinho">0</div>
                         </span>
