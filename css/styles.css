@@ -78,6 +78,7 @@ body {
     color: #000000
 }
 
+
 i{
   font-size: 1.3rem;
 }
@@ -529,8 +530,14 @@ img, svg {
 table {
   caption-side: bottom;
   border-collapse: collapse;
+  background-color: #ffffff;
 }
-
+tr:nth-child(even){
+  background-color: #b8b8b8
+}
+.tr::backdrop{
+  background-color: #424242
+}
 caption {
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
@@ -549,7 +556,7 @@ tfoot,
 tr,
 td,
 th {
-  border-color: inherit;
+  border-color:rgba(255, 255, 255, 0);
   border-style: solid;
   border-width: 0;
 }
