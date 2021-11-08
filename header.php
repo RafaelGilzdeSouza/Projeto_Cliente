@@ -29,18 +29,12 @@ function confere_permissao(pagina){
 
             <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
                 <li class="nav-item">
-                    <a class="navbar-brand me-0" href="home.php">Eletronics Store</a>
-                </li>
-            </ul>
-
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="home.php">Compras</a>
+                    <a class="nav-link active" aria-current="page" href="home.php"><i class='bx bx-home'></i> Compras</a>
                 </li>
                     <?php
                     if(($GLOBALS['ID']) == 1){?>
                         <li class="nav-item dropdown">
-                            <a class="nav-link active dropdown-toggle me-4" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Cadastros</a>
+                            <a class="nav-link active dropdown-toggle me-4" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class='bx bx-user-plus'></i> Cadastros</a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <input type="button" class="dropdown-item" onclick="confere_permissao(this.value)" value="Usuario" />
                                 <input type="button" class="dropdown-item" onclick="confere_permissao(this.value)" value="Fornecedores" />
