@@ -115,7 +115,7 @@ $GLOBALS['ID'] = $_SESSION['id_priv'];
                     </div>
                 </div>
                 <div class="form-row">
-                    <div class="form-group">
+                    <div class="form-group fw-bolder col-md-5">
                         <button name="btn_cadastrar_produtos" id="btn_cadastrar_produtos" type="submit" class="btn btn-primarycad">Cadastrar </button>
                         <a href="cadastros_produtos.php" name="btn_limpar_cadastro_produtos" id="btn_limpar_cadastro_produtos" type="submit" class="btn btn-warning">Limpar </a>
                         <button name="btn_excluir_cadastro_produtos" id="btn_excluir_cadastro_produtos" type="submit" class="btn btn-danger">Excluir </button>

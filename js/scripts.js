@@ -30,31 +30,23 @@ function AjaxF()
 }
 
 //funcao que altera o conteudo dos card quando uma busca é feit na barra de pesquisa
-function AlteraConteudo(paginaAtual)
+function AlteraConteudo()
 {
-	if(paginaAtual == 'cadastros_usuarios.php'){
-		//enviar o conteudo para uma pagina backend
-		//o backend busca o resultado do id correspondente
-		//insere os dados no formulario
-
-	}else{
-		var ajax = AjaxF();
-
-		ajax.onreadystatechange = function(){
-		 if(ajax.readyState == 4)
-		 {
+	var ajax = AjaxF();
+	
+	ajax.onreadystatechange = function(){
+		if(ajax.readyState == 4)
+		{
 			//'conteudo' é o id da div onde será inserido via html, o resultado
 			document.getElementById('conteudo').innerHTML = ajax.responseText;
-		 }
 		}
-
-		// Variável com os dados que serão enviados ao PHP
-		var dados = "produtos="+document.querySelector("#input_produtos").value;
-		jax.open("GET", "home_backend.php?"+dados);
-		jax.setRequestHeader("Content-Type", "text/html");
-		jax.send();
 	}
-	
+
+	// Variável com os dados que serão enviados ao PHP
+	var conteudo_busca = document.querySelector("#input_produtos").value;
+	ajax.open("GET", "home_backend.php?produtos="+conteudo_busca);
+	ajax.setRequestHeader("Content-Type", "text/html");
+	ajax.send();
 }
 
 //funcao que altera o conteudo dos card quando for usado o filtro na navbar
@@ -88,5 +80,4 @@ function AlteraConteudoDrop(name){
 	ajax.open("GET", "home_backend_botoes.php?"+dados);
 	ajax.setRequestHeader("Content-Type", "text/html");
 	ajax.send();
-	
 }

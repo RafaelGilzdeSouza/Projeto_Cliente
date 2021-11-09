@@ -27,7 +27,8 @@
                         <!-- div card e Py-4 define o comprimento do card-->
                         <div class="card-body py-4 text-center">
                             <!-- Nome do Produto-->
-                            <h6 class="fw-bolder">'.('PROMOCAO: '.$row_produtos['descricao']).'</h6>
+                            <!--"substr" controla a quantidade de caracteres apresentados, "strtoupper" converte para caixa alta-->
+                            <h6 class="fw-bolder">'.strtoupper(utf8_decode('PROMOÇÃO: ').substr( utf8_decode($row_produtos['descricao']), 0, 40) ).'</h6>
                             <i class="bi bi-bookmark-star"></i>
                             
                             <!-- Preco do Produto-->
@@ -53,7 +54,8 @@
                         <!-- div card e Py-4 define o comprimento do card-->
                         <div class="card-body py-4 text-center">
                             <!-- Nome do Produto-->
-                            <h6 class="fw-bolder">'.($row_produtos['descricao']).'</h6>
+                            <!--"substr" controla a quantidade de caracteres apresentados, "strtoupper" converte para caixa alta-->
+                            <h6 class="fw-bolder">'.strtoupper(substr( utf8_decode($row_produtos['descricao']), 0, 39) ).'</h6>
                             
                             <!-- Preco do Produto-->
                             R$ '.$row_produtos['preco_venda'].'

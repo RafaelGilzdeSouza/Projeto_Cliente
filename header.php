@@ -3,7 +3,7 @@ function confere_permissao(pagina){
         if(<?php echo ($GLOBALS['ID'])?> > 1){
             alert("Acesso negado, consulte o(a) administrador(a) do site para mais informações.");
         }else{
-            if(pagina == 'Usuario'){
+            if(pagina == 'Usuários'){
                 window.location.href = "cadastros_usuarios.php";
             }else if(pagina == 'Fornecedores'){
                 window.location.href = "cadastros_fornecedores.php";
@@ -42,7 +42,7 @@ function confere_permissao(pagina){
                         <li class="nav-item dropdown">
                             <a class="nav-link active dropdown-toggle me-4" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Cadastros</a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <input type="button" class="dropdown-item" onclick="confere_permissao(this.value)" value="Usuario" />
+                                <input type="button" class="dropdown-item" onclick="confere_permissao(this.value)" value="Usuários" />
                                 <input type="button" class="dropdown-item" onclick="confere_permissao(this.value)" value="Fornecedores" />
                                 <input type="button" class="dropdown-item" onclick="confere_permissao(this.value)" value="Produtos" />
                             </ul>
@@ -52,7 +52,8 @@ function confere_permissao(pagina){
                 <li class="nav-item dropdown">
                     <a class="nav-link active dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Celulares</a>
                     <ul class="dropdown-menu" value="teste" aria-labelledby="navbarDropdown">
-                        <li><button name="Celulares-Samsung" class="dropdown-item" onclick="AlteraConteudoDrop(this.value);" value="Celulares-Samsung" >Samsung</button></li>
+                    <script src="https://code.iconify.design/2/2.0.3/iconify.min.js"></script>
+                        <li><button name="Celulares-Samsung" class="dropdown-item" onclick="AlteraConteudoDrop(this.value);" value="Celulares-Samsung" >Samsung </button></li>
                         <li><button name="Celulares_Apple" class="dropdown-item"  onclick="AlteraConteudoDrop(this.value);" value="Celulares-Apple" >Apple</button></li>
                         <li><button name="Celulares_Todos" class="dropdown-item" onclick="AlteraConteudoDrop(this.value);" value="Celulares" >Ver todos</button></li>
                     </ul>

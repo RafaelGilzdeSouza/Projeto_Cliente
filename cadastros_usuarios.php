@@ -92,13 +92,13 @@ $GLOBALS['ID'] = $_SESSION['id_priv'];
                     <input type="text" name="permissao" id="permissao" class="form-control" onkeypress="$(this).mask('0');" placeholder="Qual o nível de Acesso">
                 </div>
             </div>
-            <div class="form-row ">
-                <div class="form-group">
-                    <button name="btn_cadastrar_usuario" id="btn_cadastrar_usuario" type="submit" class="btn btn-primarycad">Cadastrar </button>
-                    <a href="cadastros_usuarios.php" name="btn_limpar_cadastro_usuario" id="" type="submit" class="btn btn-warning">Limpar </a>
-                    <button name="btn_excluir_cadastro_usuario" id="btn_excluir_cadastro_usuario" type="submit" class="btn btn-danger">Excluir </button>
+                <div class="form-row ">
+                    <div class="form-group fw-bolder col-md-5">
+                        <button name="btn_cadastrar_usuario" id="btn_cadastrar_usuario" type="submit" class="btn btn-primarycad">Cadastrar </button>
+                        <a href="cadastros_usuarios.php" name="btn_limpar_cadastro_usuario" id="" type="submit" class="btn btn-warning">Limpar </a>
+                        <button name="btn_excluir_cadastro_usuario" id="btn_excluir_cadastro_usuario" type="submit" class="btn btn-danger">Excluir </button>
+                    </div>
                 </div>
-            </div>
         </form>
     </div>
 

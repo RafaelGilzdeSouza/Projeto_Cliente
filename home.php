@@ -53,14 +53,17 @@ $GLOBALS['ID'] = $_SESSION['id_priv'];
                                     <!-- Py-4 define o comprimento do card -->
                                     <div class="card-body py-4 text-center">
                                         <!-- Nome do Produto-->
-                                        <h6 class="fw-bolder">'.('PROMOCAO: '.$row_produtos['descricao']).'</h6>
+                                        <!--"substr" controla a quantidade de caracteres apresentados, "strtoupper" converte para caixa alta-->
+                                        <h6 class="fw-bolder">'.strtoupper(utf8_decode('PROMOÇÃO: ').substr( utf8_decode($row_produtos['descricao']), 0, 40) ).'</h6>
                                         <!-- Preco do Produto-->
                                         <div clas="row">
+                                            <br>
+                                            <strike>R$ '.(string)($row_produtos['preco_venda']*1.5.'.00').'</strike>
+                                            <br>
                                             <i class="bi bi-bookmark-star"></i>
                                             R$ '.$row_produtos['preco_venda'].'
                                         </div>
-                                    </div>
-                                    
+                                    </div>                                   
                                     <!-- Botoes de acao do card com o uso de icones-->
                                     <div class="card-footer p-4 pt-0 border-top-0 bg-transparent text-center">
                                         <button name="btn_mais" class="btn btn-outline-dark mt-auto" onclick="adicionar(this.value)" value="'.$row_produtos['cod_prod'].' "><i class="bi bi-bag-plus"></i></button>

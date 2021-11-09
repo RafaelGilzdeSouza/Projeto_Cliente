@@ -34,12 +34,12 @@ $GLOBALS['ID'] = $_SESSION['id_priv'];
         <section class="shopping-cart dark">
             <div class="container px-4 px-lg-5 mt-5">  <!--Div dos produtos-->
                 <div class="col-md-12"> <!--Div dos produtos-->
-                    <table class="table ">
+                    <table class="table">
                         <thead>
-                            <tr class="table-active"><!--Linha do cabecalho da tabela-->
+                            <tr><!--Linha do cabecalho da tabela-->
                                 <th class="text-center">Cod. Prod.</th>
-                                <th class="text-center">Descricao</th>
-                                <th class="text-center">Valor Unitario</th>
+                                <th class="text-center">Descrição</th>
+                                <th class="text-center">Valor Unitário</th>
                                 <th class="text-center">Qtd</th>
                                 <th class="text-center">Valor Total</th>
                                 <th class="text-center">Alterar Quantidade</th>
@@ -50,9 +50,10 @@ $GLOBALS['ID'] = $_SESSION['id_priv'];
                             if (($resultado_busca) AND ($resultado_busca->num_rows != 0)) { // o valor é valido? (sim)
                                 while($row_produtos = mysqli_fetch_assoc($resultado_busca)){
                                     echo utf8_encode('
-                                    <tr class="table-active "><!--Conteudo da linha do produto 1-->
+                                    <tr class="table-active "> 
                                         <td class="text-center">'.$row_produtos['cod_produto'].'</td>
-                                        <td class="text-center">'.$row_produtos['descricao'].'</td>
+                                        <!--"substr" controla a quantidade de caracteres apresentados-->
+                                        <td class="text-center">'.substr( utf8_decode($row_produtos['descricao']),0,50).'</td>
                                         <td class="text-center">R$ '.$row_produtos['valor_unitario_prod'].'</td>
                                         <td class="text-center">'.$row_produtos['qtd_comprada'].'</td>
                                         <td class="text-center">R$ '.$row_produtos['valor_total'].'</td>
@@ -93,7 +94,7 @@ $GLOBALS['ID'] = $_SESSION['id_priv'];
                                 <td class="text-center"><?php echo ($resultado_busca->num_rows) ?></td>
                                 <td class="text-center"><?php echo $array_total['dist']?></td>
                                 <td class="text-center">R$ <?php echo $array_total['total_geral'] ?></td>
-                                <td class="text-center">R$ 0,00</td>
+                                <td class="text-center">R$ 0.00</td>
                                 <td class="text-center">R$ <?php echo $array_total['total_geral'] ?></td>
                                 <td class="text-center"><button name="btn_finaliza" id="btn_finaliza" class="btn btn-outline-dark-logoff " type="auto">Comprar</button></td>
                             </tr>
