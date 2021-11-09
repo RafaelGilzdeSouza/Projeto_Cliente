@@ -3,7 +3,7 @@ include('conexao.php');
 
 if(isset($_POST['btn_entrar'])){
   if(isset($_POST['login']) || isset($_POST['senha'])) {
-
+      //mostra msg de erro caso os campos estejam vazios
       if($_POST['login'] === '' || $_POST['senha'] === '') {
         echo '
         <div style=" margin-top:10px;margin-left: 10;margin-bottom: 5%; position:absolute ;top: 5px;">
@@ -13,36 +13,38 @@ if(isset($_POST['btn_entrar'])){
           </div>
         </div>';
       }
+      //caso os campos forem preenchidos
       else {
-          $login = $mysqli->real_escape_string($_POST['login']);
-          $senha = $mysqli->real_escape_string(($_POST['senha']));
+        $login = $mysqli->real_escape_string($_POST['login']);
+        $senha = $mysqli->real_escape_string(MD5($_POST['senha']));
 
-          $sql_code = "SELECT * FROM tb_usuario WHERE login = '$login' AND senha = '$senha'";
-          $sql_query = $mysqli->query($sql_code) or die("Falha na execução do código SQL: " . $mysqli->error);
-        
-          $quantidade = $sql_query->num_rows;
-        
-          if($quantidade == 1) {
-              $usuario = $sql_query->fetch_assoc();
+        $sql_code = "SELECT * FROM tb_usuario WHERE login = '$login' AND senha = '$senha'";
+        $sql_query = $mysqli->query($sql_code) or die("Falha na execução do código SQL: " . $mysqli->error);
+      
+        $quantidade = $sql_query->num_rows;
+        //existe algum registro com essas infos?
+        if($quantidade == 1) {
+            $usuario = $sql_query->fetch_assoc();
 
-              if(!isset($_SESSION)) {
-                  session_start();
-              }
-              
-              $_SESSION['cod_interno'] = $usuario['cod_interno'];
-              $_SESSION['nome'] = $usuario['nome'];
-              $_SESSION['id_priv'] = $usuario['id_priv'];
-              header("Location: home.php");
-          } 
-          else {
-              echo '
-              <div style=" margin-top:10px;margin-left: 10;margin-bottom: 5%; position:absolute ;top: 5px;">
-                <div class="alert alert-danger d-flex align-items-center" role="alert">
-                  <svg class="bi flex-shrink-0 me-2" width="15" height="10" role="img" aria-label="Danger:"><use xlink:href="#exclamation-triangle-fill"/></svg>
-                  <div>Login ou Senha incorretos!</div>
-                </div>
-              </div>';
-          }
+            if(!isset($_SESSION)) {
+                session_start();
+            }
+            
+            $_SESSION['cod_interno'] = $usuario['cod_interno'];
+            $_SESSION['nome'] = $usuario['nome'];
+            $_SESSION['id_priv'] = $usuario['id_priv'];
+            header("Location: home.php");
+        }
+        //msg de erro caso nao exista geristro com essas credenciais
+        else {
+            echo '
+            <div style=" margin-top:10px;margin-left: 10;margin-bottom: 5%; position:absolute ;top: 5px;">
+              <div class="alert alert-danger d-flex align-items-center" role="alert">
+                <svg class="bi flex-shrink-0 me-2" width="15" height="10" role="img" aria-label="Danger:"><use xlink:href="#exclamation-triangle-fill"/></svg>
+                <div>Login ou Senha incorretos!</div>
+              </div>
+            </div>';
+        }
       }
   }
 

@@ -18,23 +18,29 @@ function confere_permissao(pagina){
     <head>
     <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet'>
     </head>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light border border-top-0">
 
         <!--Container para centralizar a navbar-->
         <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
                 <li class="nav-item">
-                    <a class="navbar-brand fw-bolder me-0" href="home.php"><i class='bx bxs-user-circle bx-sm'> <?php echo $_SESSION['nome'];?></i> </a>
+                    <a class="navbar-brand fw-bolder me-0" href="home.php"><i class='bx bxs-user-circle bx-sm'> <?php echo ucfirst($_SESSION['nome']);?></i> </a>
                 </li>
             </ul>
 
             <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="home.php"><i class='bx bx-home'></i> Compras</a>
+                    <a class="navbar-brand me-0" href="home.php">Eletronics Store</a>
+                </li>
+            </ul>
+
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="home.php">Compras</a>
                 </li>
                     <?php
                     if(($GLOBALS['ID']) == 1){?>
                         <li class="nav-item dropdown">
-                            <a class="nav-link active dropdown-toggle me-4" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class='bx bx-user-plus'></i> Cadastros</a>
+                            <a class="nav-link active dropdown-toggle me-4" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Cadastros</a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                                 <input type="button" class="dropdown-item" onclick="confere_permissao(this.value)" value="Usuario" />
                                 <input type="button" class="dropdown-item" onclick="confere_permissao(this.value)" value="Fornecedores" />
@@ -89,13 +95,13 @@ function confere_permissao(pagina){
                 <li class="nav-item dropdown">
                     <form class="d-flex">
                         <input name="input_produtos" id="input_produtos" type="text" class="form-control me-0" placeholder="Buscar">
-                        <button name="btn_buscar_produtos" id="btn_buscar_produtos" type="button" onclick="AlteraConteudo()" class="btn btn-outline-dark-busca me-2 "><i class='bx bx-search-alt'></i></button>
+                        <button name="btn_buscar_produtos" id="btn_buscar_produtos" type="button" onclick="AlteraConteudo()" class="btn btn-primary me-2"><i class='bx bx-search-alt'></i></button>
                     </form>
                 </li>
                 
                 <li class="nav-item dropdown">
                     <a name="btn_carrinho" id="btn_carrinho" href="carrinho.php" class="btn btn-outline-dark " >
-                    <i class='bx bxs-cart-add '></i>
+                        <img src="img/shopcart2.ico" style="height: 18px;" alt="logo">
                         <span class="badge bg-dark text-white ms-1 badge-pill">
                             <div name="num_carrinho" id="num_carrinho" class="num_carrinho">0</div>
                         </span>
@@ -115,7 +121,7 @@ function confere_permissao(pagina){
     </nav> <!--Fim do navbar-->
 
     <!-- Header-->
-    <header class="bg-dark py-1">
+    <header class="bg-dark py-1" style="margin-top: 40px;">
         <!--Container para centralizar o header-->
         <div class="container px-lg-5 my-4">
             <div class="text-center text-white">
