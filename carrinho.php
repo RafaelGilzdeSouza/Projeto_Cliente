@@ -46,38 +46,39 @@ $GLOBALS['ID'] = $_SESSION['id_priv'];
                             </tr>
                         </thead>
                         <tbody><!--Estrutura das linhas da tabela-->
-                        <?php
-                            if (($resultado_busca) AND ($resultado_busca->num_rows != 0)) { // o valor é valido? (sim)
-                                while($row_produtos = mysqli_fetch_assoc($resultado_busca)){
-                                    echo utf8_encode('
-                                    <tr class="table-active "> 
-                                        <td class="text-center">'.$row_produtos['cod_produto'].'</td>
-                                        <!--"substr" controla a quantidade de caracteres apresentados-->
-                                        <td class="text-center">'.substr( utf8_decode($row_produtos['descricao']),0,50).'</td>
-                                        <td class="text-center">R$ '.$row_produtos['valor_unitario_prod'].'</td>
-                                        <td class="text-center">'.$row_produtos['qtd_comprada'].'</td>
-                                        <td class="text-center">R$ '.$row_produtos['valor_total'].'</td>
-                                        <td>
-                                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent text-center" style="
-                                        padding-bottom: 12px;
-                                        width: 208px;
-                                        height: 44px;
-                                      
-                                    ">
-                                            <button name="btn_mais" class="btn btn-outline-dark mt-auto" onclick="adicionar(this.value)" value="'.$row_produtos['cod_produto'].'"><i class="bi bi-bag-plus"></i></button>
-                                            <button name="btn_menos" class="btn btn-outline-dark mt-auto" onclick="diminuir(this.value)" value="'.$row_produtos['cod_produto'].'"><i class="bi bi-bag-dash"></i></button>
-                                            <button name="btn_excluir" class="btn btn-outline-dark mt-auto" onclick="excluir(this.value)" value="'.$row_produtos['cod_produto'].'"><i class="bi bi-trash"></i></button>
-                                        </div>
-                                        </td>
-                                    </tr>'
-                                    );
+                            <?php
+                                if (($resultado_busca) AND ($resultado_busca->num_rows != 0)) { // o valor é valido? (sim)
+                                    while($row_produtos = mysqli_fetch_assoc($resultado_busca)){
+                                        echo utf8_encode('
+                                        <tr class="table-active "> 
+                                            <td class="text-center">'.$row_produtos['cod_produto'].'</td>
+                                            <!--"substr" controla a quantidade de caracteres apresentados-->
+                                            <td class="text-center">'.substr( utf8_decode($row_produtos['descricao']),0,50).'</td>
+                                            <td class="text-center">R$ '.$row_produtos['valor_unitario_prod'].'</td>
+                                            <td class="text-center">'.$row_produtos['qtd_comprada'].'</td>
+                                            <td class="text-center">R$ '.$row_produtos['valor_total'].'</td>
+                                            <td>
+                                            <div class="card-footer p-4 pt-0 border-top-0 bg-transparent text-center" style="
+                                            padding-bottom: 12px;
+                                            width: 208px;
+                                            height: 44px;
+                                        
+                                        ">
+                                                <button name="btn_mais" class="btn btn-outline-dark mt-auto" onclick="adicionar(this.value)" value="'.$row_produtos['cod_produto'].'"><i class="bi bi-bag-plus"></i></button>
+                                                <button name="btn_menos" class="btn btn-outline-dark mt-auto" onclick="diminuir(this.value)" value="'.$row_produtos['cod_produto'].'"><i class="bi bi-bag-dash"></i></button>
+                                                <button name="btn_excluir" class="btn btn-outline-dark mt-auto" onclick="excluir(this.value)" value="'.$row_produtos['cod_produto'].'"><i class="bi bi-trash"></i></button>
+                                            </div>
+                                            </td>
+                                        </tr>'
+                                        );
+                                    }
                                 }
-                            }
-                        ?>
+                            ?>
                         </tbody>
+                    </table>
+                    <table class="table">
                         <thead>
-                        
-                       <!--Estrutura da linha de resumo do total geral-->
+                            <!--Estrutura da linha de resumo do total geral-->
                             <tr><!--Cabecalho da linha de resumo do total geral-->
                                 <th class="text-center">Itens dist.</th>
                                 <th class="text-center">Fornecedor</th>
@@ -85,18 +86,17 @@ $GLOBALS['ID'] = $_SESSION['id_priv'];
                                 <th class="text-center">Total Desconto</th>
                                 <th class="text-center">Total Líquido</th>
                                 <th class="text-center">Finalizar Compra</th> 
-                            
                             </tr>
-                            </thead>
+                        </thead>
 
-                            <tbody>
+                        <tbody>
                             <tr class="table-active"><!--Conteudo da linha de resumo do total geral-->
                                 <td class="text-center"><?php echo ($resultado_busca->num_rows) ?></td>
                                 <td class="text-center"><?php echo $array_total['dist']?></td>
                                 <td class="text-center">R$ <?php echo $array_total['total_geral'] ?></td>
                                 <td class="text-center">R$ 0.00</td>
                                 <td class="text-center">R$ <?php echo $array_total['total_geral'] ?></td>
-                                <td class="text-center"><button name="btn_finaliza" id="btn_finaliza" class="btn btn-outline-dark-logoff " type="auto">Comprar</button></td>
+                                <td class="text-center"><button name="btn_finaliza" id="btn_finaliza" class="btn btn-outline-dark-logoff " type="auto">Finalizar Compra</button></td>
                             </tr>
                         </tbody>
                     </table>
