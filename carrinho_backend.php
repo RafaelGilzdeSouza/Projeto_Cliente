@@ -111,8 +111,6 @@ if(isset($_GET['excluir_prod_carrinho'])){ // o botao x foi pressionado? (sim)
     }
 }
 
-
-
 //funcao compartilhada
 
 if(isset($_GET['atualizaIconeCarrinho'])){ // funcao executada ao pressionar os botoes + ou -
