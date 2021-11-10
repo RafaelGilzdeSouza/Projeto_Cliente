@@ -42,8 +42,7 @@ $GLOBALS['ID'] = $_SESSION['id_priv'];
                                 <th class="text-center">Valor Unitário</th>
                                 <th class="text-center">Qtd</th>
                                 <th class="text-center">Valor Total</th>
-                                <th class="text-center">Alterar Quantidade<button name="btn_limpar" class="btn btn-outline-dark mt-auto" onclick="limpar(this.value)" value="'.$row_produtos['cod_produto'].'">Limpar</button>
-                            </tr>
+                                <th class="text-center">Alterar Quantidade</tr>
                         </thead>
                         <tbody><!--Estrutura das linhas da tabela-->
                             <?php
@@ -181,6 +180,7 @@ $GLOBALS['ID'] = $_SESSION['id_priv'];
             ajax.setRequestHeader("Content-Type", "text/html");
             ajax.send();
         }
+
 
     
     </script>

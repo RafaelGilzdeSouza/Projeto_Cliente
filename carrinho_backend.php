@@ -122,8 +122,5 @@ if(isset($_GET['atualizaIconeCarrinho'])){ // funcao executada ao pressionar os 
     echo $qtd;
 }
 
-
-
-
     
-?>
+    ?>
