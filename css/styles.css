@@ -824,7 +824,7 @@ progress {
   position: relative;
   bottom: 0;
   width: 100%;
-  line-height: 100px;
+  line-height: 50px;
 }
 
 .blockquote-footer {
