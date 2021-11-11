@@ -97,7 +97,7 @@ $GLOBALS['ID'] = $_SESSION['id_priv'];
                         <input type="text" name="forn_ult_entrega" id="forn_ult_entrega" class="form-control" placeholder="Forn. últ. Entrega">
                     </div>
                     <div class="form-group form_margin fw-bolder col-md-2">
-                        <label>Promoção</label>
+                        <label>PROMOÇÃO</label>
                         <select name="promocao" id="promocao" class="form-select" aria-label="Disabled select example">
                             <option selected>Selecione</option>
                             <option value=0>0</option>

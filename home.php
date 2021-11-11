@@ -54,7 +54,7 @@ $GLOBALS['ID'] = $_SESSION['id_priv'];
                                     <div class="card-body py-4 text-center">
                                         <!-- Nome do Produto-->
                                         <!--"substr" controla a quantidade de caracteres apresentados, "strtoupper" converte para caixa alta-->
-                                        <h6 class="fw-bolder">'.strtoupper(utf8_decode('promoção: ').substr( utf8_decode($row_produtos['descricao']), 0, 40) ).'</h6>
+                                        <h6 class="fw-bolder">'.strtoupper(utf8_decode('PROMOÇÃO: ').substr( utf8_decode($row_produtos['descricao']), 0, 40) ).'</h6>
                                         <!-- Preco do Produto-->
                                         <div clas="row">
                                             <br>

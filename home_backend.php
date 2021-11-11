@@ -56,7 +56,7 @@ if ( ($resultado_busca) AND ($resultado_busca->num_rows != 0) ) {
                             <h6 class="fw-bolder">'.strtoupper(substr( utf8_decode($row_produtos['descricao']), 0, 39) ).'</h6>
                             
                             <div clas="row">
-                                <br>
+                                <br><br>
                                 R$ '.$row_produtos['preco_venda'].'
                             </div>
                         </div>
@@ -88,7 +88,7 @@ if ( ($resultado_busca) AND ($resultado_busca->num_rows != 0) ) {
                         <div class="card-body py-4 text-center">
                             <!-- Nome do Produto-->
                             <!--"substr" controla a quantidade de caracteres apresentados, "strtoupper" converte para caixa alta-->
-                            <h6 class="fw-bolder">'.strtoupper(utf8_decode('promoção: ').substr( utf8_decode($row_produtos['descricao']), 0, 40) ).'</h6>
+                            <h6 class="fw-bolder">'.strtoupper(utf8_decode('PROMOÇÃO: ').substr( utf8_decode($row_produtos['descricao']), 0, 40) ).'</h6>
                             <!-- Preco do Produto-->
                             <div clas="row">
                                 <br>

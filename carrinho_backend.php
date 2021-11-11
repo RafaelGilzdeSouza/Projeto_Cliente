@@ -111,6 +111,37 @@ if(isset($_GET['excluir_prod_carrinho'])){ // o botao x foi pressionado? (sim)
     }
 }
 
+if(isset($_GET['finaliza_compra']) == 1){ // o botao finaliza compra foi pressionado? (sim)
+    $query_consulta = "select cod_produto, descricao, valor_unitario_prod, qtd_comprada, valor_total, (SELECT SUM(valor_total) from tb_carrinho) as valor_total_venda from tb_carrinho;";
+    $resultado_consulta = $mysqli->query($query_consulta) or die("Falha na execução do código SQL: " . $mysqli->error);
+    
+    $query_id = "SELECT MAX(id_pedido) as id FROM tb_acompanhamentos;";
+    $resultado_id = $mysqli->query($query_id) or die("Falha na execução do código SQL: " . $mysqli->error);
+    $array_id = mysqli_fetch_assoc($resultado_id);
+    $id_carrinho = $array_id['id'];
+    $id_carrinho += 1;
+    
+    if ( ($resultado_consulta) AND ($resultado_consulta->num_rows != 0) ) {
+        while($row_produtos = mysqli_fetch_assoc($resultado_consulta)){
+            $cod_produto = $row_produtos['cod_produto'];
+            $descricao = $row_produtos['descricao'];
+            $valor_unitario_prod = $row_produtos['valor_unitario_prod'];
+            $qtd_comprada = $row_produtos['qtd_comprada'];
+            $valor_total = $row_produtos['valor_total'];
+            $status = 'AGUARDANDO ENTREGA';
+            $valor_total_venda = $row_produtos['valor_total_venda'];        
+
+            $query_insert = "INSERT INTO tb_acompanhamentos (id_pedido,id_produto,descricao,valor_unitario,qtd_comprada,valor_total_produto,valor_total_venda,status_compra) 
+                        VALUES ('$id_carrinho',$cod_produto,'$descricao','$valor_unitario_prod','$qtd_comprada','$valor_total','$valor_total_venda','$status');";
+            $resultado_insert = $mysqli->query($query_insert) or die("Falha na execução do código SQL: " . $mysqli->error);
+        }
+        echo 'CompraFinalizada';
+        $query_delete = "DELETE FROM tb_carrinho WHERE id_venda >1;";
+        $resultado_delete = $mysqli->query($query_delete) or die("Falha na execução do código SQL: " . $mysqli->error);
+    }
+    echo 'CompraFinalizada';
+}
+
 //funcao compartilhada
 
 if(isset($_GET['atualizaIconeCarrinho'])){ // funcao executada ao pressionar os botoes + ou -
