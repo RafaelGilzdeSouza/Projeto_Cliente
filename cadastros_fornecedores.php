@@ -106,7 +106,7 @@ $GLOBALS['ID'] = $_SESSION['id_priv'];
                             <option value="1">ES</option>
                         </select>
                     </div>
-                    <div class="form-group form_margin fw-bolder col-md-2">
+                    <div class="form-group form_margin fw-bolder col-md-2" style="right: 0px;left: 60px;margin-left: 5px;">
                         <label>Status</label>
                         <select name="status" id="status" class="form-select" aria-label="Disabled select example">
                             <option selected>Selecione</option>

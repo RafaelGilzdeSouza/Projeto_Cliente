@@ -1,11 +1,15 @@
 <?php
 include('conexao.php');
-//selecionando os produtos em promocao
-$resultado_prod = "select * from tb_produtos where promocao = 1";
-$resultado_busca = $mysqli->query($resultado_prod) or die("Falha na execução do código SQL: " . $mysqli->error);
+
+// iniciando a sessao e definindo a variavel com o nivel de privilegio para acesso a paginas de cadastros
 session_start();
-//definindo o nivel de privilegio para acesso a paginas de cadastros
 $GLOBALS['ID'] = $_SESSION['id_priv'];
+
+// selecionando os produtos em promocao
+$resultado_prod = "SELECT *
+                   FROM tb_produtos
+                   WHERE promocao = 1";
+$resultado_busca = $mysqli->query($resultado_prod) or die("Falha na execução do código SQL: " . $mysqli->error);
 ?>
 
 <!DOCTYPE html>
@@ -19,6 +23,7 @@ $GLOBALS['ID'] = $_SESSION['id_priv'];
 
         <!-- Favicon-->
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        
         <!-- Bootstrap icons-->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.0/font/bootstrap-icons.css">
@@ -27,7 +32,6 @@ $GLOBALS['ID'] = $_SESSION['id_priv'];
         <!-- Nucleo do CSS e JS -->
         <link href="css/styles.css" rel="stylesheet" />
         <script src="js/scripts.js"></script>
-
     </head>
     <body>
         <!-- Definindo o header padrão das páginas -->
@@ -37,11 +41,11 @@ $GLOBALS['ID'] = $_SESSION['id_priv'];
         <section class="py-2">
             <!-- Container que centraliza os produtos a serem mostrados-->
             <div class="container px-4 px-lg-5 mt-5">
-                <!-- div que recebe e mostra os produtos e define o espacamento vertical-->
+                <!-- div que recebe e mostra os produtos e definindo o espacamento vertical-->
                 <div id="conteudo" class="row gx-4 gx-lg-6 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center ">
                     <?php
                     //mostrar um card para cada valor retornado do banco, caso o retorno seja valido
-                    if (($resultado_busca) AND ($resultado_busca->num_rows != 0)) {
+                    if (($resultado_busca) AND ($resultado_busca->num_rows > 0)) {
                         while($row_produtos = mysqli_fetch_assoc($resultado_busca)){
                             echo utf8_encode('
                             <!-- div que define o espacamento horizontal-->
@@ -49,7 +53,7 @@ $GLOBALS['ID'] = $_SESSION['id_priv'];
                                 <!--borda amarela para produtos em promocao-->
                                 <div class="card h-100 border border-warning"> 
                                     <!-- Foto do Produto-->
-                                    <img src="'.$row_produtos['foto'].'" alt="..." />
+                                    <img src="'.$row_produtos['foto'].'" alt="Foto do produto:'.utf8_decode($row_produtos['descricao']).'" />
                                     <!-- Py-4 define o comprimento do card -->
                                     <div class="card-body py-4 text-center">
                                         <!-- Nome do Produto-->
@@ -58,9 +62,9 @@ $GLOBALS['ID'] = $_SESSION['id_priv'];
                                         <!-- Preco do Produto-->
                                         <div clas="row">
                                             <br>
-                                            <strike>R$ '.(string)($row_produtos['preco_venda']*1.5.'.00').'</strike>
+                                            <strike>R$ '.(string)($row_produtos['preco_venda']*1.5.'.00').'</strike> <!--Valor antes do desconto-->
                                             <br>
-                                            <i class="bi bi-bookmark-star"></i>
+                                            <i class="bi bi-bookmark-star"></i> 
                                             R$ '.$row_produtos['preco_venda'].'
                                         </div>
                                     </div>                                   

@@ -94,17 +94,17 @@ $GLOBALS['ID'] = $_SESSION['id_priv'];
                 <div class="form-row">
                     <div class="form-group fw-bolder col-md-5">
                         <label>Fornecedor</label>
-                        <input type="text" name="forn_ult_entrega" id="forn_ult_entrega" class="form-control" placeholder="Forn. últ. Entrega">
+                        <input type="text" name="forn_ult_entrega" id="forn_ult_entrega" class="form-control" placeholder="Forn. Entrega">
                     </div>
                     <div class="form-group form_margin fw-bolder col-md-2">
-                        <label>PROMOÇÃO</label>
+                        <label>Promoção</label>
                         <select name="promocao" id="promocao" class="form-select" aria-label="Disabled select example">
                             <option selected>Selecione</option>
                             <option value=0>0</option>
                             <option value=1>1</option>
                         </select>
                     </div>
-                    <div class="form-group form_margin fw-bolder col-md-2">
+                    <div class="form-group form_margin fw-bolder col-md-2" style="left: 38px;">
                         <label>Curva ABC</label>
                         <select name="curvaABC" id="curvaABC" class="form-select" aria-label="Disabled select example">
                             <option selected>Selecione</option>
