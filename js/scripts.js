@@ -1,32 +1,20 @@
 // Função que verifica se o navegador tem suporte AJAX
-function AjaxF()
-{
- var ajax;
-
- try
- {
-  ajax = new XMLHttpRequest();
- }
- catch(e)
- {
-  try
-  {
-   ajax = new ActiveXObject("Msxml2.XMLHTTP");
-  }
-  catch(e)
-  {
-   try
-   {
-    ajax = new ActiveXObject("Microsoft.XMLHTTP");
-   }
-   catch(e)
-   {
-    alert("Seu browser não da suporte à AJAX!");
-    return false;
-   }
-  }
- }
- return ajax;
+function AjaxF(){
+	var ajax;
+	try{
+  		ajax = new XMLHttpRequest();}
+ 	catch(e){
+  		try{
+   			ajax = new ActiveXObject("Msxml2.XMLHTTP");}
+  		catch(e){
+   			try{
+    			ajax = new ActiveXObject("Microsoft.XMLHTTP");}
+		   	catch(e){
+		    	alert("Seu browser não da suporte à AJAX!");
+		    	return false;}
+		}
+ 	}
+ 	return ajax;
 }
 
 //funcao que altera o conteudo dos card quando uma busca é feit na barra de pesquisa
