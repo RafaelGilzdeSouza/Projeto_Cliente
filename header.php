@@ -20,11 +20,7 @@
     </head>
     <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light border border-top-0">
         <!--centralizar a navbar-->
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4"> <!--Usuario logado-->
-            <li class="nav-item">
-                <a class="navbar-brand fw-bolder me-0" href="home.php"><i class='bx bxs-user-circle bx-sm'> <?php echo ucfirst($_SESSION['nome']);?></i> </a>
-            </li>
-        </ul>
+
         <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4"> <!--Logo da empresa-->
             <li class="nav-item">
                 <a class="navbar-brand me-0" href="home.php">Eletronics Store</a>
@@ -100,12 +96,24 @@
                     </span>
                 </a>
             </li>            
-            <li class="nav-item dropdown"> <!--Botao Logoff-->
-                <form action="logout.php">
-                    <button name="btn_logoff" id="btn_logoff" class="btn btn-outline-dark-logoff " type="auto">
-                    <i class='bx bx-door-open' ></i>logoff
-                    </button>
-                </form>
+            <li class="nav-item dropdown"> <!--Filtros dos celulares-->
+                <a class="nav-link active dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class='bx bxs-user-circle bx-sm'> <?php echo ucfirst($_SESSION['nome']);?></i> </a>
+                <ul class="dropdown-menu" value="teste" aria-labelledby="navbarDropdown">
+                <script src="https://code.iconify.design/2/2.0.3/iconify.min.js"></script>
+                <li>
+                    <button name="btn_config" class="dropdown-item" onclick="funcao1()" value="Exibir alerta"><i class='bx bxs-cog'></i>Configurações</button>
+                </li>
+                <li>
+                        <a href="https://api.whatsapp.com/send?1=pt_BR&phone=5549991227987"><button name="btn_ajuda" class="dropdown-item" value="click here" ><i class='bx bx-help-circle'></i>Help </button></a>
+                </li>         
+                <li class="nav-item dropdown"> <!--Botao Logoff-->
+                    <form action="logout.php">
+                        <button name="btn_logoff" id="btn_logoff" class="dropdown-item" type="auto">
+                        <i class='bx bx-door-open' ></i>logoff
+                        </button>
+                    </form>
+                </li>
+                </ul>
             </li>
         </ul>
     </nav> <!--Fim do navbar-->
@@ -119,4 +127,5 @@
             </div>
         </div> <!--Fim do container para centralizar o header-->
     </header>
+            
 </html>
