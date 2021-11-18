@@ -70,6 +70,7 @@ function AlteraConteudoDrop(name) {
 	ajax.setRequestHeader("Content-Type", "text/html");
 	ajax.send();
 }
+
 //alerta para intem configurações 
 function funcao1() {
 	alert("No momento o site não possui essa função!");

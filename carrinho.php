@@ -1,19 +1,23 @@
 <?php
 include('conexao.php');
-$resultado_prod = "select cod_produto, descricao, valor_unitario_prod, qtd_comprada, valor_total from tb_carrinho;";
+//selecionando os produtos da tabela carrinho
+$resultado_prod = "SELECT cod_produto, descricao, valor_unitario_prod, qtd_comprada, valor_total 
+                   FROM tb_carrinho;";
 $resultado_busca = $mysqli->query($resultado_prod) or die("Falha na execução do código SQL: " . $mysqli->error);
 
-$query_total_geral = 'select sum(valor_total) as total_geral, (select razaoSocial from tb_fornecedor where cod_forn = 1) as dist from tb_carrinho;';
+//selecionando o valor total de do carrinho onde o fornecedor é 1
+$query_total_geral = 'SELECT SUM(valor_total) AS total_geral,
+                     (SELECT razaoSocial FROM tb_fornecedor WHERE cod_forn = 1) AS dist
+                      FROM tb_carrinho;';
 $resultado_total_geral = $mysqli->query($query_total_geral) or die("Falha na execução do código SQL: " . $mysqli->error);
 $array_total = mysqli_fetch_assoc($resultado_total_geral);
+
 session_start();
 $GLOBALS['ID'] = $_SESSION['id_priv'];
 ?>
 
 <!DOCTYPE html>
 <html lang="pt-BR">
-
-
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
@@ -29,8 +33,7 @@ $GLOBALS['ID'] = $_SESSION['id_priv'];
 </head>
 
 <body>
-<?php include ('header.php');?>          
-
+    <?php include ('header.php');?>
     <main class="page">
         <section class="shopping-cart dark">
             <div class="container px-4 px-lg-5 mt-5">  <!--Div dos produtos-->
@@ -92,13 +95,13 @@ $GLOBALS['ID'] = $_SESSION['id_priv'];
                                     <td class="text-center">R$ <?php echo $array_total['total_geral'] ?></td>
                                     <td class="text-center">R$ 0.00</td>
                                     <td class="text-center">R$ <?php echo $array_total['total_geral'] ?></td>
-                                    <td class="text-center"><button name="btn_finaliza" class="btn btn-outline-dark mt-auto" onclick="finaliza_compra()">Finalizar Compra</button></td>
+                                    <td class="text-center"><button name="btn_finaliza" class="btn btn-outline-dark mt-auto" onclick="finaliza_compra(this.value)" value="<?php echo $resultado_busca->num_rows?>">Finalizar Compra</button></td>
                                 </tr>
                             </tbody>
                         </table>
                     </div>
                 </form>
-            </div>    
+            </div>
         </section>
     </main>    
 
@@ -181,14 +184,16 @@ $GLOBALS['ID'] = $_SESSION['id_priv'];
             ajax.send();
         }
 
-        function finaliza_compra(){
+        function finaliza_compra(num_linhas){
             var ajax = AjaxF();
             ajax.onreadystatechange = function(){
                 var resultado = ajax.responseText;
                 if(ajax.readyState == 4){
-                    if (resultado.includes("CompraFinalizada")){
-                        alert("Compra Finalizada, obrigado.");
-                        window.location.href = "acompanha_pedidos.php";
+                    if(num_linhas > 0){
+                        if (resultado.includes("CompraFinalizada")){
+                            alert("Compra Finalizada, obrigado.");
+                            window.location.href = "acompanha_pedidos.php";
+                        }
                     }
                 }
             }

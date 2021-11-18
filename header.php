@@ -26,15 +26,15 @@
                 <a class="navbar-brand me-0" href="home.php">Eletronics Store</a>
             </li>
         </ul>
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4"> <!--Paginas de cadastro, botoes de filtros, filtro buscar, carrinho e logoff-->
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4"> <!--Paginas de cadastro, botoes de filtros, filtro buscar, carrinho e area do usuario-->
             <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="home.php">Compras</a>
+                <a class="nav-link active" style="margin-right: 10px;" aria-current="page" href="home.php">Compras</a>
             </li>
             
             <?php //mostre os botoes de cadastro apenas se o usuario tiver permissao
             if(($GLOBALS['ID']) == 1){?>
                 <li class="nav-item dropdown">
-                    <a class="nav-link active dropdown-toggle me-4" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Cadastros</a>
+                    <a class="nav-link active dropdown-toggle me-4" style="margin-right: 10px;" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Cadastros</a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <input type="button" class="dropdown-item" onclick="confere_permissao(this.value)" value="Usuários" />
                         <input type="button" class="dropdown-item" onclick="confere_permissao(this.value)" value="Fornecedores" />
@@ -53,7 +53,7 @@
                 </ul>
             </li>
             <li class="nav-item dropdown"> <!--Filtros das TVs-->
-                <a class="nav-link active dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Televisores</a>
+                <a class="nav-link active dropdown-toggle" style="margin-right: 10px;" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Televisores</a>
                 <ul class="dropdown-menu" value="teste" aria-labelledby="navbarDropdown">
                     <li><button name="Tvs_sony" class="dropdown-item" onclick="AlteraConteudoDrop(this.value);" value="Tvs-Sony" >Sony</button></li>
                     <li><button name="Tvs_lg" class="dropdown-item" onclick="AlteraConteudoDrop(this.value);" value="Tvs-LG" >LG</button></li>
@@ -61,7 +61,7 @@
                 </ul>
             </li>
             <li class="nav-item dropdown"> <!--Filtros dos tablets-->
-                <a class="nav-link active dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Tablets</a>
+                <a class="nav-link active dropdown-toggle" style="margin-right: 10px;" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Tablets</a>
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                     <li><button name="tablets_xiaomi" class="dropdown-item" onclick="AlteraConteudoDrop(this.value);" value="Tablets-Xiaomi" >Xiaomi</button></li>
                     <li><button name="tablets_apple" class="dropdown-item" onclick="AlteraConteudoDrop(this.value);" value="Tablets-Apple" >Apple</button></li>
@@ -69,7 +69,7 @@
                 </ul>
             </li>
             <li class="nav-item dropdown"> <!--Filtros das cameras-->
-                <a class="nav-link active dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Câmeras</a>
+                <a class="nav-link active dropdown-toggle" style="margin-right: 10px;" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Câmeras</a>
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                     <li><button name="cameras_canon" class="dropdown-item" onclick="AlteraConteudoDrop(this.value);" value="Câmeras-Canon" >Canon</button></li>
                     <li><button name="cameras_sony" class="dropdown-item" onclick="AlteraConteudoDrop(this.value);" value="Câmeras-Sony" >Sony</button></li>
@@ -77,7 +77,7 @@
                 </ul>
             </li>
             <li class="nav-item dropdown"> <!--Mostrar todos os produtos sem filtro-->
-                <a class="nav-link active dropdown-toggle me-4" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Outros</a>
+                <a class="nav-link active dropdown-toggle me-4" style="margin-right: 10px;" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Outros</a>
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                     <li><button name="outros_todos" class="dropdown-item" onclick="AlteraConteudoDrop(this.value);" value="todos" >Ver todos</button></li>
                 </ul>
@@ -96,23 +96,21 @@
                     </span>
                 </a>
             </li>            
-            <li class="nav-item dropdown"> <!--Filtros dos celulares-->
-                <a class="nav-link active dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class='bx bxs-user-circle bx-sm'> <?php echo ucfirst($_SESSION['nome']);?></i> </a>
-                <ul class="dropdown-menu" value="teste" aria-labelledby="navbarDropdown">
-                <script src="https://code.iconify.design/2/2.0.3/iconify.min.js"></script>
-                <li>
-                    <button name="btn_config" class="dropdown-item" onclick="funcao1()" value="Exibir alerta"><i class='bx bxs-cog'></i>Configurações</button>
-                </li>
-                <li>
-                        <a href="https://api.whatsapp.com/send?1=pt_BR&phone=5549991227987"><button name="btn_ajuda" class="dropdown-item" value="click here" ><i class='bx bx-help-circle'></i>Help </button></a>
-                </li>         
-                <li class="nav-item dropdown"> <!--Botao Logoff-->
-                    <form action="logout.php">
-                        <button name="btn_logoff" id="btn_logoff" class="dropdown-item" type="auto">
-                        <i class='bx bx-door-open' ></i>logoff
-                        </button>
-                    </form>
-                </li>
+            <li class="nav-item dropdown"> <!--Area do usuario-->
+                <a class="nav-link active dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class='bx bxs-user-circle bx-sm'> <?php echo ucfirst($_SESSION['login']);?></i> </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <script src="https://code.iconify.design/2/2.0.3/iconify.min.js"></script>
+                    <li>
+                        <a name="btn_config" class="dropdown-item" href="acompanha_pedidos.php" value="Exibir alerta"><i class="bi bi-journal-check"></i> Acompanhar Pedidos</a>
+                    </li>
+                    <li>
+                        <a href="https://api.whatsapp.com/send?1=pt_BR&phone=5549991227987"><button name="btn_ajuda" class="dropdown-item" value="click here" ><i class="bi bi-chat-dots"></i> Suporte 24h </button></a>
+                    </li>         
+                    <li class="nav-item dropdown"> <!--Botao Logoff-->
+                        <form action="logout.php">
+                            <button name="btn_logoff" id="btn_logoff" class="dropdown-item" type="auto"><i class='bx bx-door-open' ></i> Logoff</button>
+                        </form>
+                    </li>
                 </ul>
             </li>
         </ul>
