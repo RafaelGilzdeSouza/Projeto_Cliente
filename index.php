@@ -101,7 +101,7 @@ if(isset($_POST['btn_entrar'])){ // botao entrar foi clicado? (sim)
                 </div>
                 <div class="col-lg-6 d-flex align-items-center gradient-custom-2"> <!--Coluna da direita com largura 6-->
                   <div class="text-white text-center px-3 py-4 p-md-5 mx-md-4">
-                    <img src="img/logousuario.png" style="width: 185px;" alt="logo">
+                    <img src="img/logousuario.png" style="width: 355px;" alt="logo">
                     <h4 class="mb-4">Bem vindo!</h4>
                     <p3 class="medium mb-0">Acesse nosso site para comprar ;)</p>
                   </div>
