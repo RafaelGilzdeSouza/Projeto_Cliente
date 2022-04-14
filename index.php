@@ -31,7 +31,7 @@ if(isset($_POST['btn_entrar'])){ // botao entrar foi clicado? (sim)
           $_SESSION['nome'] = $usuario['nome'];
           $_SESSION['login'] = $usuario['login'];
           $_SESSION['id_priv'] = $usuario['id_priv'];
-          header("Location: home.php");
+          header("Location: home.php");  
       }
       else { // existe algum registro com essas infos no banco? (nao)
           echo '
